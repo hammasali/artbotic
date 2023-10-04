@@ -3,33 +3,35 @@ import 'package:flutter/material.dart';
 import '../../utils/theme.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.title});
+  const CustomButton({super.key, required this.title, required this.onTap});
 
   final String title;
+  final onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+      onTap: onTap,
+      child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-        child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-                primary: null, // Set primary color to null to remove the background color
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50))),
-            child: Ink(
-                decoration: BoxDecoration(
-            gradient: const LinearGradient(colors: [
-                      AppTheme.blueColor,
-                      AppTheme.purpleColor,
-                    ], begin: Alignment.centerLeft, end: Alignment.centerRight),
-                    borderRadius: BorderRadius.circular(30.0)),
-                child: Container(
-                    alignment: Alignment.center,
-                    constraints: const BoxConstraints(minHeight: 50.0),
-                    child: Text(title,
-                        style: Theme.of(context).textTheme.displayLarge)))));
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [AppTheme.blueColor, AppTheme.purpleColor],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Text(
+          title,
+          style: Theme.of(context)
+              .textTheme
+              .displayLarge!
+              .copyWith(color: AppTheme.whiteColor),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
   }
 }

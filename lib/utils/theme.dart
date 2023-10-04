@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   static const Color purpleColor = Color(0xFFC100FF);
   static const Color blueColor = Color(0xFF00EEFF);
+  static const Color whiteColor = Color(0xffffffff);
+
 
   static Color lightBackgroundColor = const Color(0xffffffff);
   static Color lightPrimaryColor = const Color(0xfff2f2f2);
@@ -98,7 +100,7 @@ class AppTheme {
         letterSpacing: 0.0,
       ),
       displayLarge: GoogleFonts.manrope(
-          fontSize: 24.0,
+          fontSize: 22.0,
           fontWeight: FontWeight.w700,
           height: 1.375, // line height in relation to font size
           letterSpacing: 0.0),
