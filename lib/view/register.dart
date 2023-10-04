@@ -1,3 +1,4 @@
+import 'package:artbotic/utils/app_const.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +24,7 @@ class Register extends StatelessWidget {
               const Spacer(flex: 2),
 
               /// HEADER
-              Image.asset('assets/icons/img.png', width: 150, height: 150),
+              Image.asset(AppConsts.icon, width: 150, height: 150),
               SizedBox(height: Get.height * 0.02),
               Align(
                   alignment: Alignment.topLeft,
@@ -55,7 +56,7 @@ class Register extends StatelessWidget {
                   child: CustomButton(
                       title: 'Signup ',
                       onTap: () => navigatorKey.currentState!
-                          .pushNamed(PageRoutes.register))),
+                          .pushNamed(PageRoutes.landing))),
               SizedBox(height: Get.height * 0.01),
               Text('Forget Password?',
                   style: Theme.of(context).textTheme.bodyLarge),
@@ -63,8 +64,8 @@ class Register extends StatelessWidget {
               Text('or', style: Theme.of(context).textTheme.bodyLarge),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: Get.width * 0.17),
-                  child: const CustomButton2(
-                      title: 'Sign in with google', onTap: null)),
+                  child:  CustomButton2(
+                      title: 'Sign in with google', onTap: (){})),
               const Spacer(flex: 4)
             ]),
       ),

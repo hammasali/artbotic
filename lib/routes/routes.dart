@@ -1,3 +1,4 @@
+import 'package:artbotic/view/landing.dart';
 import 'package:artbotic/view/login.dart';
 import 'package:artbotic/view/register.dart';
 import 'package:flutter/material.dart';
@@ -44,13 +45,13 @@ class PageNavigator extends StatelessWidget {
           late WidgetBuilder builder;
           switch (settings.name) {
             case PageRoutes.signIn:
-              builder = (_) => Login();
+              builder = (_) => const Login();
               break;
             case PageRoutes.register:
-              builder = (_) => Register();
+              builder = (_) => const Register();
               break;
             case PageRoutes.landing:
-              builder = (_) => Container();
+              builder = (_) =>  Landing();
               break;
             case PageRoutes.profile:
               builder = (_) => Container();

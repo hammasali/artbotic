@@ -1,10 +1,11 @@
+import 'package:artbotic/utils/app_const.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton2 extends StatelessWidget {
-  const CustomButton2({super.key, required this.title,required this.onTap});
+  const CustomButton2({super.key, required this.title, required this.onTap});
 
   final String title;
-  final onTap;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +14,21 @@ class CustomButton2 extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 16.0),
         child: ElevatedButton(
             onPressed: onTap,
-            style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50))),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                    (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.disabled)) {
+                    // Button is disabled, set background color to transparent
+                    return Colors.transparent;
+                  }
+                  // Button is enabled, set background color to primary color
+                  return Theme.of(context).primaryColor;
+                })),
             child: Ink(
                 decoration: BoxDecoration(
                     color: Theme.of(context).primaryColor,
@@ -26,7 +39,7 @@ class CustomButton2 extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset('assets/google.png',height: 18),
+                        Image.asset(AppConsts.google, height: 18),
                         Text(title,
                             style: Theme.of(context).textTheme.bodyLarge),
                       ],

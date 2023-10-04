@@ -1,4 +1,5 @@
 import 'package:artbotic/routes/routes.dart';
+import 'package:artbotic/utils/app_const.dart';
 import 'package:artbotic/view/components/custom_button.dart';
 import 'package:artbotic/view/components/custom_button2.dart';
 import 'package:artbotic/view/components/custom_fields.dart';
@@ -11,6 +12,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Column(
@@ -21,7 +23,7 @@ class Login extends StatelessWidget {
               const Spacer(),
 
               /// HEADER
-              Image.asset('assets/icons/img.png', width: 150, height: 150),
+              Image.asset(AppConsts.icon, width: 150, height: 150),
               SizedBox(height: Get.height * 0.03),
               Align(
                   alignment: Alignment.topLeft,
@@ -56,7 +58,7 @@ class Login extends StatelessWidget {
               Text('or', style: Theme.of(context).textTheme.bodyLarge),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: Get.width * 0.17),
-                  child: const CustomButton2(title: 'Sign in with google',onTap: null,)),
+                  child:  CustomButton2(title: 'Sign in with google',onTap: (){},)),
               const Spacer(flex: 4)
             ]),
       ),
