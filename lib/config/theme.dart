@@ -83,16 +83,15 @@ class AppTheme {
 
   static setStatusBarAndNavigationBarColors(ThemeMode themeMode) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness:
-          themeMode == ThemeMode.light ? Brightness.dark : Brightness.light,
-      systemNavigationBarIconBrightness:
-          themeMode == ThemeMode.light ? Brightness.dark : Brightness.light,
-      systemNavigationBarColor: themeMode == ThemeMode.light
-          ? lightBackgroundColor
-          : darkBackgroundColor,
-      systemNavigationBarDividerColor: Colors.transparent,
-    ));
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness:
+            themeMode == ThemeMode.light ? Brightness.dark : Brightness.light,
+        systemNavigationBarIconBrightness:
+            themeMode == ThemeMode.light ? Brightness.dark : Brightness.light,
+        systemNavigationBarColor: themeMode == ThemeMode.light
+            ? lightBackgroundColor
+            : darkBackgroundColor,
+        systemNavigationBarDividerColor: Colors.transparent));
   }
 
   static final TextTheme textTheme = TextTheme(
@@ -102,22 +101,20 @@ class AppTheme {
           height: 1.316,
           letterSpacing: 0.0),
       titleMedium: GoogleFonts.manrope(
-        fontSize: 16.0,
-        fontWeight: FontWeight.w500,
-        height: 1.375,
-        letterSpacing: 0.0,
-      ),
+          fontSize: 16.0,
+          fontWeight: FontWeight.w500,
+          height: 1.375,
+          letterSpacing: 0.0),
       displayLarge: GoogleFonts.manrope(
           fontSize: 22.0,
           fontWeight: FontWeight.w700,
-          height: 1.375, // line height in relation to font size
+          height: 1.375,
           letterSpacing: 0.0),
       bodyLarge: GoogleFonts.manrope(
-        fontSize: 14.0,
-        fontWeight: FontWeight.w500,
-        height: 1.316, // line height in relation to font size
-        letterSpacing: 0.0,
-      ),
+          fontSize: 14.0,
+          fontWeight: FontWeight.w500,
+          height: 1.316,
+          letterSpacing: 0.0),
       bodySmall: GoogleFonts.solway(
           fontSize: 12.0,
           fontWeight: FontWeight.w400,

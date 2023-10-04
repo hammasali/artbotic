@@ -1,4 +1,4 @@
-import 'package:artbotic/utils/theme.dart';
+import 'package:artbotic/config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

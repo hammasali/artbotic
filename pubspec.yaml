@@ -28,6 +28,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   get: ^4.6.6
   google_fonts: ^6.1.0
+  shared_preferences: ^2.2.1
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -82,3 +84,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_intl:
+  enabled: true
+  class_name: S
+  main_locale: en
+
