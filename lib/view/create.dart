@@ -7,31 +7,10 @@ import 'package:get/get.dart';
 import '../generated/l10n.dart';
 import '../utils/app_const.dart';
 
-class Create extends StatefulWidget {
-  const Create({super.key});
+class Create extends StatelessWidget {
+  Create({super.key});
 
-  @override
-  State<Create> createState() => _CreateState();
-}
-
-class _CreateState extends State<Create> {
   final CreateController controller = Get.put(CreateController());
-  bool isSelected = false;
-  Color borderColor = Colors.grey;
-  Color textColor = Colors.black;
-
-  toggleButton() {
-    setState(() {
-      isSelected = !isSelected;
-      if (isSelected) {
-        borderColor = Colors.purple;
-        textColor = Colors.purple;
-      } else {
-        borderColor = Colors.grey;
-        textColor = Colors.grey;
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +49,7 @@ class _CreateState extends State<Create> {
                     controller.isTextSelected.value = false;
                     controller.isImageSelected.value = false;
                     controller.isInPantingSelected.value = true;
-                  }),
+                  })
             ]);
       }),
       Padding(
