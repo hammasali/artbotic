@@ -1,12 +1,12 @@
 import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/utils/app_const.dart';
-import 'package:artbotic/view/components/custom_button.dart';
-import 'package:artbotic/view/components/custom_button2.dart';
+import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:artbotic/view/components/custom_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../generated/l10n.dart';
+import 'components/buttons/custom_button2.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});

@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 
 import '../generated/l10n.dart';
 import '../routes/routes.dart';
-import 'components/custom_button.dart';
-import 'components/custom_button2.dart';
+import 'components/buttons/custom_button.dart';
+import 'components/buttons/custom_button2.dart';
 import 'components/custom_fields.dart';
 
 class Register extends StatelessWidget {

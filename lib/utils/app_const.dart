@@ -15,4 +15,7 @@ class AppConsts {
   static const String instagram = 'assets/instagram.png';
   static const String discord = 'assets/discord.png';
   static const String diamond = 'assets/diamond.png';
+  static const String inPainting = 'assets/inpainting.png';
+  static const String text = 'assets/text.png';
+
 }
