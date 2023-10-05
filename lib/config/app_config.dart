@@ -1,5 +1,3 @@
-import 'dart:io';
-
 class AppConfig {
   static final AppConfig _instance = AppConfig._internal();
 
@@ -8,12 +6,11 @@ class AppConfig {
   factory AppConfig() {
     return _instance;
   }
-  static const String appName = 'باركينج Parking';
-  static const String packageName = 'com.linkconnects.parking';
+  static const String appName = 'Art Botic';
+  static const String packageName = 'com.artbotic.aiart.artgenerator.artavatar.aiphoto';
   static const String languageDefault = "en";
   static final Map<String, String> languagesSupported = {
     'en': "English",
-    'ar': "العربية",
   };
 
 

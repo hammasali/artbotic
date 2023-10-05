@@ -1,3 +1,4 @@
+import 'package:artbotic/config/app_config.dart';
 import 'package:artbotic/controllers/theme_controller.dart';
 import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/config/theme.dart';
@@ -62,7 +63,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Obx(() {
       return GetMaterialApp(
-          title: 'Art Botic',
+          title: AppConfig.appName,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: controller.themeMode.value,
