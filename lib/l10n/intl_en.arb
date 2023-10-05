@@ -1,1 +1,16 @@
-{}
+{
+  "existingUsersLogInHere": "Existing Users, \nLog in Here",
+  "email": "Email",
+  "password": "Password",
+  "login": "Login",
+  "forgetPassword": "Forget Password?",
+  "or": "or",
+  "signInWithGoogle": "Sign in with google",
+  "newUsersRegisterHere": "New Users? \nRegister Here",
+  "confirmPassword": "Confirm Password",
+  "signup": "Signup",
+  "create": "Create",
+  "myCreation": "My Creation",
+  "settings": "Settings",
+  "buy": "Buy"
+}

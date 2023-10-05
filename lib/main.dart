@@ -66,12 +66,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: controller.themeMode.value,
-          localizationsDelegates: [
-            S.delegate,
-            // GlobalMaterialLocalizations.delegate,
-            // GlobalCupertinoLocalizations.delegate,
-            // GlobalWidgetsLocalizations.delegate
-          ],
+          localizationsDelegates: const [S.delegate],
           locale: Get.locale,
           supportedLocales: S.delegate.supportedLocales,
           home: const PageNavigator());

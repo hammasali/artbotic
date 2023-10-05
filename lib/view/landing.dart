@@ -3,6 +3,8 @@ import 'package:artbotic/utils/app_const.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../generated/l10n.dart';
+
 class Landing extends StatelessWidget {
   Landing({super.key});
 
@@ -13,11 +15,12 @@ class Landing extends StatelessWidget {
   static final List<Widget> _views = <Widget>[
     Container(),
     Container(),
-    Container(),
+    Container()
   ];
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     _bottomNav = [
       BottomNavigationBarItem(
           icon: Image(
@@ -29,8 +32,8 @@ class Landing extends StatelessWidget {
               image: AssetImage(AppConsts.selectedCreate),
               height: 25,
               width: 25),
-          tooltip: 'Create',
-          label: "Create"),
+          tooltip: s.create,
+          label: s.create),
       BottomNavigationBarItem(
           icon: Image(
             image: const AssetImage(AppConsts.gallery),
@@ -42,21 +45,20 @@ class Landing extends StatelessWidget {
               image: AssetImage(AppConsts.selectedGallery),
               height: 25,
               width: 25),
-          tooltip: "Gallery",
-          label: "My Creation"),
+          tooltip: s.myCreation,
+          label: s.myCreation),
       BottomNavigationBarItem(
           icon: Image(
-            image: const AssetImage(AppConsts.settings),
-            height: 22,
-            width: 22,
-            color: Theme.of(context).iconTheme.color,
-          ),
+              image: const AssetImage(AppConsts.settings),
+              height: 22,
+              width: 22,
+              color: Theme.of(context).iconTheme.color),
           activeIcon: const Image(
               image: AssetImage(AppConsts.selectedSettings),
               height: 25,
               width: 25),
-          tooltip: "Settings",
-          label: "Settings")
+          tooltip: s.settings,
+          label: s.settings)
     ];
 
     return Scaffold(
@@ -76,7 +78,7 @@ class Landing extends StatelessWidget {
                         image: AssetImage(AppConsts.diamond),
                         width: 20,
                         height: 20),
-                    Text('Buy', style: Theme.of(context).textTheme.bodySmall)
+                    Text(s.buy, style: Theme.of(context).textTheme.bodySmall)
                   ])),
               const SizedBox(width: 12),
               Image(
