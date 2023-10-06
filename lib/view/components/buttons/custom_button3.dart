@@ -25,7 +25,7 @@ class CustomButton3 extends StatelessWidget {
                     color: isSelected
                         ? AppTheme.purpleColor
                         : Theme.of(context).iconTheme.color!,
-                    width: 2.0),
+                    width: isSelected ? 2.0 : 1.0),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0)),
                 padding: const EdgeInsets.symmetric(vertical: 4.0)),

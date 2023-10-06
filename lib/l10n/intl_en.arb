@@ -12,5 +12,16 @@
   "create": "Create",
   "myCreation": "My Creation",
   "settings": "Settings",
-  "buy": "Buy"
+  "buy": "Buy",
+  "text": "Text",
+  "image": "Image",
+  "inpainting": "Inpainting",
+  "addImage": "Add Image",
+  "uploadImage": "Upload Image",
+  "enterPrompt": "Enter Prompt?",
+  "description": "Write a lot of description here",
+  "promptBuilder": "Prompt Builder",
+  "selectStyles": "Select Styles",
+  "seeAll": "See all",
+  "advanceSettings": "Advance Settings"
 }

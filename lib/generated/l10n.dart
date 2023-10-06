@@ -189,6 +189,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Text`
+  String get text {
+    return Intl.message(
+      'Text',
+      name: 'text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image`
+  String get image {
+    return Intl.message(
+      'Image',
+      name: 'image',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Inpainting`
+  String get inpainting {
+    return Intl.message(
+      'Inpainting',
+      name: 'inpainting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Image`
+  String get addImage {
+    return Intl.message(
+      'Add Image',
+      name: 'addImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upload Image`
+  String get uploadImage {
+    return Intl.message(
+      'Upload Image',
+      name: 'uploadImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Prompt?`
+  String get enterPrompt {
+    return Intl.message(
+      'Enter Prompt?',
+      name: 'enterPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write a lot of description here`
+  String get description {
+    return Intl.message(
+      'Write a lot of description here',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prompt Builder`
+  String get promptBuilder {
+    return Intl.message(
+      'Prompt Builder',
+      name: 'promptBuilder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Styles`
+  String get selectStyles {
+    return Intl.message(
+      'Select Styles',
+      name: 'selectStyles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See all`
+  String get seeAll {
+    return Intl.message(
+      'See all',
+      name: 'seeAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advance Settings`
+  String get advanceSettings {
+    return Intl.message(
+      'Advance Settings',
+      name: 'advanceSettings',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

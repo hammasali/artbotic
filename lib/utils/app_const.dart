@@ -17,5 +17,13 @@ class AppConsts {
   static const String diamond = 'assets/diamond.png';
   static const String inPainting = 'assets/inpainting.png';
   static const String text = 'assets/text.png';
+  static const String edit = 'assets/edit.png';
+  static const String idea = 'assets/idea.png';
+  static const String colors = 'assets/colors.png';
+  static const String addImage = 'assets/add_image.png';
+  static const String upload = 'assets/upload.png';
+  static const String crop = 'assets/crop.png';
+  static const String arrowDown = 'assets/arrow_down.png';
+  static const String brush = 'assets/brush.png';
 
 }

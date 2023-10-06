@@ -22,24 +22,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addImage": MessageLookupByLibrary.simpleMessage("Add Image"),
+        "advanceSettings":
+            MessageLookupByLibrary.simpleMessage("Advance Settings"),
         "buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "create": MessageLookupByLibrary.simpleMessage("Create"),
+        "description": MessageLookupByLibrary.simpleMessage(
+            "Write a lot of description here"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterPrompt": MessageLookupByLibrary.simpleMessage("Enter Prompt?"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
             "Existing Users, \nLog in Here"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget Password?"),
+        "image": MessageLookupByLibrary.simpleMessage("Image"),
+        "inpainting": MessageLookupByLibrary.simpleMessage("Inpainting"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "myCreation": MessageLookupByLibrary.simpleMessage("My Creation"),
         "newUsersRegisterHere":
             MessageLookupByLibrary.simpleMessage("New Users? \nRegister Here"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "promptBuilder": MessageLookupByLibrary.simpleMessage("Prompt Builder"),
+        "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
+        "selectStyles": MessageLookupByLibrary.simpleMessage("Select Styles"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signInWithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with google"),
-        "signup": MessageLookupByLibrary.simpleMessage("Signup")
+        "signup": MessageLookupByLibrary.simpleMessage("Signup"),
+        "text": MessageLookupByLibrary.simpleMessage("Text"),
+        "uploadImage": MessageLookupByLibrary.simpleMessage("Upload Image")
       };
 }
