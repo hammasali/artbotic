@@ -25,28 +25,40 @@ class MessageLookup extends MessageLookupByLibrary {
         "addImage": MessageLookupByLibrary.simpleMessage("Add Image"),
         "advanceSettings":
             MessageLookupByLibrary.simpleMessage("Advance Settings"),
+        "aspectRatio": MessageLookupByLibrary.simpleMessage("Aspect Ratio"),
+        "betterQuality": MessageLookupByLibrary.simpleMessage("Better Quality"),
         "buy": MessageLookupByLibrary.simpleMessage("Buy"),
+        "cgfScale": MessageLookupByLibrary.simpleMessage("CGF Scale"),
+        "chooseSettings":
+            MessageLookupByLibrary.simpleMessage("Choose Settings"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "create": MessageLookupByLibrary.simpleMessage("Create"),
         "description": MessageLookupByLibrary.simpleMessage(
             "Write a lot of description here"),
+        "dontInclude": MessageLookupByLibrary.simpleMessage("Don\'t Include"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterPrompt": MessageLookupByLibrary.simpleMessage("Enter Prompt?"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
             "Existing Users, \nLog in Here"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget Password?"),
+        "generate": MessageLookupByLibrary.simpleMessage("Generate"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "inpainting": MessageLookupByLibrary.simpleMessage("Inpainting"),
+        "inspiration": MessageLookupByLibrary.simpleMessage("Inspiration"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "matchPrompt": MessageLookupByLibrary.simpleMessage("Match Prompt"),
         "myCreation": MessageLookupByLibrary.simpleMessage("My Creation"),
+        "negativePrompt":
+            MessageLookupByLibrary.simpleMessage("Negative Prompt"),
         "newUsersRegisterHere":
             MessageLookupByLibrary.simpleMessage("New Users? \nRegister Here"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "promptBuilder": MessageLookupByLibrary.simpleMessage("Prompt Builder"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
+        "seed": MessageLookupByLibrary.simpleMessage("Seed"),
         "selectStyles": MessageLookupByLibrary.simpleMessage("Select Styles"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signInWithGoogle":

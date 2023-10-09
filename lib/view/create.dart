@@ -2,12 +2,15 @@ import 'package:artbotic/config/theme.dart';
 import 'package:artbotic/controllers/create_controller.dart';
 import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:artbotic/view/components/buttons/custom_button3.dart';
+import 'package:artbotic/view/components/custom_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gradient_slider/gradient_slider.dart';
 
 import '../generated/l10n.dart';
 import '../utils/app_const.dart';
 import 'components/dotted_border.dart';
+import 'components/sheets/advance_settings.dart';
 
 class Create extends StatelessWidget {
   Create({super.key});
@@ -30,18 +33,14 @@ class Create extends StatelessWidget {
         /// SELECT STYLES
         selectStyles(),
 
-        ///ADVANCE SETTINGS
+        /// ADVANCE SETTINGS
         advanceSettings(),
 
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: CustomButton(
-              title: 'Generate',
-              borderRadius: 8,
-              icon: AppConsts.brush,
-              onTap: () {}),
-        ),
-        const SizedBox(height: 15)
+        /// GENERATE BUTTON
+        generateBtn(),
+
+        /// INSPIRATION
+        inspiration()
       ]);
     });
   }
@@ -55,7 +54,7 @@ class Create extends StatelessWidget {
         children: [
           CustomButton3(
               isSelected: controller.isTextSelected.value,
-              text: 'Text',
+              text: s.text,
               icon: AppConsts.text,
               onTap: () {
                 controller.isTextSelected.value = true;
@@ -246,36 +245,41 @@ class Create extends StatelessWidget {
   selectStyles() {
     final s = S.of(Get.context!);
 
-    return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(s.selectStyles,
                 style: Theme.of(Get.context!)
                     .textTheme
                     .titleLarge!
                     .copyWith(fontSize: 20)),
             Text(s.seeAll, style: Theme.of(Get.context!).textTheme.bodyLarge)
-          ]),
-          const SizedBox(height: 10),
-          GridView.builder(
+          ])),
+      const SizedBox(height: 10),
+      SizedBox(
+          height: 220,
+          width: double.infinity,
+          child: GridView.builder(
+              padding: const EdgeInsets.only(left: 16),
+              scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
+                  crossAxisCount: 2,
                   childAspectRatio: 1,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10),
-              itemCount: 6,
-              // Total number of items
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 15),
+              itemCount: 8,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                     decoration: BoxDecoration(
                         color: Colors.purple,
                         borderRadius: BorderRadius.circular(8)));
-              }),
-          const SizedBox(height: 15)
-        ]));
+              })),
+      const SizedBox(height: 15)
+    ]);
   }
 
   advanceSettings() {
@@ -289,58 +293,63 @@ class Create extends StatelessWidget {
                   .titleLarge!
                   .copyWith(fontSize: 20)),
           const SizedBox(height: 10),
-          const CustomDropDown(),
-          const SizedBox(height: 20)
+          ListTile(
+              title: Text(s.chooseSettings,
+                  style: Theme.of(Get.context!).textTheme.bodyLarge),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0)),
+              tileColor: Theme.of(Get.context!).primaryColor,
+              trailing: Image(
+                  image: const AssetImage(AppConsts.arrowDown),
+                  color: Theme.of(Get.context!).iconTheme.color,
+                  height: 20,
+                  width: 20),
+              onTap: advanceSettingsModelSheet),
+          const SizedBox(height: 12)
         ]));
   }
-}
 
-class CustomDropDown extends StatefulWidget {
-  const CustomDropDown({Key? key}) : super(key: key);
+  generateBtn() {
+    final s = S.of(Get.context!);
 
-  @override
-  _CustomDropDownState createState() => _CustomDropDownState();
-}
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+        child: CustomButton(
+            title: s.generate,
+            borderRadius: 8,
+            icon: AppConsts.brush,
+            onTap: () {}));
+  }
 
-class _CustomDropDownState extends State<CustomDropDown> {
-  List<String> options = ['Option 1', 'Option 2', 'Option 3'];
-  String? selectedOption;
+  inspiration() {
+    final s = S.of(Get.context!);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      decoration: BoxDecoration(
-        color: Theme.of(Get.context!).primaryColor,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: DropdownButton<String>(
-        isExpanded: true,
-        value: selectedOption,
-        hint: Text('Choose settings',
-            style: Theme.of(Get.context!).textTheme.bodyLarge),
-        items: options.map((String option) {
-          return DropdownMenuItem<String>(
-            value: option,
-            child: Text(option,
-                style: Theme.of(Get.context!).textTheme.bodyMedium),
-          );
-        }).toList(),
-        onChanged: (String? newValue) {
-          setState(() {
-            selectedOption = newValue;
-          });
-        },
-        icon: Image(
-            image: const AssetImage(AppConsts.arrowDown),
-            color: Theme.of(Get.context!).iconTheme.color,
-            height: 20,
-            width: 20),
-        underline: Container(
-          color: Colors.transparent,
-        ),
-      ),
-    );
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(s.inspiration,
+              style: Theme.of(Get.context!)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(fontSize: 20))),
+      GridView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 1,
+              mainAxisSpacing: 22,
+              crossAxisSpacing: 30),
+          itemCount: 8,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+                decoration: BoxDecoration(
+                    color: Colors.purple,
+                    borderRadius: BorderRadius.circular(22)));
+          }),
+      const SizedBox(height: 15)
+    ]);
   }
 }

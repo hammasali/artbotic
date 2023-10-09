@@ -120,6 +120,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.0"
+  gradient_slider:
+    dependency: "direct main"
+    description:
+      name: gradient_slider
+      sha256: cb181a896b15fa5b2488acf64a8414028534ee0e1a42ac071c44d2257c8eac64
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   http:
     dependency: transitive
     description:

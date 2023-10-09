@@ -299,6 +299,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Choose Settings`
+  String get chooseSettings {
+    return Intl.message(
+      'Choose Settings',
+      name: 'chooseSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Negative Prompt`
+  String get negativePrompt {
+    return Intl.message(
+      'Negative Prompt',
+      name: 'negativePrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't Include`
+  String get dontInclude {
+    return Intl.message(
+      'Don\'t Include',
+      name: 'dontInclude',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aspect Ratio`
+  String get aspectRatio {
+    return Intl.message(
+      'Aspect Ratio',
+      name: 'aspectRatio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CGF Scale`
+  String get cgfScale {
+    return Intl.message(
+      'CGF Scale',
+      name: 'cgfScale',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Better Quality`
+  String get betterQuality {
+    return Intl.message(
+      'Better Quality',
+      name: 'betterQuality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Match Prompt`
+  String get matchPrompt {
+    return Intl.message(
+      'Match Prompt',
+      name: 'matchPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seed`
+  String get seed {
+    return Intl.message(
+      'Seed',
+      name: 'seed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Generate`
+  String get generate {
+    return Intl.message(
+      'Generate',
+      name: 'generate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Inspiration`
+  String get inspiration {
+    return Intl.message(
+      'Inspiration',
+      name: 'inspiration',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

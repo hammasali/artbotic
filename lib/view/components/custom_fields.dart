@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../config/theme.dart';
+
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextInputType keyboardType;
@@ -20,6 +22,7 @@ class CustomTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: TextField(
+            cursorColor: AppTheme.purpleColor,
             keyboardType: keyboardType,
             obscureText: obscureText,
             decoration: InputDecoration(

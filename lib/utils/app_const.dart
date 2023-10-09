@@ -25,5 +25,10 @@ class AppConsts {
   static const String crop = 'assets/crop.png';
   static const String arrowDown = 'assets/arrow_down.png';
   static const String brush = 'assets/brush.png';
-
+  static const String oneToOne = 'assets/aspect_ratio/one_one.png';
+  static const String nineToSix = 'assets/aspect_ratio/nine_six.png';
+  static const String fourToThree = 'assets/aspect_ratio/four_three.png';
+  static const String fourToFive = 'assets/aspect_ratio/four_five.png';
+  static const String fiveToThree = 'assets/aspect_ratio/five_three.png';
+  static const String sliderHead = 'assets/slider_head.png';
 }

@@ -23,5 +23,15 @@
   "promptBuilder": "Prompt Builder",
   "selectStyles": "Select Styles",
   "seeAll": "See all",
-  "advanceSettings": "Advance Settings"
+  "advanceSettings": "Advance Settings",
+  "chooseSettings": "Choose Settings",
+  "negativePrompt": "Negative Prompt",
+  "dontInclude": "Don't Include",
+  "aspectRatio": "Aspect Ratio",
+  "cgfScale": "CGF Scale",
+  "betterQuality": "Better Quality",
+  "matchPrompt": "Match Prompt",
+  "seed": "Seed",
+  "generate": "Generate",
+  "inspiration": "Inspiration"
 }
