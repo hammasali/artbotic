@@ -11,8 +11,6 @@ class Landing extends StatelessWidget {
 
   final HomeController bottomNavVController = Get.put(HomeController());
 
-  List<BottomNavigationBarItem> _bottomNav = [];
-
   static final List<Widget> _views = <Widget>[
     Create(),
     Container(),
@@ -22,7 +20,7 @@ class Landing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    _bottomNav = [
+    final List<BottomNavigationBarItem> bottomNav = [
       BottomNavigationBarItem(
           icon: Image(
               image: const AssetImage(AppConsts.create),
@@ -97,7 +95,7 @@ class Landing extends StatelessWidget {
             ]),
         bottomNavigationBar: Obx(() {
           return BottomNavigationBar(
-            items: _bottomNav,
+            items: bottomNav,
             currentIndex: bottomNavVController.selectedNavigationIndex.value,
             onTap: (index) =>
                 bottomNavVController.selectedNavigationIndex.value = index,

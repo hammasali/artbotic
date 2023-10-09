@@ -94,7 +94,7 @@ aspectRatioChoice() {
                                     : Theme.of(context).iconTheme.color!),
                             color: isSelected
                                 ? null
-                                : Theme.of(Get.context!).primaryColor,
+                                : Theme.of(context).primaryColor,
                             gradient: isSelected
                                 ? const LinearGradient(
                                     colors: [
@@ -117,14 +117,14 @@ aspectRatioChoice() {
                               const SizedBox(width: 8),
                               Text(ratio,
                                   style: isSelected
-                                      ? Theme.of(Get.context!)
+                                      ? Theme.of(context)
                                           .textTheme
                                           .bodyLarge
-                                      : Theme.of(Get.context!)
+                                      : Theme.of(context)
                                           .textTheme
                                           .bodyLarge!
                                           .copyWith(
-                                              color: Theme.of(Get.context!)
+                                              color: Theme.of(context)
                                                   .iconTheme
                                                   .color))
                             ])));

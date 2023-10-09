@@ -2,15 +2,14 @@ import 'package:artbotic/config/theme.dart';
 import 'package:artbotic/controllers/create_controller.dart';
 import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:artbotic/view/components/buttons/custom_button3.dart';
-import 'package:artbotic/view/components/custom_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gradient_slider/gradient_slider.dart';
 
 import '../generated/l10n.dart';
 import '../utils/app_const.dart';
 import 'components/dotted_border.dart';
 import 'components/sheets/advance_settings.dart';
+import 'components/sheets/select_styles.dart';
 
 class Create extends StatelessWidget {
   Create({super.key});
@@ -22,31 +21,31 @@ class Create extends StatelessWidget {
     return Obx(() {
       return ListView(shrinkWrap: true, children: [
         /// TAB BUTTONS
-        tabButtons(),
+        tabButtons(context),
 
         /// ADD IMAGE
-        addImageContainer(),
+        addImageContainer(context),
 
         /// Enter PROMPT
-        enterPromptContainer(),
+        enterPromptContainer(context),
 
         /// SELECT STYLES
-        selectStyles(),
+        selectStyles(context),
 
         /// ADVANCE SETTINGS
-        advanceSettings(),
+        advanceSettings(context),
 
         /// GENERATE BUTTON
-        generateBtn(),
+        generateBtn(context),
 
         /// INSPIRATION
-        inspiration()
+        inspiration(context)
       ]);
     });
   }
 
-  tabButtons() {
-    final s = S.of(Get.context!);
+  tabButtons(BuildContext context) {
+    final s = S.of(context);
 
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,8 +83,8 @@ class Create extends StatelessWidget {
         ]);
   }
 
-  addImageContainer() {
-    final s = S.of(Get.context!);
+  addImageContainer(BuildContext context) {
+    final s = S.of(context);
     if (controller.isTextSelected.value == true) {
       return const SizedBox.shrink();
     }
@@ -94,7 +93,7 @@ class Create extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(s.addImage,
-              style: Theme.of(Get.context!)
+              style: Theme.of(context)
                   .textTheme
                   .titleLarge!
                   .copyWith(fontSize: 20)),
@@ -112,11 +111,11 @@ class Create extends StatelessWidget {
                     Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                            color: Theme.of(Get.context!).primaryColor,
+                            color: Theme.of(context).primaryColor,
                             borderRadius: BorderRadius.circular(12)),
                         child: Image(
                             image: const AssetImage(AppConsts.upload),
-                            color: Theme.of(Get.context!).iconTheme.color,
+                            color: Theme.of(context).iconTheme.color,
                             height: 25,
                             width: 25)),
                     Stack(alignment: Alignment.center, children: [
@@ -130,36 +129,36 @@ class Create extends StatelessWidget {
                       Column(children: [
                         Image(
                             image: const AssetImage(AppConsts.addImage),
-                            color: Theme.of(Get.context!).iconTheme.color,
+                            color: Theme.of(context).iconTheme.color,
                             height: 25,
                             width: 25),
                         const SizedBox(height: 10),
                         Text(s.uploadImage,
-                            style: Theme.of(Get.context!).textTheme.bodySmall)
+                            style: Theme.of(context).textTheme.bodySmall)
                       ])
                     ]),
                     Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                            color: Theme.of(Get.context!).primaryColor,
+                            color: Theme.of(context).primaryColor,
                             borderRadius: BorderRadius.circular(12)),
                         child: Image(
                             image: const AssetImage(AppConsts.crop),
-                            color: Theme.of(Get.context!).iconTheme.color,
+                            color: Theme.of(context).iconTheme.color,
                             height: 25,
                             width: 25))
                   ]))
         ]));
   }
 
-  enterPromptContainer() {
-    final s = S.of(Get.context!);
+  enterPromptContainer(BuildContext context) {
+    final s = S.of(context);
 
     return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(s.enterPrompt,
-              style: Theme.of(Get.context!)
+              style: Theme.of(context)
                   .textTheme
                   .titleLarge!
                   .copyWith(fontSize: 20)),
@@ -188,9 +187,8 @@ class Create extends StatelessWidget {
                                   cursorColor: AppTheme.purpleColor,
                                   decoration: InputDecoration(
                                       hintText: s.description,
-                                      hintStyle: Theme.of(Get.context!)
-                                          .textTheme
-                                          .bodyLarge,
+                                      hintStyle:
+                                          Theme.of(context).textTheme.bodyLarge,
                                       contentPadding:
                                           const EdgeInsets.symmetric(
                                               vertical: 16.0, horizontal: 12),
@@ -229,8 +227,7 @@ class Create extends StatelessWidget {
                               horizontal: 8, vertical: 4),
                           child: Row(children: [
                             Text(s.promptBuilder,
-                                style:
-                                    Theme.of(Get.context!).textTheme.bodySmall),
+                                style: Theme.of(context).textTheme.bodySmall),
                             const SizedBox(width: 6),
                             const Image(
                                 image: AssetImage(AppConsts.colors),
@@ -242,8 +239,8 @@ class Create extends StatelessWidget {
         ]));
   }
 
-  selectStyles() {
-    final s = S.of(Get.context!);
+  selectStyles(BuildContext context) {
+    final s = S.of(context);
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
@@ -251,11 +248,14 @@ class Create extends StatelessWidget {
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(s.selectStyles,
-                style: Theme.of(Get.context!)
+                style: Theme.of(context)
                     .textTheme
                     .titleLarge!
                     .copyWith(fontSize: 20)),
-            Text(s.seeAll, style: Theme.of(Get.context!).textTheme.bodyLarge)
+            TextButton(
+                onPressed: selectSettingsModelSheet,
+                child: Text(s.seeAll,
+                    style: Theme.of(context).textTheme.bodyLarge))
           ])),
       const SizedBox(height: 10),
       SizedBox(
@@ -282,26 +282,26 @@ class Create extends StatelessWidget {
     ]);
   }
 
-  advanceSettings() {
-    final s = S.of(Get.context!);
+  advanceSettings(BuildContext context) {
+    final s = S.of(context);
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(s.advanceSettings,
-              style: Theme.of(Get.context!)
+              style: Theme.of(context)
                   .textTheme
                   .titleLarge!
                   .copyWith(fontSize: 20)),
           const SizedBox(height: 10),
           ListTile(
               title: Text(s.chooseSettings,
-                  style: Theme.of(Get.context!).textTheme.bodyLarge),
+                  style: Theme.of(context).textTheme.bodyLarge),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0)),
-              tileColor: Theme.of(Get.context!).primaryColor,
+              tileColor: Theme.of(context).primaryColor,
               trailing: Image(
                   image: const AssetImage(AppConsts.arrowDown),
-                  color: Theme.of(Get.context!).iconTheme.color,
+                  color: Theme.of(context).iconTheme.color,
                   height: 20,
                   width: 20),
               onTap: advanceSettingsModelSheet),
@@ -309,8 +309,8 @@ class Create extends StatelessWidget {
         ]));
   }
 
-  generateBtn() {
-    final s = S.of(Get.context!);
+  generateBtn(BuildContext context) {
+    final s = S.of(context);
 
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
@@ -321,14 +321,14 @@ class Create extends StatelessWidget {
             onTap: () {}));
   }
 
-  inspiration() {
-    final s = S.of(Get.context!);
+  inspiration(BuildContext context) {
+    final s = S.of(context);
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Text(s.inspiration,
-              style: Theme.of(Get.context!)
+              style: Theme.of(context)
                   .textTheme
                   .titleLarge!
                   .copyWith(fontSize: 20))),

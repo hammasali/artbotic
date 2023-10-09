@@ -2,9 +2,8 @@ import 'package:artbotic/config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ThemeController extends GetxController{
+class ThemeController extends GetxController {
   final Rx<ThemeMode> themeMode = ThemeMode.light.obs;
-
 
   @override
   void onInit() {
@@ -22,6 +21,5 @@ class ThemeController extends GetxController{
   void _setTheme(ThemeMode theme) {
     AppTheme.setStatusBarAndNavigationBarColors(theme);
     themeMode.value = theme;
-    update();
   }
 }
