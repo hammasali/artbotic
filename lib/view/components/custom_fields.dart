@@ -26,7 +26,10 @@ class CustomTextField extends StatelessWidget {
             keyboardType: keyboardType,
             obscureText: obscureText,
             decoration: InputDecoration(
-                hintStyle: Theme.of(context).textTheme.titleMedium,
+                hintStyle: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(color: Theme.of(context).hintColor),
                 hintText: hintText,
                 contentPadding: const EdgeInsets.all(16.0),
                 border: InputBorder.none,

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 import '../generated/l10n.dart';
 import '../utils/app_const.dart';
+import 'components/dialogs/inspiration_detail.dart';
 import 'components/dotted_border.dart';
 import 'components/sheets/advance_settings.dart';
 import 'components/sheets/select_styles.dart';
@@ -344,10 +345,13 @@ class Create extends StatelessWidget {
               crossAxisSpacing: 30),
           itemCount: 8,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-                decoration: BoxDecoration(
-                    color: Colors.purple,
-                    borderRadius: BorderRadius.circular(22)));
+            return InkWell(
+              onTap: () => showDetailPrompt(),
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.purple,
+                      borderRadius: BorderRadius.circular(22))),
+            );
           }),
       const SizedBox(height: 15)
     ]);

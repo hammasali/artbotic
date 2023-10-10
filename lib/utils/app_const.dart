@@ -31,4 +31,6 @@ class AppConsts {
   static const String fourToFive = 'assets/aspect_ratio/four_five.png';
   static const String fiveToThree = 'assets/aspect_ratio/five_three.png';
   static const String sliderHead = 'assets/slider_head.png';
+  static const String refresh = 'assets/refresh.png';
+  static const String bin = 'assets/bin.png';
 }
