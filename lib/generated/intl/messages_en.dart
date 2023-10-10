@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("New Users? \nRegister Here"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "prompt": MessageLookupByLibrary.simpleMessage("Prompt"),
         "promptBuilder": MessageLookupByLibrary.simpleMessage("Prompt Builder"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "seed": MessageLookupByLibrary.simpleMessage("Seed"),

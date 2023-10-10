@@ -33,5 +33,6 @@
   "matchPrompt": "Match Prompt",
   "seed": "Seed",
   "generate": "Generate",
-  "inspiration": "Inspiration"
+  "inspiration": "Inspiration",
+  "prompt": "Prompt"
 }

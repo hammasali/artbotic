@@ -399,6 +399,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Prompt`
+  String get prompt {
+    return Intl.message(
+      'Prompt',
+      name: 'prompt',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

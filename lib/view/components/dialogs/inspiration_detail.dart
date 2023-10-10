@@ -2,7 +2,11 @@ import 'package:artbotic/config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../generated/l10n.dart';
+
 showDetailPrompt() {
+  final s = S.of(Get.context!);
+
   return showGeneralDialog(
     barrierLabel: "Label",
     barrierDismissible: true,
@@ -69,7 +73,7 @@ showDetailPrompt() {
                                     style: DefaultTextStyle.of(context).style,
                                     children: <TextSpan>[
                                   TextSpan(
-                                      text: 'Prompt\n',
+                                      text: '${s.prompt}\n',
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleMedium!

@@ -1,6 +1,7 @@
 import 'package:artbotic/controllers/home_controller.dart';
 import 'package:artbotic/utils/app_const.dart';
 import 'package:artbotic/view/create.dart';
+import 'package:artbotic/view/my_creation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,8 +14,8 @@ class Landing extends StatelessWidget {
 
   static final List<Widget> _views = <Widget>[
     Create(),
-    Container(),
-    Container()
+    MyCreation(),
+    Scaffold()
   ];
 
   @override
@@ -60,49 +61,48 @@ class Landing extends StatelessWidget {
           label: s.settings)
     ];
 
-    return Scaffold(
-        appBar: AppBar(
-            leadingWidth: 150,
-            leading: const Image(image: AssetImage(AppConsts.textIcon)),
-            actions: [
-              Container(
-                  margin: const EdgeInsets.symmetric(vertical: 18),
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                  decoration: BoxDecoration(
-                      border:
-                          Border.all(color: Theme.of(context).iconTheme.color!),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Row(children: [
-                    const Image(
-                        image: AssetImage(AppConsts.diamond),
-                        width: 20,
-                        height: 20),
-                    Text(s.buy, style: Theme.of(context).textTheme.bodySmall)
-                  ])),
-              const SizedBox(width: 12),
-              Image(
-                  color: Theme.of(context).iconTheme.color,
-                  image: const AssetImage(AppConsts.instagram),
-                  width: 20,
-                  height: 20),
-              const SizedBox(width: 12),
-              Image(
-                  color: Theme.of(context).iconTheme.color,
-                  image: const AssetImage(AppConsts.discord),
-                  width: 25,
-                  height: 25),
-              const SizedBox(width: 10)
-            ]),
-        bottomNavigationBar: Obx(() {
-          return BottomNavigationBar(
-            items: bottomNav,
-            currentIndex: bottomNavVController.selectedNavigationIndex.value,
-            onTap: (index) =>
-                bottomNavVController.selectedNavigationIndex.value = index,
-          );
-        }),
-        body: IndexedStack(
-            index: bottomNavVController.selectedNavigationIndex.value,
-            children: _views));
+    return Obx(() {
+      return Scaffold(
+          appBar: AppBar(
+              leadingWidth: 150,
+              leading: const Image(image: AssetImage(AppConsts.textIcon)),
+              actions: [
+                Container(
+                    margin: const EdgeInsets.symmetric(vertical: 18),
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: Theme.of(context).iconTheme.color!),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Row(children: [
+                      const Image(
+                          image: AssetImage(AppConsts.diamond),
+                          width: 20,
+                          height: 20),
+                      Text(s.buy, style: Theme.of(context).textTheme.bodySmall)
+                    ])),
+                const SizedBox(width: 12),
+                Image(
+                    color: Theme.of(context).iconTheme.color,
+                    image: const AssetImage(AppConsts.instagram),
+                    width: 20,
+                    height: 20),
+                const SizedBox(width: 12),
+                Image(
+                    color: Theme.of(context).iconTheme.color,
+                    image: const AssetImage(AppConsts.discord),
+                    width: 25,
+                    height: 25),
+                const SizedBox(width: 10)
+              ]),
+          bottomNavigationBar: BottomNavigationBar(
+              items: bottomNav,
+              currentIndex: bottomNavVController.selectedNavigationIndex.value,
+              onTap: (index) =>
+                  bottomNavVController.selectedNavigationIndex.value = index),
+          body: IndexedStack(
+              index: bottomNavVController.selectedNavigationIndex.value,
+              children: _views));
+    });
   }
 }
