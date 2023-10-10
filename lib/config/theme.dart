@@ -13,18 +13,21 @@ class AppTheme {
   static Color lightPrimaryColor = const Color(0xfff2f2f2);
   static Color lightTextColor = const Color(0xFF1D2226);
   static Color lightIconColor = const Color(0xFF1D2226);
+  static Color lightDividerColor = Colors.blueGrey.shade500;
   static Color lightAccentColor = Colors.blueGrey.shade200;
 
   static Color darkBackgroundColor = const Color(0xFF000000);
   static Color darkPrimaryColor = const Color(0xFF1D2226);
   static Color darkTextColor = const Color(0xffffffff);
   static Color darkIconColor = const Color(0xffffffff);
+  static Color darkDividerColor = Colors.white;
   static Color darkAccentColor = Colors.blueGrey.shade600;
 
   const AppTheme._();
 
   static final lightTheme = ThemeData(
       brightness: Brightness.light,
+      dividerColor: lightDividerColor,
       primaryColor: lightPrimaryColor,
       hintColor: lightAccentColor,
       scaffoldBackgroundColor: lightBackgroundColor,
@@ -53,6 +56,7 @@ class AppTheme {
   static final darkTheme = ThemeData(
       scaffoldBackgroundColor: darkBackgroundColor,
       brightness: Brightness.dark,
+      dividerColor: darkDividerColor,
       primaryColor: darkPrimaryColor,
       hintColor: darkAccentColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,

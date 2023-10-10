@@ -34,5 +34,16 @@
   "seed": "Seed",
   "generate": "Generate",
   "inspiration": "Inspiration",
-  "prompt": "Prompt"
+  "prompt": "Prompt",
+  "pro": "Pro",
+  "upgradeToPro": "Upgrade To Pro",
+  "general": "General",
+  "theme": "Theme",
+  "rateUs": "Rate Us",
+  "share": "Share",
+  "customerSupport": "Customer Support",
+  "others": "Others",
+  "language": "Language",
+  "moreApps": "More Apps",
+  "privacyPolicy": "Privacy Policy"
 }

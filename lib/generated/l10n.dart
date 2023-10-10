@@ -409,6 +409,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Pro`
+  String get pro {
+    return Intl.message(
+      'Pro',
+      name: 'pro',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upgrade To Pro`
+  String get upgradeToPro {
+    return Intl.message(
+      'Upgrade To Pro',
+      name: 'upgradeToPro',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General`
+  String get general {
+    return Intl.message(
+      'General',
+      name: 'general',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get theme {
+    return Intl.message(
+      'Theme',
+      name: 'theme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate Us`
+  String get rateUs {
+    return Intl.message(
+      'Rate Us',
+      name: 'rateUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share`
+  String get share {
+    return Intl.message(
+      'Share',
+      name: 'share',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customer Support`
+  String get customerSupport {
+    return Intl.message(
+      'Customer Support',
+      name: 'customerSupport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Others`
+  String get others {
+    return Intl.message(
+      'Others',
+      name: 'others',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More Apps`
+  String get moreApps {
+    return Intl.message(
+      'More Apps',
+      name: 'moreApps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

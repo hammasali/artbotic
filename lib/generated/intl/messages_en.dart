@@ -34,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "create": MessageLookupByLibrary.simpleMessage("Create"),
+        "customerSupport":
+            MessageLookupByLibrary.simpleMessage("Customer Support"),
         "description": MessageLookupByLibrary.simpleMessage(
             "Write a lot of description here"),
         "dontInclude": MessageLookupByLibrary.simpleMessage("Don\'t Include"),
@@ -43,29 +45,39 @@ class MessageLookup extends MessageLookupByLibrary {
             "Existing Users, \nLog in Here"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget Password?"),
+        "general": MessageLookupByLibrary.simpleMessage("General"),
         "generate": MessageLookupByLibrary.simpleMessage("Generate"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "inpainting": MessageLookupByLibrary.simpleMessage("Inpainting"),
         "inspiration": MessageLookupByLibrary.simpleMessage("Inspiration"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "matchPrompt": MessageLookupByLibrary.simpleMessage("Match Prompt"),
+        "moreApps": MessageLookupByLibrary.simpleMessage("More Apps"),
         "myCreation": MessageLookupByLibrary.simpleMessage("My Creation"),
         "negativePrompt":
             MessageLookupByLibrary.simpleMessage("Negative Prompt"),
         "newUsersRegisterHere":
             MessageLookupByLibrary.simpleMessage("New Users? \nRegister Here"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
+        "others": MessageLookupByLibrary.simpleMessage("Others"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "pro": MessageLookupByLibrary.simpleMessage("Pro"),
         "prompt": MessageLookupByLibrary.simpleMessage("Prompt"),
         "promptBuilder": MessageLookupByLibrary.simpleMessage("Prompt Builder"),
+        "rateUs": MessageLookupByLibrary.simpleMessage("Rate Us"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "seed": MessageLookupByLibrary.simpleMessage("Seed"),
         "selectStyles": MessageLookupByLibrary.simpleMessage("Select Styles"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "share": MessageLookupByLibrary.simpleMessage("Share"),
         "signInWithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with google"),
         "signup": MessageLookupByLibrary.simpleMessage("Signup"),
         "text": MessageLookupByLibrary.simpleMessage("Text"),
+        "theme": MessageLookupByLibrary.simpleMessage("Theme"),
+        "upgradeToPro": MessageLookupByLibrary.simpleMessage("Upgrade To Pro"),
         "uploadImage": MessageLookupByLibrary.simpleMessage("Upload Image")
       };
 }

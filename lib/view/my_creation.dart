@@ -12,8 +12,9 @@ class MyCreation extends StatelessWidget {
         body: ListView.separated(
             shrinkWrap: true,
             itemCount: 20,
+            padding: const EdgeInsets.symmetric(horizontal: 4),
             physics: const ClampingScrollPhysics(),
-            itemBuilder: (context, index) {
+            itemBuilder: (_, index) {
               return Container(
                   height: Get.height * 0.25,
                   width: double.infinity,
@@ -41,7 +42,7 @@ class MyCreation extends StatelessWidget {
                                       maxLines: 5,
                                       overflow: TextOverflow.ellipsis,
                                       'This is a description text. It can have different styles within the same text block. This is a description text. It can have different styles within the same text block.This is a description text. It can have different styles within the same text block.This is a description text. It can have different styles within the same text block.This is a description text. It can have different styles within the same text block.',
-                                      style: Theme.of(Get.context!)
+                                      style: Theme.of(context)
                                           .textTheme
                                           .bodyLarge),
                                   const SizedBox(height: 13),

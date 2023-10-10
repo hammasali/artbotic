@@ -33,4 +33,14 @@ class AppConsts {
   static const String sliderHead = 'assets/slider_head.png';
   static const String refresh = 'assets/refresh.png';
   static const String bin = 'assets/bin.png';
+  static const String customerSupport = 'assets/settings/customer_support.png';
+  static const String language = 'assets/settings/language.png';
+  static const String moreApps = 'assets/settings/more_apps.png';
+  static const String privacyPolicy = 'assets/settings/privacy_policy.png';
+  static const String rateUs = 'assets/settings/rate_us.png';
+  static const String share = 'assets/settings/share.png';
+  static const String theme = 'assets/settings/theme.png';
+  static const String king = 'assets/settings/king.png';
+  static const String arrowRight = 'assets/settings/arrow_right.png';
+
 }

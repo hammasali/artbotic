@@ -2,6 +2,7 @@ import 'package:artbotic/controllers/home_controller.dart';
 import 'package:artbotic/utils/app_const.dart';
 import 'package:artbotic/view/create.dart';
 import 'package:artbotic/view/my_creation.dart';
+import 'package:artbotic/view/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +16,7 @@ class Landing extends StatelessWidget {
   static final List<Widget> _views = <Widget>[
     Create(),
     MyCreation(),
-    Scaffold()
+    Settings()
   ];
 
   @override
