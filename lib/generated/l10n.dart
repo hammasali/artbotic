@@ -519,6 +519,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Variation`
+  String get variation {
+    return Intl.message(
+      'Variation',
+      name: 'variation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Evolve`
+  String get evolve {
+    return Intl.message(
+      'Evolve',
+      name: 'evolve',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upscale`
+  String get upscale {
+    return Intl.message(
+      'Upscale',
+      name: 'upscale',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Retouch`
+  String get retouch {
+    return Intl.message(
+      'Retouch',
+      name: 'retouch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bin`
+  String get bin {
+    return Intl.message(
+      'Bin',
+      name: 'bin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

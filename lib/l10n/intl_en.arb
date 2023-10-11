@@ -45,5 +45,10 @@
   "others": "Others",
   "language": "Language",
   "moreApps": "More Apps",
-  "privacyPolicy": "Privacy Policy"
+  "privacyPolicy": "Privacy Policy",
+  "variation": "Variation",
+  "evolve": "Evolve",
+  "upscale": "Upscale",
+  "retouch": "Retouch",
+  "bin": "Bin"
 }

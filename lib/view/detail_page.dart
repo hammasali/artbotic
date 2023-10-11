@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
 
+import '../generated/l10n.dart';
 import '../utils/app_const.dart';
 
 class CreationDetailPage extends StatelessWidget {
@@ -19,11 +20,11 @@ class CreationDetailPage extends StatelessWidget {
     AppConsts.iconSquare
   ];
   final Map<String, String> options = {
-    AppConsts.variation: 'Variation',
-    AppConsts.evolve: 'Evolve',
-    AppConsts.upscale: 'Upscale',
-    AppConsts.retouch: 'Retouch',
-    AppConsts.bin: 'Bin'
+    AppConsts.variation: S.of(Get.context!).variation,
+    AppConsts.evolve: S.of(Get.context!).evolve,
+    AppConsts.upscale: S.of(Get.context!).upscale,
+    AppConsts.retouch: S.of(Get.context!).retouch,
+    AppConsts.bin: S.of(Get.context!).bin
   };
 
   final CreateController controller = Get.find<CreateController>();
@@ -71,20 +72,18 @@ class CreationDetailPage extends StatelessWidget {
           const SizedBox(height: 10),
           const Divider(),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text('Prompt',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(fontSize: 24)),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(S.of(Get.context!).prompt,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(fontSize: 24))),
           const Divider(),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-                'The signingConfig block is meant to specify the signing configuration for your release build type. If you havent defined a signing configuration for your release build in your build.gradle file, this error can occur',
-                style: Theme.of(context).textTheme.displayMedium),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                  'The signingConfig block is meant to specify the signing configuration for your release build type. If you havent defined a signing configuration for your release build in your build.gradle file, this error can occur',
+                  style: Theme.of(context).textTheme.displayMedium)),
         ]));
   }
 
@@ -106,28 +105,27 @@ class CreationDetailPage extends StatelessWidget {
                       controller.currentImageIndex.value = index),
               items: carousel
                   .map((e) => GestureDetector(
-                        onTap: () => showDetailImage(),
-                        child: ClipRRect(
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            borderRadius: const BorderRadius.vertical(
-                                bottom: Radius.circular(30)),
-                            child: ShaderMask(
-                                shaderCallback: (Rect bounds) =>
-                                    const LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          Colors.transparent,
-                                          Colors.black54
-                                        ],
-                                        stops: [
-                                          0.6,
-                                          1.0
-                                        ]).createShader(bounds),
-                                blendMode: BlendMode.darken,
-                                child: Image(
-                                    image: AssetImage(e), fit: BoxFit.cover))),
-                      ))
+                      onTap: () => showDetailImage(),
+                      child: ClipRRect(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          borderRadius: const BorderRadius.vertical(
+                              bottom: Radius.circular(30)),
+                          child: ShaderMask(
+                              shaderCallback: (Rect bounds) =>
+                                  const LinearGradient(
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      colors: [
+                                        Colors.transparent,
+                                        Colors.black54
+                                      ],
+                                      stops: [
+                                        0.6,
+                                        1.0
+                                      ]).createShader(bounds),
+                              blendMode: BlendMode.darken,
+                              child: Image(
+                                  image: AssetImage(e), fit: BoxFit.cover)))))
                   .toList()),
           Positioned(
               bottom: 12,

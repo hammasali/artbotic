@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Advance Settings"),
         "aspectRatio": MessageLookupByLibrary.simpleMessage("Aspect Ratio"),
         "betterQuality": MessageLookupByLibrary.simpleMessage("Better Quality"),
+        "bin": MessageLookupByLibrary.simpleMessage("Bin"),
         "buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "cgfScale": MessageLookupByLibrary.simpleMessage("CGF Scale"),
         "chooseSettings":
@@ -41,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dontInclude": MessageLookupByLibrary.simpleMessage("Don\'t Include"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterPrompt": MessageLookupByLibrary.simpleMessage("Enter Prompt?"),
+        "evolve": MessageLookupByLibrary.simpleMessage("Evolve"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
             "Existing Users, \nLog in Here"),
         "forgetPassword":
@@ -67,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "prompt": MessageLookupByLibrary.simpleMessage("Prompt"),
         "promptBuilder": MessageLookupByLibrary.simpleMessage("Prompt Builder"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Rate Us"),
+        "retouch": MessageLookupByLibrary.simpleMessage("Retouch"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "seed": MessageLookupByLibrary.simpleMessage("Seed"),
         "selectStyles": MessageLookupByLibrary.simpleMessage("Select Styles"),
@@ -78,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "text": MessageLookupByLibrary.simpleMessage("Text"),
         "theme": MessageLookupByLibrary.simpleMessage("Theme"),
         "upgradeToPro": MessageLookupByLibrary.simpleMessage("Upgrade To Pro"),
-        "uploadImage": MessageLookupByLibrary.simpleMessage("Upload Image")
+        "uploadImage": MessageLookupByLibrary.simpleMessage("Upload Image"),
+        "upscale": MessageLookupByLibrary.simpleMessage("Upscale"),
+        "variation": MessageLookupByLibrary.simpleMessage("Variation")
       };
 }
