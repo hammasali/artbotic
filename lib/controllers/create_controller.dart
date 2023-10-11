@@ -9,7 +9,7 @@ class CreateController extends GetxController {
   var selectedIndex = 0.obs;
   var slider1 = 0.0.obs;
   var slider2 = 0.0.obs;
-
+  var currentImageIndex = 0.obs;
 
   final Map<String, String> options = {
     AppConsts.oneToOne: '1 : 1',
@@ -18,5 +18,4 @@ class CreateController extends GetxController {
     AppConsts.fourToThree: '4 : 3',
     AppConsts.fiveToThree: '5 : 3',
   };
-
 }

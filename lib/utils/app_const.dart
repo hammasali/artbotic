@@ -31,8 +31,12 @@ class AppConsts {
   static const String fourToFive = 'assets/aspect_ratio/four_five.png';
   static const String fiveToThree = 'assets/aspect_ratio/five_three.png';
   static const String sliderHead = 'assets/slider_head.png';
-  static const String refresh = 'assets/refresh.png';
-  static const String bin = 'assets/bin.png';
+  static const String variation = 'assets/creation_detail/variation.png';
+  static const String bin = 'assets/creation_detail/bin.png';
+  static const String download = 'assets/creation_detail/download.png';
+  static const String evolve = 'assets/creation_detail/evolve.png';
+  static const String retouch = 'assets/creation_detail/retouch.png';
+  static const String upscale = 'assets/creation_detail/upscale.png';
   static const String customerSupport = 'assets/settings/customer_support.png';
   static const String language = 'assets/settings/language.png';
   static const String moreApps = 'assets/settings/more_apps.png';
@@ -42,5 +46,4 @@ class AppConsts {
   static const String theme = 'assets/settings/theme.png';
   static const String king = 'assets/settings/king.png';
   static const String arrowRight = 'assets/settings/arrow_right.png';
-
 }

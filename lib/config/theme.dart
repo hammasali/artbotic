@@ -114,17 +114,21 @@ class AppTheme {
           fontWeight: FontWeight.w700,
           height: 1.375,
           letterSpacing: 0.0),
+      displayMedium: GoogleFonts.manrope(
+          fontSize: 18,
+          fontWeight: FontWeight.w400,
+          height: 1.5,
+          letterSpacing: 0),
       bodyLarge: GoogleFonts.manrope(
           fontSize: 14.0,
           fontWeight: FontWeight.w500,
           height: 1.316,
           letterSpacing: 0.0),
       bodyMedium: GoogleFonts.manrope(
-        fontSize: 13.0,
-        fontWeight: FontWeight.w500,
-        height: 22.0 / 16.0,
-        letterSpacing: 0.0,
-      ),
+          fontSize: 13.0,
+          fontWeight: FontWeight.w500,
+          height: 22.0 / 16.0,
+          letterSpacing: 0.0),
       bodySmall: GoogleFonts.solway(
           fontSize: 12.0,
           fontWeight: FontWeight.w400,

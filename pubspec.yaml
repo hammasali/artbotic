@@ -31,6 +31,8 @@ dependencies:
   shared_preferences: ^2.2.1
   intl: ^0.18.1
   gradient_slider: ^1.0.1
+  carousel_slider: ^4.2.1
+  dots_indicator: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +63,7 @@ flutter:
     - assets/bottom_bar/
     - assets/aspect_ratio/
     - assets/settings/
+    - assets/creation_detail/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

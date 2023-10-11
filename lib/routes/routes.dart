@@ -3,6 +3,8 @@ import 'package:artbotic/view/login.dart';
 import 'package:artbotic/view/register.dart';
 import 'package:flutter/material.dart';
 
+import '../view/detail_page.dart';
+
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class PageRoutes {
@@ -11,6 +13,7 @@ class PageRoutes {
   static const String signIn = '/signIn';
   static const String profile = '/profile';
   static const String register = '/register';
+  static const String creationDetail = '/creationDetail';
 }
 
 class PageNavigator extends StatelessWidget {
@@ -51,10 +54,13 @@ class PageNavigator extends StatelessWidget {
               builder = (_) => const Register();
               break;
             case PageRoutes.landing:
-              builder = (_) =>  Landing();
+              builder = (_) => Landing();
               break;
             case PageRoutes.profile:
               builder = (_) => Container();
+              break;
+            case PageRoutes.creationDetail:
+              builder = (_) => CreationDetailPage();
               break;
 
             default:
