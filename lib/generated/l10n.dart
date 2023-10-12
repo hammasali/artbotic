@@ -569,6 +569,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Send Us a Message`
+  String get sendUsAMessage {
+    return Intl.message(
+      'Send Us a Message',
+      name: 'sendUsAMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full name`
+  String get fullName {
+    return Intl.message(
+      'Full name',
+      name: 'fullName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your email`
+  String get yourEmail {
+    return Intl.message(
+      'Your email',
+      name: 'yourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write your queries here...`
+  String get writeYourQueriesHere {
+    return Intl.message(
+      'Write your queries here...',
+      name: 'writeYourQueriesHere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit Form`
+  String get submitForm {
+    return Intl.message(
+      'Submit Form',
+      name: 'submitForm',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -577,6 +627,13 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
+      Locale.fromSubtags(languageCode: 'de'),
+      Locale.fromSubtags(languageCode: 'es'),
+      Locale.fromSubtags(languageCode: 'fr'),
+      Locale.fromSubtags(languageCode: 'hi'),
+      Locale.fromSubtags(languageCode: 'pt'),
+      Locale.fromSubtags(languageCode: 'ur'),
     ];
   }
 

@@ -3,13 +3,17 @@ import 'package:artbotic/controllers/theme_controller.dart';
 import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/config/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'generated/l10n.dart';
 import 'locale/language_controller.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   runApp(const App());
 }
@@ -67,10 +71,21 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: controller.themeMode.value,
-          localizationsDelegates: const [S.delegate],
+          localizationsDelegates:  const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
           locale: Get.locale,
           supportedLocales: S.delegate.supportedLocales,
-          home: const PageNavigator());
+          builder: (context, Widget? child) {
+            return MediaQuery(
+                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                child: child!);
+          },
+          home: const Directionality(
+              textDirection: TextDirection.ltr, child: PageNavigator()));
     });
   }
 }

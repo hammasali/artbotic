@@ -64,10 +64,17 @@ showDetailPrompt() {
                             ]),
                         child: Stack(
                           children: [
-                            const Positioned(
+                            Positioned(
                                 top: 2,
-                                right: 2,
-                                child: Icon(Icons.copy, size: 20)),
+                                right: Directionality.of(context) ==
+                                        TextDirection.ltr
+                                    ? 2
+                                    : null,
+                                left: Directionality.of(context) ==
+                                        TextDirection.ltr
+                                    ? null
+                                    : 2,
+                                child: const Icon(Icons.copy, size: 20)),
                             RichText(
                                 text: TextSpan(
                                     style: DefaultTextStyle.of(context).style,

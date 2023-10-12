@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../config/theme.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
+  CustomButton(
       {super.key,
       required this.title,
       required this.onTap,
       double? borderRadius,
+      double? verticalPadding,
+      TextStyle? textStyle,
       String? icon})
       : _borderRadius = borderRadius ?? 50,
-        _icon = icon;
+        _verticalPadding = verticalPadding ?? 8,
+        _icon = icon,
+        _textStyle =
+            textStyle ?? Theme.of(Get.context!).textTheme.displayLarge!;
 
   final String title;
   final onTap;
   final double _borderRadius;
+  final double _verticalPadding;
+
   final String? _icon;
+  final TextStyle? _textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +32,7 @@ class CustomButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            padding: EdgeInsets.symmetric(vertical: _verticalPadding),
             decoration: BoxDecoration(
                 gradient: const LinearGradient(
                     colors: [AppTheme.blueColor, AppTheme.purpleColor],
@@ -41,10 +50,7 @@ class CustomButton extends StatelessWidget {
                     ? const SizedBox.shrink()
                     : const SizedBox(width: 8),
                 Text(title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .displayLarge!
-                        .copyWith(color: AppTheme.whiteColor),
+                    style: _textStyle!.copyWith(color: AppTheme.whiteColor),
                     textAlign: TextAlign.center)
               ],
             )));

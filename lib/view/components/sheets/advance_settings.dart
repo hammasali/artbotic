@@ -6,7 +6,7 @@ import '../../../config/theme.dart';
 import '../../../controllers/create_controller.dart';
 import '../../../generated/l10n.dart';
 import '../../../utils/app_const.dart';
-import '../custom_fields.dart';
+import '../fields/custom_fields.dart';
 
 advanceSettingsModelSheet() {
   final s = S.of(Get.context!);

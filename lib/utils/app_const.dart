@@ -46,4 +46,13 @@ class AppConsts {
   static const String theme = 'assets/settings/theme.png';
   static const String king = 'assets/settings/king.png';
   static const String arrowRight = 'assets/settings/arrow_right.png';
+  static const String english = 'assets/language/english.png';
+  static const String arabic = 'assets/language/arabic.png';
+  static const String spanish = 'assets/language/spanish.png';
+  static const String portuguese = 'assets/language/portuguese.png';
+  static const String german = 'assets/language/german.png';
+  static const String french = 'assets/language/french.png';
+  static const String urdu = 'assets/language/urdu.png';
+  static const String hindi = 'assets/language/hindi.png';
+
 }

@@ -9,6 +9,7 @@ import '../generated/l10n.dart';
 import '../utils/app_const.dart';
 import 'components/dialogs/inspiration_detail.dart';
 import 'components/dotted_border.dart';
+import 'components/fields/custom_field2.dart';
 import 'components/sheets/advance_settings.dart';
 import 'components/sheets/select_styles.dart';
 
@@ -184,35 +185,7 @@ class Create extends StatelessWidget {
                                   height: 18,
                                   width: 18)),
                           Expanded(
-                              child: TextField(
-                                  cursorColor: AppTheme.purpleColor,
-                                  decoration: InputDecoration(
-                                      hintText: s.description,
-                                      hintStyle:
-                                          Theme.of(context).textTheme.bodyLarge,
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              vertical: 16.0, horizontal: 12),
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                          borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 2.0)),
-                                      enabledBorder: const OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.transparent)),
-                                      focusedBorder: const OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.transparent)),
-                                      filled: true,
-                                      fillColor: Colors.transparent),
-                                  minLines: 5,
-                                  maxLines: 5,
-                                  keyboardType: TextInputType.multiline,
-                                  onChanged: (value) {
-                                    print(value);
-                                  }))
+                              child: CustomTextField2(hintText: s.description)),
                         ]),
                     Row(children: [
                       const Image(

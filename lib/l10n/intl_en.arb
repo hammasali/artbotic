@@ -50,5 +50,10 @@
   "evolve": "Evolve",
   "upscale": "Upscale",
   "retouch": "Retouch",
-  "bin": "Bin"
+  "bin": "Bin",
+  "sendUsAMessage": "Send Us a Message",
+  "fullName": "Full name",
+  "yourEmail": "Your email",
+  "writeYourQueriesHere": "Write your queries here...",
+  "submitForm": "Submit Form"
 }

@@ -1,4 +1,5 @@
 import 'package:artbotic/view/landing.dart';
+import 'package:artbotic/view/language.dart';
 import 'package:artbotic/view/login.dart';
 import 'package:artbotic/view/register.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class PageRoutes {
   static const String profile = '/profile';
   static const String register = '/register';
   static const String creationDetail = '/creationDetail';
+  static const String language = '/language';
 }
 
 class PageNavigator extends StatelessWidget {
@@ -61,6 +63,9 @@ class PageNavigator extends StatelessWidget {
               break;
             case PageRoutes.creationDetail:
               builder = (_) => CreationDetailPage();
+              break;
+            case PageRoutes.language:
+              builder = (_) => Language();
               break;
 
             default:

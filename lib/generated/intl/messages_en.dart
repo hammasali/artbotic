@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Existing Users, \nLog in Here"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget Password?"),
+        "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
         "generate": MessageLookupByLibrary.simpleMessage("Generate"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
@@ -73,16 +74,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "seed": MessageLookupByLibrary.simpleMessage("Seed"),
         "selectStyles": MessageLookupByLibrary.simpleMessage("Select Styles"),
+        "sendUsAMessage":
+            MessageLookupByLibrary.simpleMessage("Send Us a Message"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "share": MessageLookupByLibrary.simpleMessage("Share"),
         "signInWithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with google"),
         "signup": MessageLookupByLibrary.simpleMessage("Signup"),
+        "submitForm": MessageLookupByLibrary.simpleMessage("Submit Form"),
         "text": MessageLookupByLibrary.simpleMessage("Text"),
         "theme": MessageLookupByLibrary.simpleMessage("Theme"),
         "upgradeToPro": MessageLookupByLibrary.simpleMessage("Upgrade To Pro"),
         "uploadImage": MessageLookupByLibrary.simpleMessage("Upload Image"),
         "upscale": MessageLookupByLibrary.simpleMessage("Upscale"),
-        "variation": MessageLookupByLibrary.simpleMessage("Variation")
+        "variation": MessageLookupByLibrary.simpleMessage("Variation"),
+        "writeYourQueriesHere":
+            MessageLookupByLibrary.simpleMessage("Write your queries here..."),
+        "yourEmail": MessageLookupByLibrary.simpleMessage("Your email")
       };
 }

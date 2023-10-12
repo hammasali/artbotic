@@ -1,5 +1,7 @@
 import 'package:artbotic/controllers/theme_controller.dart';
+import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/view/components/buttons/custom_button.dart';
+import 'package:artbotic/view/components/dialogs/customer_support.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -45,15 +47,17 @@ class Settings extends StatelessWidget {
                   themeController.updateAppTheme();
                 });
           })),
-      customTile(AppConsts.rateUs, s.rateUs, context),
-      customTile(AppConsts.share, s.share, context),
-      customTile(AppConsts.customerSupport, s.customerSupport, context),
+      customTile(AppConsts.rateUs, s.rateUs, context, () {}),
+      customTile(AppConsts.share, s.share, context, () {}),
+      customTile(AppConsts.customerSupport, s.customerSupport, context,
+          () => showCustomerSupportPrompt()),
       const SizedBox(height: 15),
       customHeader(s.others, context),
       const SizedBox(height: 12),
-      customTile(AppConsts.language, s.language, context),
-      customTile(AppConsts.moreApps, s.moreApps, context),
-      customTile(AppConsts.privacyPolicy, s.privacyPolicy, context)
+      customTile(AppConsts.language, s.language, context,
+          () => navigatorKey.currentState!.pushNamed(PageRoutes.language)),
+      customTile(AppConsts.moreApps, s.moreApps, context, () {}),
+      customTile(AppConsts.privacyPolicy, s.privacyPolicy, context, () {})
     ]));
   }
 
@@ -65,8 +69,9 @@ class Settings extends StatelessWidget {
     ]);
   }
 
-  customTile(String icon, String title, BuildContext context) {
+  customTile(String icon, String title, BuildContext context, onTap) {
     return ListTile(
+        onTap: onTap,
         leading: Image(
             image: AssetImage(icon),
             height: 28,
