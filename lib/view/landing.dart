@@ -1,4 +1,5 @@
 import 'package:artbotic/controllers/home_controller.dart';
+import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/utils/app_const.dart';
 import 'package:artbotic/view/create.dart';
 import 'package:artbotic/view/my_creation.dart';
@@ -68,20 +69,25 @@ class Landing extends StatelessWidget {
               leadingWidth: 150,
               leading: const Image(image: AssetImage(AppConsts.textIcon)),
               actions: [
-                Container(
-                    margin: const EdgeInsets.symmetric(vertical: 18),
-                    padding: const EdgeInsets.symmetric(horizontal: 6),
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context).iconTheme.color!),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Row(children: [
-                      const Image(
-                          image: AssetImage(AppConsts.diamond),
-                          width: 20,
-                          height: 20),
-                      Text(s.buy, style: Theme.of(context).textTheme.bodySmall)
-                    ])),
+                InkWell(
+                  onTap: () => navigatorKey.currentState!
+                      .pushNamed(PageRoutes.purchases),
+                  child: Container(
+                      margin: const EdgeInsets.symmetric(vertical: 18),
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Theme.of(context).iconTheme.color!),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(children: [
+                        const Image(
+                            image: AssetImage(AppConsts.diamond),
+                            width: 20,
+                            height: 20),
+                        Text(s.buy,
+                            style: Theme.of(context).textTheme.bodySmall)
+                      ])),
+                ),
                 const SizedBox(width: 12),
                 Image(
                     color: Theme.of(context).iconTheme.color,

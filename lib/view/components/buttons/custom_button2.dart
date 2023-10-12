@@ -37,14 +37,13 @@ class CustomButton2 extends StatelessWidget {
                     alignment: Alignment.center,
                     constraints: const BoxConstraints(minHeight: 50.0),
                     child: FittedBox(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
                           Image.asset(AppConsts.google, height: 18),
+                          const SizedBox(width: 5),
                           Text(title,
-                              style: Theme.of(context).textTheme.bodyLarge),
-                        ],
-                      ),
-                    )))));
+                              style: Theme.of(context).textTheme.bodyLarge)
+                        ]))))));
   }
 }

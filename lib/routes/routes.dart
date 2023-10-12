@@ -1,7 +1,9 @@
 import 'package:artbotic/view/landing.dart';
 import 'package:artbotic/view/language.dart';
 import 'package:artbotic/view/login.dart';
+import 'package:artbotic/view/purchases.dart';
 import 'package:artbotic/view/register.dart';
+import 'package:artbotic/view/subscriptions.dart';
 import 'package:flutter/material.dart';
 
 import '../view/detail_page.dart';
@@ -16,6 +18,8 @@ class PageRoutes {
   static const String register = '/register';
   static const String creationDetail = '/creationDetail';
   static const String language = '/language';
+  static const String purchases = '/purchases';
+  static const String subscriptions = '/subscriptions';
 }
 
 class PageNavigator extends StatelessWidget {
@@ -67,7 +71,12 @@ class PageNavigator extends StatelessWidget {
             case PageRoutes.language:
               builder = (_) => Language();
               break;
-
+            case PageRoutes.purchases:
+              builder = (_) => Purchases();
+              break;
+            case PageRoutes.subscriptions:
+              builder = (_) => Subscription();
+              break;
             default:
               builder = (_) => settings.name == PageRoutes.authLanding
                   ? Container()

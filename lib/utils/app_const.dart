@@ -54,5 +54,10 @@ class AppConsts {
   static const String french = 'assets/language/french.png';
   static const String urdu = 'assets/language/urdu.png';
   static const String hindi = 'assets/language/hindi.png';
+  static const String circuit = 'assets/purchases/circuit.png';
+  static const String ai = 'assets/purchases/ai.png';
+  static const String fastProcessing = 'assets/purchases/fast_processing.png';
+  static const String adFree = 'assets/purchases/ad_free.png';
+  static const String upscaling = 'assets/purchases/upscaling.png';
 
 }

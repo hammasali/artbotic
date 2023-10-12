@@ -27,7 +27,8 @@ class Settings extends StatelessWidget {
           icon: AppConsts.king,
           borderRadius: 12,
           title: s.upgradeToPro,
-          onTap: () {}),
+          onTap: () =>
+              navigatorKey.currentState!.pushNamed(PageRoutes.subscriptions)),
       const SizedBox(height: 15),
       customHeader(s.general, context),
       const SizedBox(height: 12),
