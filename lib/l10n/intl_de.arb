@@ -59,5 +59,8 @@
   "submitForm": "Formular abschicken",
   "continueTxt": "Weiter",
   "chooseAPlan": "Wähle einen Plan" ,
-  "unlockAllTheAdvanceTxt": "Schalte alle fortgeschrittenen Funktionen frei, indem du zum Premium-Plan aufrüstest"
+  "unlockAllTheAdvanceTxt": "Schalte alle fortgeschrittenen Funktionen frei, indem du zum Premium-Plan aufrüstest",
+  "tagKeywords": "Schlagwörter",
+  "clearAll": "Alles löschen",
+  "addKeywords": "Schlüsselwörter hinzufügen"
 }

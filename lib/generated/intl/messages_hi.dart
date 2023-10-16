@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addImage": MessageLookupByLibrary.simpleMessage("छवि जोड़ें"),
+        "addKeywords": MessageLookupByLibrary.simpleMessage("कीवर्ड जोड़ें"),
         "advanceSettings":
             MessageLookupByLibrary.simpleMessage("उन्नत सेटिंग्स"),
         "aspectRatio": MessageLookupByLibrary.simpleMessage("आस्पेक्ट अनुपात"),
@@ -33,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseAPlan": MessageLookupByLibrary.simpleMessage("एक योजना चुनें"),
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("सेटिंग्स चुनें"),
+        "clearAll": MessageLookupByLibrary.simpleMessage("सभी को साफ करें"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("पासवर्ड की पुष्टि करें"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("जारी रखें"),
@@ -85,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Google के साथ साइन इन करें"),
         "signup": MessageLookupByLibrary.simpleMessage("रजिस्टर करें"),
         "submitForm": MessageLookupByLibrary.simpleMessage("फॉर्म जमा करें"),
+        "tagKeywords": MessageLookupByLibrary.simpleMessage("टैग की कीवर्ड्स"),
         "text": MessageLookupByLibrary.simpleMessage("टेक्स्ट"),
         "theme": MessageLookupByLibrary.simpleMessage("थीम"),
         "unlockAllTheAdvanceTxt":

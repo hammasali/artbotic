@@ -59,5 +59,8 @@
   "submitForm": "إرسال النموذج",
   "continueTxt": "استمر",
   "chooseAPlan": "اختر خطة",
-  "unlockAllTheAdvanceTxt": "فتح جميع الميزات المتقدمة عن طريق الترقية إلى خطة بريميوم"
+  "unlockAllTheAdvanceTxt": "فتح جميع الميزات المتقدمة عن طريق الترقية إلى خطة بريميوم",
+  "tagKeywords": "وسوم الكلمات",
+  "clearAll": "مسح الكل",
+  "addKeywords": "إضافة كلمات"
 }

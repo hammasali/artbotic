@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addImage": MessageLookupByLibrary.simpleMessage("تصویر شامل کریں"),
+        "addKeywords": MessageLookupByLibrary.simpleMessage("الفاظ شامل کریں"),
         "advanceSettings": MessageLookupByLibrary.simpleMessage("اعلی ترتیبات"),
         "aspectRatio": MessageLookupByLibrary.simpleMessage("جسامت نسبت"),
         "betterQuality": MessageLookupByLibrary.simpleMessage("بہتر کوالٹی"),
@@ -33,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ایک منصوبہ منتخب کریں"),
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("ترتیبات منتخب کریں"),
+        "clearAll": MessageLookupByLibrary.simpleMessage("سب کچھ صاف کریں"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("پاس ورڈ کی تصدیق کریں"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("جاری رہیں"),
@@ -85,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("گوگل سے سائن ان کریں"),
         "signup": MessageLookupByLibrary.simpleMessage("رجسٹر کریں"),
         "submitForm": MessageLookupByLibrary.simpleMessage("فارم جمع کریں"),
+        "tagKeywords":
+            MessageLookupByLibrary.simpleMessage("ٹیگ کی متعلقہ الفاظ"),
         "text": MessageLookupByLibrary.simpleMessage("مواد"),
         "theme": MessageLookupByLibrary.simpleMessage("موضوع"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(

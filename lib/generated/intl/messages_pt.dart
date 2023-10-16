@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addImage": MessageLookupByLibrary.simpleMessage("Adicionar imagem"),
+        "addKeywords":
+            MessageLookupByLibrary.simpleMessage("Adicionar Palavras-Chave"),
         "advanceSettings":
             MessageLookupByLibrary.simpleMessage("Configurações avançadas"),
         "aspectRatio": MessageLookupByLibrary.simpleMessage("Proporção"),
@@ -34,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseAPlan": MessageLookupByLibrary.simpleMessage("Escolha um plano"),
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("Escolher configurações"),
+        "clearAll": MessageLookupByLibrary.simpleMessage("Limpar Tudo"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirmar senha"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("Continuar"),
@@ -90,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Entrar com o Google"),
         "signup": MessageLookupByLibrary.simpleMessage("Registrar"),
         "submitForm": MessageLookupByLibrary.simpleMessage("Enviar formulário"),
+        "tagKeywords": MessageLookupByLibrary.simpleMessage("Palavras-Chave"),
         "text": MessageLookupByLibrary.simpleMessage("Texto"),
         "theme": MessageLookupByLibrary.simpleMessage("Tema"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(

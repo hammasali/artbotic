@@ -59,5 +59,8 @@
   "submitForm": "فارم جمع کریں",
   "continueTxt": "جاری رہیں",
   "chooseAPlan": "ایک منصوبہ منتخب کریں",
-  "unlockAllTheAdvanceTxt": "پریمیم منصوبے پر اپنی تمام ایڈوانس فیچرز کو انلاک کریں"
+  "unlockAllTheAdvanceTxt": "پریمیم منصوبے پر اپنی تمام ایڈوانس فیچرز کو انلاک کریں",
+  "tagKeywords": "ٹیگ کی متعلقہ الفاظ",
+  "clearAll": "سب کچھ صاف کریں",
+  "addKeywords": "الفاظ شامل کریں"
 }

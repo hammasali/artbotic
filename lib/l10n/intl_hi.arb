@@ -59,7 +59,10 @@
   "submitForm": "फॉर्म जमा करें",
   "continueTxt": "जारी रखें",
   "chooseAPlan": "एक योजना चुनें" ,
-  "unlockAllTheAdvanceTxt": "प्रीमियम योजना पर अपग्र"
+  "unlockAllTheAdvanceTxt": "प्रीमियम योजना पर अपग्र",
+  "tagKeywords": "टैग की कीवर्ड्स",
+  "clearAll": "सभी को साफ करें",
+  "addKeywords": "कीवर्ड जोड़ें"
 }
 
 

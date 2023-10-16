@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addImage": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
+        "addKeywords": MessageLookupByLibrary.simpleMessage("إضافة كلمات"),
         "advanceSettings":
             MessageLookupByLibrary.simpleMessage("إعدادات متقدمة"),
         "aspectRatio":
@@ -34,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseAPlan": MessageLookupByLibrary.simpleMessage("اختر خطة"),
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("اختيار الإعدادات"),
+        "clearAll": MessageLookupByLibrary.simpleMessage("مسح الكل"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("استمر"),
@@ -83,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "تسجيل الدخول باستخدام Google"),
         "signup": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "submitForm": MessageLookupByLibrary.simpleMessage("إرسال النموذج"),
+        "tagKeywords": MessageLookupByLibrary.simpleMessage("وسوم الكلمات"),
         "text": MessageLookupByLibrary.simpleMessage("نص"),
         "theme": MessageLookupByLibrary.simpleMessage("السمة"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(

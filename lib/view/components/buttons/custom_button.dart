@@ -11,10 +11,12 @@ class CustomButton extends StatelessWidget {
       double? borderRadius,
       double? verticalPadding,
       TextStyle? textStyle,
-      String? icon})
+      String? icon,
+      List<Color>? color})
       : _borderRadius = borderRadius ?? 50,
         _verticalPadding = verticalPadding ?? 8,
         _icon = icon,
+        _color = color ?? [AppTheme.blueColor, AppTheme.purpleColor],
         _textStyle =
             textStyle ?? Theme.of(Get.context!).textTheme.displayLarge!;
 
@@ -22,8 +24,9 @@ class CustomButton extends StatelessWidget {
   final onTap;
   final double _borderRadius;
   final double _verticalPadding;
-
+  final List<Color> _color;
   final String? _icon;
+
   final TextStyle? _textStyle;
 
   @override
@@ -34,8 +37,8 @@ class CustomButton extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.symmetric(vertical: _verticalPadding),
             decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                    colors: [AppTheme.blueColor, AppTheme.purpleColor],
+                gradient: LinearGradient(
+                    colors: _color,
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight),
                 borderRadius: BorderRadius.circular(_borderRadius)),

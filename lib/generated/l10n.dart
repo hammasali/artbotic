@@ -649,6 +649,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Tag Keywords`
+  String get tagKeywords {
+    return Intl.message(
+      'Tag Keywords',
+      name: 'tagKeywords',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear All`
+  String get clearAll {
+    return Intl.message(
+      'Clear All',
+      name: 'clearAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Keywords`
+  String get addKeywords {
+    return Intl.message(
+      'Add Keywords',
+      name: 'addKeywords',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

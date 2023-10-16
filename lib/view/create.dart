@@ -12,6 +12,7 @@ import 'components/dotted_border.dart';
 import 'components/fields/custom_field2.dart';
 import 'components/sheets/advance_settings.dart';
 import 'components/sheets/select_styles.dart';
+import 'components/sheets/tag_keywords.dart';
 
 class Create extends StatelessWidget {
   Create({super.key});
@@ -187,28 +188,32 @@ class Create extends StatelessWidget {
                           Expanded(
                               child: CustomTextField2(hintText: s.description)),
                         ]),
-                    Row(children: [
-                      const Image(
-                          image: AssetImage(AppConsts.idea),
-                          height: 24,
-                          width: 24),
-                      const SizedBox(width: 6),
-                      Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: AppTheme.purpleColor),
-                              borderRadius: BorderRadius.circular(20.0)),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 4),
-                          child: Row(children: [
-                            Text(s.promptBuilder,
-                                style: Theme.of(context).textTheme.bodySmall),
-                            const SizedBox(width: 6),
-                            const Image(
-                                image: AssetImage(AppConsts.colors),
-                                height: 12,
-                                width: 12)
-                          ]))
-                    ])
+                    GestureDetector(
+                        onTap: () => tagKeywordsSheet(),
+                        child: Row(children: [
+                          const Image(
+                              image: AssetImage(AppConsts.idea),
+                              height: 24,
+                              width: 24),
+                          const SizedBox(width: 6),
+                          Container(
+                              decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: AppTheme.purpleColor),
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 4),
+                              child: Row(children: [
+                                Text(s.promptBuilder,
+                                    style:
+                                        Theme.of(context).textTheme.bodySmall),
+                                const SizedBox(width: 6),
+                                const Image(
+                                    image: AssetImage(AppConsts.colors),
+                                    height: 12,
+                                    width: 12)
+                              ]))
+                        ]))
                   ]))
         ]));
   }

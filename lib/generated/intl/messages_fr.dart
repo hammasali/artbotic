@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addImage": MessageLookupByLibrary.simpleMessage("Ajouter une image"),
+        "addKeywords":
+            MessageLookupByLibrary.simpleMessage("Ajouter des Mots-Clés"),
         "advanceSettings":
             MessageLookupByLibrary.simpleMessage("Paramètres avancés"),
         "aspectRatio": MessageLookupByLibrary.simpleMessage("Ratio d\'aspect"),
@@ -35,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Choisissez un plan"),
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("Choisir les paramètres"),
+        "clearAll": MessageLookupByLibrary.simpleMessage("Tout Effacer"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirmez le mot de passe"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("Continuer"),
@@ -93,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signup": MessageLookupByLibrary.simpleMessage("S\'inscrire"),
         "submitForm":
             MessageLookupByLibrary.simpleMessage("Envoyer le formulaire"),
+        "tagKeywords": MessageLookupByLibrary.simpleMessage("Mots-Clés"),
         "text": MessageLookupByLibrary.simpleMessage("Texte"),
         "theme": MessageLookupByLibrary.simpleMessage("Thème"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(

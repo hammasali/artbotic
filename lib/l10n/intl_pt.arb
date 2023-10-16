@@ -59,6 +59,9 @@
   "submitForm": "Enviar formulário",
   "continueTxt": "Continuar",
   "chooseAPlan": "Escolha um plano" ,
-  "unlockAllTheAdvanceTxt": "Desbloqueie todos os recursos avançados ao atualizar para o plano premium"
+  "unlockAllTheAdvanceTxt": "Desbloqueie todos os recursos avançados ao atualizar para o plano premium",
+  "tagKeywords": "Palavras-Chave",
+  "clearAll": "Limpar Tudo",
+  "addKeywords": "Adicionar Palavras-Chave"
 
 }
