@@ -59,5 +59,6 @@ class AppConsts {
   static const String fastProcessing = 'assets/purchases/fast_processing.png';
   static const String adFree = 'assets/purchases/ad_free.png';
   static const String upscaling = 'assets/purchases/upscaling.png';
+  static const String close = 'assets/purchases/close.png';
 
 }

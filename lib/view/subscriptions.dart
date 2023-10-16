@@ -1,10 +1,12 @@
 import 'package:artbotic/config/theme.dart';
 import 'package:artbotic/controllers/purchasing_controller.dart';
+import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../utils/app_const.dart';
+import '../utils/globals.dart';
 
 class Subscription extends StatelessWidget {
   Subscription({super.key});
@@ -28,93 +30,114 @@ class Subscription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SizedBox(
-      height: Get.height,
-      child: Column(mainAxisSize: MainAxisSize.max, children: [
-        getHeader(context),
-        getBackground(SizedBox(
-            height: Get.height * 0.45,
-            child: Column(children: [
-              getPremiumItems(context),
+      height: screenHeight,
+      child: Column(mainAxisSize: MainAxisSize.min, children: [
+        getHeader(context, screenHeight),
+        getBackground(
+            screenHeight,
+            SizedBox(
+                height: screenHeight * 0.45,
+                child: Column(children: [
+                  getPremiumItems(context, screenHeight),
 
-              /// SUBSCRIPTIONS
-              SizedBox(
-                  height: Get.height * 0.15,
-                  width: double.infinity,
-                  child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: subs.entries
-                          .map((e) => Obx(() {
-                                var isSelected =
-                                    controller.selectedSubscription.value ==
-                                        e.value;
-                                return InkWell(
-                                    onTap: () => controller
-                                        .selectedSubscription.value = e.value,
-                                    child: Container(
-                                        height: Get.height * 0.13,
-                                        width: 100,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: isSelected
-                                                    ? AppTheme.pinkColor
-                                                    : AppTheme.greyColor),
-                                            borderRadius:
-                                                BorderRadius.circular(16)),
-                                        child: Column(children: [
-                                          Expanded(
-                                              child: Container(
+                  /// SUBSCRIPTIONS
+                  SizedBox(
+                      height: screenHeight * 0.15,
+                      width: double.infinity,
+                      child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: subs.entries
+                              .map((e) => Obx(() {
+                                    var isSelected =
+                                        controller.selectedSubscription.value ==
+                                            e.value;
+                                    return InkWell(
+                                        onTap: () => controller
+                                            .selectedSubscription
+                                            .value = e.value,
+                                        child: Container(
+                                            height: screenHeight * 0.13,
+                                            width: 100,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: isSelected
+                                                        ? AppTheme.pinkColor
+                                                        : AppTheme.greyColor),
+                                                borderRadius:
+                                                    BorderRadius.circular(16)),
+                                            child: Column(children: [
+                                              Expanded(
+                                                  child: Container(
+                                                      alignment:
+                                                          Alignment.center,
+                                                      child: Text(e.key,
+                                                          style: Theme.of(
+                                                                  context)
+                                                              .textTheme
+                                                              .bodyLarge!
+                                                              .copyWith(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w900,
+                                                                  fontSize:
+                                                                      16)))),
+                                              Container(
+                                                  width: double.infinity,
                                                   alignment: Alignment.center,
-                                                  child: Text(e.key,
+                                                  decoration: BoxDecoration(
+                                                      // gradient: isSelected
+                                                      //     ? const LinearGradient(
+                                                      //         colors: [
+                                                      //             AppTheme
+                                                      //                 .blueColor,
+                                                      //             AppTheme
+                                                      //                 .purpleColor
+                                                      //           ],
+                                                      //         begin: Alignment
+                                                      //             .topCenter,
+                                                      //         end: Alignment
+                                                      //             .bottomCenter)
+                                                      //     : null,
+                                                      color: isSelected
+                                                          ? AppTheme.pinkColor
+                                                          : AppTheme.greyColor,
+                                                      borderRadius:
+                                                          const BorderRadius.vertical(
+                                                              bottom:
+                                                                  Radius.circular(
+                                                                      15))),
+                                                  child: Text(e.value,
                                                       style: Theme.of(context)
                                                           .textTheme
-                                                          .bodyLarge!
+                                                          .bodyMedium!
                                                           .copyWith(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w900,
-                                                              fontSize: 16)))),
-                                          Container(
-                                              width: double.infinity,
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                  color: isSelected
-                                                      ? AppTheme.lightPinkColor
-                                                      : AppTheme.greyColor,
-                                                  borderRadius:
-                                                      const BorderRadius
-                                                          .vertical(
-                                                          bottom:
-                                                              Radius.circular(
-                                                                  15))),
-                                              child: Text(e.value,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodyMedium!
-                                                      .copyWith(
-                                                          color: AppTheme
-                                                              .blackColor)))
-                                        ])));
-                              }))
-                          .toList())),
+                                                              color: isSelected
+                                                                  ? AppTheme
+                                                                      .whiteColor
+                                                                  : AppTheme
+                                                                      .blackColor)))
+                                            ])));
+                                  }))
+                              .toList())),
 
-              /// BUTTON
-              Container(
-                  height: Get.height * 0.1,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                  child: CustomButton(
-                      title: 'Continue',
-                      onTap: () {},
-                      verticalPadding: 4,
-                      borderRadius: 8,
-                      textStyle: Theme.of(context).textTheme.displayLarge))
-            ])))
+                  /// BUTTON
+                  Container(
+                      height: screenHeight * 0.1,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                      child: CustomButton(
+                          title: 'Continue',
+                          onTap: () {},
+                          verticalPadding: 4,
+                          borderRadius: 8,
+                          textStyle: Theme.of(context).textTheme.displayLarge))
+                ])))
       ]),
     ));
   }
 
-  getHeader(BuildContext context) {
+  getHeader(BuildContext context, double screenHeight) {
     return Stack(alignment: Alignment.center, children: [
       ClipRRect(
           clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -130,7 +153,7 @@ class Subscription extends StatelessWidget {
               blendMode: BlendMode.darken,
               child: Image(
                   image: const AssetImage(AppConsts.ai),
-                  height: Get.height * 0.55,
+                  height: screenHeight * 0.55,
                   width: Get.width,
                   fit: BoxFit.cover))),
       Positioned(
@@ -150,26 +173,36 @@ class Subscription extends StatelessWidget {
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                             color: AppTheme.whiteColor))
-                  ])))
+                  ]))),
+      Positioned(
+          left: 20,
+          top: 35,
+          child: GestureDetector(
+              onTap: () => navigatorKey.currentState!.pop(),
+              child: const Image(
+                  image: AssetImage(AppConsts.close),
+                  fit: BoxFit.cover,
+                  height: 25,
+                  width: 25))),
     ]);
   }
 
-  getBackground(Widget children) {
+  getBackground(double screenHeight, Widget children) {
     return Stack(children: [
       Image(
           image: const AssetImage(AppConsts.circuit),
           fit: BoxFit.cover,
           width: Get.width,
-          height: Get.height * 0.45),
+          height: screenHeight * 0.45),
       children
     ]);
   }
 
-  getPremiumItems(BuildContext context) {
+  getPremiumItems(BuildContext context, double screenHeight) {
     return Column(children: [
-      SizedBox(height: Get.height * 0.05),
+      SizedBox(height: screenHeight * 0.05),
       SizedBox(
-          height: Get.height * 0.15,
+          height: screenHeight * 0.15,
           child: GridView(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               shrinkWrap: true,
