@@ -5,6 +5,7 @@ import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../generated/l10n.dart';
 import '../utils/app_const.dart';
 import '../utils/globals.dart';
 
@@ -28,6 +29,7 @@ class Subscription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return Scaffold(
         body: SizedBox(
       height: screenHeight,
@@ -86,19 +88,6 @@ class Subscription extends StatelessWidget {
                                                   width: double.infinity,
                                                   alignment: Alignment.center,
                                                   decoration: BoxDecoration(
-                                                      // gradient: isSelected
-                                                      //     ? const LinearGradient(
-                                                      //         colors: [
-                                                      //             AppTheme
-                                                      //                 .blueColor,
-                                                      //             AppTheme
-                                                      //                 .purpleColor
-                                                      //           ],
-                                                      //         begin: Alignment
-                                                      //             .topCenter,
-                                                      //         end: Alignment
-                                                      //             .bottomCenter)
-                                                      //     : null,
                                                       color: isSelected
                                                           ? AppTheme.pinkColor
                                                           : AppTheme.greyColor,
@@ -127,7 +116,7 @@ class Subscription extends StatelessWidget {
                       alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(horizontal: 24.0),
                       child: CustomButton(
-                          title: 'Continue',
+                          title: s.continueTxt,
                           onTap: () {},
                           verticalPadding: 4,
                           borderRadius: 8,

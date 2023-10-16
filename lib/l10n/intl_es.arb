@@ -56,5 +56,8 @@
   "fullName": "Nombre completo",
   "yourEmail": "Tu correo electrónico",
   "writeYourQueriesHere": "Escribe tus consultas aquí...",
-  "submitForm": "Enviar formulario"
+  "submitForm": "Enviar formulario",
+  "continueTxt": "Continuar",
+  "chooseAPlan": "Elige un plan",
+  "unlockAllTheAdvanceTxt": "Desbloquea todas las características avanzadas al actualizar a la plan premium"
 }

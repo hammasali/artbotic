@@ -55,5 +55,8 @@
   "fullName": "Full name",
   "yourEmail": "Your email",
   "writeYourQueriesHere": "Write your queries here...",
-  "submitForm": "Submit Form"
+  "submitForm": "Submit Form",
+  "continueTxt": "Continue",
+  "chooseAPlan": "Choose a plan",
+  "unlockAllTheAdvanceTxt": "Unlock all the advance feature by upgrading to premium plan"
 }

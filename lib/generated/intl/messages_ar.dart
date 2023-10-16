@@ -31,10 +31,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "bin": MessageLookupByLibrary.simpleMessage("حذف"),
         "buy": MessageLookupByLibrary.simpleMessage("شراء"),
         "cgfScale": MessageLookupByLibrary.simpleMessage("مقياس CGF"),
+        "chooseAPlan": MessageLookupByLibrary.simpleMessage("اختر خطة"),
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("اختيار الإعدادات"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "continueTxt": MessageLookupByLibrary.simpleMessage("استمر"),
         "create": MessageLookupByLibrary.simpleMessage("إنشاء"),
         "customerSupport": MessageLookupByLibrary.simpleMessage("دعم العملاء"),
         "description":
@@ -83,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "submitForm": MessageLookupByLibrary.simpleMessage("إرسال النموذج"),
         "text": MessageLookupByLibrary.simpleMessage("نص"),
         "theme": MessageLookupByLibrary.simpleMessage("السمة"),
+        "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
+            "فتح جميع الميزات المتقدمة عن طريق الترقية إلى خطة بريميوم"),
         "upgradeToPro":
             MessageLookupByLibrary.simpleMessage("الترقية إلى احترافي"),
         "uploadImage": MessageLookupByLibrary.simpleMessage("تحميل الصورة"),

@@ -33,6 +33,7 @@ class AppTheme {
       dividerColor: lightDividerColor,
       primaryColor: lightPrimaryColor,
       hintColor: lightAccentColor,
+      primaryColorLight: pinkColor.withOpacity(0.3),
       scaffoldBackgroundColor: lightBackgroundColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       colorScheme: ColorScheme.light(
@@ -62,6 +63,7 @@ class AppTheme {
       dividerColor: darkDividerColor,
       primaryColor: darkPrimaryColor,
       hintColor: darkAccentColor,
+      primaryColorLight: greyColor.withOpacity(0.2),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       colorScheme: ColorScheme.dark(
           primary: darkPrimaryColor,

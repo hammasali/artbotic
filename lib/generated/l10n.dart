@@ -619,6 +619,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Continue`
+  String get continueTxt {
+    return Intl.message(
+      'Continue',
+      name: 'continueTxt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose a plan`
+  String get chooseAPlan {
+    return Intl.message(
+      'Choose a plan',
+      name: 'chooseAPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unlock all the advance feature by upgrading to premium plan`
+  String get unlockAllTheAdvanceTxt {
+    return Intl.message(
+      'Unlock all the advance feature by upgrading to premium plan',
+      name: 'unlockAllTheAdvanceTxt',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

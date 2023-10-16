@@ -30,10 +30,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "bin": MessageLookupByLibrary.simpleMessage("Bin"),
         "buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "cgfScale": MessageLookupByLibrary.simpleMessage("CGF Scale"),
+        "chooseAPlan": MessageLookupByLibrary.simpleMessage("Choose a plan"),
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("Choose Settings"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "continueTxt": MessageLookupByLibrary.simpleMessage("Continue"),
         "create": MessageLookupByLibrary.simpleMessage("Create"),
         "customerSupport":
             MessageLookupByLibrary.simpleMessage("Customer Support"),
@@ -84,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "submitForm": MessageLookupByLibrary.simpleMessage("Submit Form"),
         "text": MessageLookupByLibrary.simpleMessage("Text"),
         "theme": MessageLookupByLibrary.simpleMessage("Theme"),
+        "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
+            "Unlock all the advance feature by upgrading to premium plan"),
         "upgradeToPro": MessageLookupByLibrary.simpleMessage("Upgrade To Pro"),
         "uploadImage": MessageLookupByLibrary.simpleMessage("Upload Image"),
         "upscale": MessageLookupByLibrary.simpleMessage("Upscale"),

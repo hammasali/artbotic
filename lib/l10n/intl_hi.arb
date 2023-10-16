@@ -56,5 +56,10 @@
   "fullName": "पूरा नाम",
   "yourEmail": "आपका ईमेल",
   "writeYourQueriesHere": "अपने प्रश्न यहाँ लिखें...",
-  "submitForm": "फॉर्म जमा करें"}
+  "submitForm": "फॉर्म जमा करें",
+  "continueTxt": "जारी रखें",
+  "chooseAPlan": "एक योजना चुनें" ,
+  "unlockAllTheAdvanceTxt": "प्रीमियम योजना पर अपग्र"
+}
+
 

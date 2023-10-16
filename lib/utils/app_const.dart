@@ -60,5 +60,8 @@ class AppConsts {
   static const String adFree = 'assets/purchases/ad_free.png';
   static const String upscaling = 'assets/purchases/upscaling.png';
   static const String close = 'assets/purchases/close.png';
+  static const String crown = 'assets/purchases/crown.png';
+  static const String featured = 'assets/purchases/featured.png';
+  static const String speaker = 'assets/purchases/speaker.png';
 
 }

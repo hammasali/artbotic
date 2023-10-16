@@ -29,10 +29,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "bin": MessageLookupByLibrary.simpleMessage("کڑاھی"),
         "buy": MessageLookupByLibrary.simpleMessage("خریداری"),
         "cgfScale": MessageLookupByLibrary.simpleMessage("CGF پیمانہ"),
+        "chooseAPlan":
+            MessageLookupByLibrary.simpleMessage("ایک منصوبہ منتخب کریں"),
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("ترتیبات منتخب کریں"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("پاس ورڈ کی تصدیق کریں"),
+        "continueTxt": MessageLookupByLibrary.simpleMessage("جاری رہیں"),
         "create": MessageLookupByLibrary.simpleMessage("تخلیق کریں"),
         "customerSupport":
             MessageLookupByLibrary.simpleMessage("صارفین کی حمایت"),
@@ -84,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "submitForm": MessageLookupByLibrary.simpleMessage("فارم جمع کریں"),
         "text": MessageLookupByLibrary.simpleMessage("مواد"),
         "theme": MessageLookupByLibrary.simpleMessage("موضوع"),
+        "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
+            "پریمیم منصوبے پر اپنی تمام ایڈوانس فیچرز کو انلاک کریں"),
         "upgradeToPro":
             MessageLookupByLibrary.simpleMessage("پرو میں اپ گریڈ کریں"),
         "uploadImage":

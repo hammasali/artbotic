@@ -30,10 +30,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "bin": MessageLookupByLibrary.simpleMessage("बिन"),
         "buy": MessageLookupByLibrary.simpleMessage("खरीदें"),
         "cgfScale": MessageLookupByLibrary.simpleMessage("CGF स्केल"),
+        "chooseAPlan": MessageLookupByLibrary.simpleMessage("एक योजना चुनें"),
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("सेटिंग्स चुनें"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("पासवर्ड की पुष्टि करें"),
+        "continueTxt": MessageLookupByLibrary.simpleMessage("जारी रखें"),
         "create": MessageLookupByLibrary.simpleMessage("बनाएं"),
         "customerSupport":
             MessageLookupByLibrary.simpleMessage("ग्राहक सहायता"),
@@ -85,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "submitForm": MessageLookupByLibrary.simpleMessage("फॉर्म जमा करें"),
         "text": MessageLookupByLibrary.simpleMessage("टेक्स्ट"),
         "theme": MessageLookupByLibrary.simpleMessage("थीम"),
+        "unlockAllTheAdvanceTxt":
+            MessageLookupByLibrary.simpleMessage("प्रीमियम योजना पर अपग्र"),
         "upgradeToPro": MessageLookupByLibrary.simpleMessage("प्रो में अपग्र"),
         "uploadImage": MessageLookupByLibrary.simpleMessage("छवि अपलोड करें"),
         "upscale": MessageLookupByLibrary.simpleMessage("स्तर ऊंचा करें"),
