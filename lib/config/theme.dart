@@ -36,6 +36,8 @@ class AppTheme {
       primaryColorLight: pinkColor.withOpacity(0.3),
       scaffoldBackgroundColor: lightBackgroundColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+          color: purpleColor, circularTrackColor: darkPrimaryColor),
       colorScheme: ColorScheme.light(
           primary: lightPrimaryColor,
           background: lightBackgroundColor,
@@ -65,6 +67,8 @@ class AppTheme {
       hintColor: darkAccentColor,
       primaryColorLight: greyColor.withOpacity(0.2),
       visualDensity: VisualDensity.adaptivePlatformDensity,
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+          color: purpleColor, circularTrackColor: lightPrimaryColor),
       colorScheme: ColorScheme.dark(
           primary: darkPrimaryColor,
           background: darkBackgroundColor,
