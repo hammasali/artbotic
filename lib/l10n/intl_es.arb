@@ -62,5 +62,7 @@
   "unlockAllTheAdvanceTxt": "Desbloquea todas las características avanzadas al actualizar a la plan premium",
   "tagKeywords": "Palabras Clave",
   "clearAll": "Borrar Todo",
-  "addKeywords": "Agregar Palabras Clave"
+  "addKeywords": "Agregar Palabras Clave",
+  "apply": "Aplicar",
+  "mask": "Máscara"
 }

@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Schlüsselwörter hinzufügen"),
         "advanceSettings":
             MessageLookupByLibrary.simpleMessage("Erweiterte Einstellungen"),
+        "apply": MessageLookupByLibrary.simpleMessage("Anwenden"),
         "aspectRatio": MessageLookupByLibrary.simpleMessage("Seitenverhältnis"),
         "betterQuality":
             MessageLookupByLibrary.simpleMessage("Bessere Qualität"),
@@ -63,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "inspiration": MessageLookupByLibrary.simpleMessage("Inspiration"),
         "language": MessageLookupByLibrary.simpleMessage("Sprache"),
         "login": MessageLookupByLibrary.simpleMessage("Einloggen"),
+        "mask": MessageLookupByLibrary.simpleMessage("Maske"),
         "matchPrompt":
             MessageLookupByLibrary.simpleMessage("Mit Hinweis übereinstimmen"),
         "moreApps": MessageLookupByLibrary.simpleMessage("Weitere Apps"),

@@ -1,3 +1,4 @@
+import 'package:artbotic/view/inpainting.dart';
 import 'package:artbotic/view/landing.dart';
 import 'package:artbotic/view/language.dart';
 import 'package:artbotic/view/login.dart';
@@ -22,6 +23,7 @@ class PageRoutes {
   static const String language = '/language';
   static const String purchases = '/purchases';
   static const String subscriptions = '/subscriptions';
+  static const String inPainting = '/inPainting';
 }
 
 class PageNavigator extends StatelessWidget {
@@ -64,8 +66,8 @@ class PageNavigator extends StatelessWidget {
             case PageRoutes.landing:
               builder = (_) => Landing();
               break;
-            case PageRoutes.profile:
-              builder = (_) => Container();
+            case PageRoutes.inPainting:
+              builder = (_) => const InPainting();
               break;
             case PageRoutes.creationDetail:
               builder = (_) => CreationDetailPage();

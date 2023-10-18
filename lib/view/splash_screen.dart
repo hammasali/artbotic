@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:artbotic/routes/routes.dart';
+import 'package:artbotic/utils/app_const.dart';
 import 'package:artbotic/utils/globals.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  Image.asset('assets/gif/splash.gif', height: 250),
+                  Image.asset(AppConsts.splashGif, height: 250),
                   RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(children: [

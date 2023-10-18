@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addKeywords": MessageLookupByLibrary.simpleMessage("إضافة كلمات"),
         "advanceSettings":
             MessageLookupByLibrary.simpleMessage("إعدادات متقدمة"),
+        "apply": MessageLookupByLibrary.simpleMessage("تطبيق"),
         "aspectRatio":
             MessageLookupByLibrary.simpleMessage("نسبة العرض إلى الارتفاع"),
         "betterQuality": MessageLookupByLibrary.simpleMessage("جودة أفضل"),
@@ -59,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "inspiration": MessageLookupByLibrary.simpleMessage("إلهام"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "mask": MessageLookupByLibrary.simpleMessage("قناع"),
         "matchPrompt": MessageLookupByLibrary.simpleMessage("مطابقة التلميح"),
         "moreApps": MessageLookupByLibrary.simpleMessage("المزيد من التطبيقات"),
         "myCreation": MessageLookupByLibrary.simpleMessage("إبداعاتي"),

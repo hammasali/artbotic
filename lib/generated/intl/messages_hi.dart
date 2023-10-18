@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addKeywords": MessageLookupByLibrary.simpleMessage("कीवर्ड जोड़ें"),
         "advanceSettings":
             MessageLookupByLibrary.simpleMessage("उन्नत सेटिंग्स"),
+        "apply": MessageLookupByLibrary.simpleMessage("लागू करें"),
         "aspectRatio": MessageLookupByLibrary.simpleMessage("आस्पेक्ट अनुपात"),
         "betterQuality": MessageLookupByLibrary.simpleMessage("बेहतर गुणवत्ता"),
         "bin": MessageLookupByLibrary.simpleMessage("बिन"),
@@ -59,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "inspiration": MessageLookupByLibrary.simpleMessage("प्रेरणा"),
         "language": MessageLookupByLibrary.simpleMessage("भाषा"),
         "login": MessageLookupByLibrary.simpleMessage("लॉग इन"),
+        "mask": MessageLookupByLibrary.simpleMessage("मास्क"),
         "matchPrompt":
             MessageLookupByLibrary.simpleMessage("हिंट के साथ मेल खाएँ"),
         "moreApps": MessageLookupByLibrary.simpleMessage("और एप्लिकेशन्स"),

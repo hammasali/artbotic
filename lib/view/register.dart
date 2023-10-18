@@ -23,7 +23,7 @@ class Register extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Spacer(flex: 2),
+              const Spacer(flex: 3),
 
               /// HEADER
               Image.asset(AppConsts.icon, width: 150, height: 150),

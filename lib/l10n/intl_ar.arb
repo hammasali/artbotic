@@ -62,5 +62,7 @@
   "unlockAllTheAdvanceTxt": "فتح جميع الميزات المتقدمة عن طريق الترقية إلى خطة بريميوم",
   "tagKeywords": "وسوم الكلمات",
   "clearAll": "مسح الكل",
-  "addKeywords": "إضافة كلمات"
+  "addKeywords": "إضافة كلمات",
+  "apply": "تطبيق",
+  "mask": "قناع"
 }

@@ -23,7 +23,7 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Spacer(),
+                  const Spacer(flex: 2),
 
                   /// HEADER
                   Image.asset(AppConsts.icon, width: 150, height: 150),

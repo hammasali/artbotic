@@ -61,5 +61,7 @@
   "unlockAllTheAdvanceTxt": "Unlock all the advance feature by upgrading to premium plan",
    "tagKeywords": "Tag Keywords",
   "clearAll": "Clear All",
-  "addKeywords": "Add Keywords"
+  "addKeywords": "Add Keywords",
+  "apply": "Apply",
+  "mask": "Mask"
 }

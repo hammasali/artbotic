@@ -679,6 +679,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Apply`
+  String get apply {
+    return Intl.message(
+      'Apply',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mask`
+  String get mask {
+    return Intl.message(
+      'Mask',
+      name: 'mask',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

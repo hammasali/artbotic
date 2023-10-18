@@ -1,4 +1,5 @@
 class AppConsts {
+  static const String splashGif = 'assets/gif/splash.gif';
   static const String icon = 'assets/icons/icon.png';
   static const String iconRound = 'assets/icons/icon_round.png';
   static const String iconSquare = 'assets/icons/icon_sq.png';
@@ -63,5 +64,7 @@ class AppConsts {
   static const String crown = 'assets/purchases/crown.png';
   static const String featured = 'assets/purchases/featured.png';
   static const String speaker = 'assets/purchases/speaker.png';
-
+  static const String mask = 'assets/mask.png';
+  static const String maskErase = 'assets/mask_erase.png';
+  static const String maskBrush = 'assets/mask_brush.png';
 }
