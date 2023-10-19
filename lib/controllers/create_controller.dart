@@ -36,6 +36,9 @@ class CreateController extends GetxController {
 
   var imageFile = Rx<File?>(null);
 
+  var selectedTagIndex = 0.obs;
+  var selectedTags = <String>[].obs;
+
   @override
   void dispose() {
     promptController.dispose();
@@ -103,7 +106,6 @@ class CreateController extends GetxController {
     return file.writeAsBytes(decodedBytes);
   }
 
-
   final Map<String, String> options = {
     AppConsts.oneToOne: '1 : 1',
     AppConsts.nineToSix: '9 : 16',
@@ -111,7 +113,6 @@ class CreateController extends GetxController {
     AppConsts.fourToThree: '4 : 3',
     AppConsts.fiveToThree: '5 : 3',
   };
-  var selectedTags = <String>[].obs;
   var dummyData = [
     "Lorem",
     "ipsum",

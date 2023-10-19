@@ -208,7 +208,7 @@ class Create extends StatelessWidget {
                               width: 24)),
                       const SizedBox(width: 6),
                       InkWell(
-                        onTap: () => tagKeywordsSheet(),
+                        onTap: tagKeywordsSheet,
                         child: Container(
                             decoration: BoxDecoration(
                                 border: Border.all(color: AppTheme.purpleColor),

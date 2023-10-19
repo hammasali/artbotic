@@ -1,3 +1,4 @@
+import 'package:artbotic/data/app_data.dart';
 import 'package:artbotic/utils/globals.dart';
 import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ tagKeywordsSheet() {
 
             /// ITEMS TAGS
             const Divider(),
-            getKeyItems(),
+            getKeyItems(context),
             const Divider(),
 
             /// KEYWORDS
@@ -54,7 +55,14 @@ tagKeywordsSheet() {
                   const SizedBox(width: 10),
                   Flexible(
                       child: CustomButton(
-                          title: s.addKeywords, borderRadius: 5, onTap: () {}))
+                          title: s.addKeywords,
+                          borderRadius: 5,
+                          onTap: () {
+                            controller.promptController.text =
+                                controller.selectedTags.join(', ');
+                            controller.isClearText.value = true;
+                            Navigator.of(context).pop();
+                          }))
                 ]))
           ])));
 }
@@ -65,11 +73,11 @@ getKeywords(BuildContext context) {
   return Obx(() {
     return Expanded(
         child: SingleChildScrollView(
-            padding: const EdgeInsets.only(left: 8.0),
             child: Wrap(
-                spacing: 12.0,
-                runSpacing: 4.0,
-                children: controller.dummyData
+                spacing: 5.0,
+                alignment: WrapAlignment.start,
+                children: AppDataSet.tagKeywords.values
+                    .elementAt(controller.selectedTagIndex.value)
                     .map((e) => ChoiceChip(
                         label: Text(e,
                             style: Theme.of(context)
@@ -90,24 +98,58 @@ getKeywords(BuildContext context) {
   });
 }
 
-getKeyItems() {
-  return Column(children: [
-    SizedBox(
-        height: 100,
-        child: ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            shrinkWrap: true,
-            itemCount: 8,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (_, index) {
-              return Container(
-                  width: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.purple,
-                      borderRadius: BorderRadius.circular(8)));
-            },
-            separatorBuilder: (context, index) => const SizedBox(width: 15)))
-  ]);
+getKeyItems(BuildContext context) {
+  final CreateController controller = Get.find<CreateController>();
+
+  return SizedBox(
+      height: 100,
+      child: ListView.separated(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          shrinkWrap: true,
+          itemCount: AppDataSet.images.length,
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (_, index) {
+            final String image = AppDataSet.images[index];
+            final String title = AppDataSet.tagKeywords.keys.elementAt(index);
+
+            return Obx(() {
+              final isSelected = controller.selectedTagIndex.value == index;
+              return InkWell(
+                  onTap: () => controller.selectedTagIndex.value = index,
+                  child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: isSelected
+                                  ? AppTheme.purpleColor
+                                  : Colors.transparent,
+                              width: 2),
+                          borderRadius: BorderRadius.circular(8)),
+                      child:
+                          Stack(alignment: Alignment.bottomCenter, children: [
+                        Container(
+                            width: 100,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(image),
+                                    fit: BoxFit.contain))),
+                        Container(
+                            width: 100,
+                            height: 20,
+                            alignment: Alignment.bottomCenter,
+                            decoration: BoxDecoration(
+                                color: AppTheme.blackColor.withOpacity(0.7),
+                                borderRadius: const BorderRadius.vertical(
+                                    bottom: Radius.circular(8))),
+                            child: Text(title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .copyWith(color: AppTheme.whiteColor)))
+                      ])));
+            });
+          },
+          separatorBuilder: (context, index) => const SizedBox(width: 15)));
 }
 
 getSelectedTags(BuildContext context) {
