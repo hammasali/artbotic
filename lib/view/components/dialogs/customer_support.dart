@@ -8,8 +8,6 @@ import '../../../generated/l10n.dart';
 import '../fields/custom_field2.dart';
 
 showCustomerSupportPrompt() {
-  final s = S.of(Get.context!);
-
   return showGeneralDialog(
       barrierLabel: "Label",
       barrierDismissible: true,
@@ -46,6 +44,7 @@ showCustomerSupportPrompt() {
                       CustomTextField(hintText: s.yourEmail),
                       const Spacer(),
                       CustomTextField2(
+                        controller: TextEditingController(),
                           hintText: s.writeYourQueriesHere,
                           borderColor: AppTheme.darkAccentColor),
                       const Spacer(),

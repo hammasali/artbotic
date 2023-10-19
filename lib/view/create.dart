@@ -62,6 +62,7 @@ class Create extends StatelessWidget {
                 controller.isTextSelected.value = true;
                 controller.isImageSelected.value = false;
                 controller.isInPantingSelected.value = false;
+                controller.imageFile.value = null;
               }),
           const SizedBox(width: 10),
           CustomButton3(
@@ -72,6 +73,7 @@ class Create extends StatelessWidget {
                 controller.isTextSelected.value = false;
                 controller.isImageSelected.value = true;
                 controller.isInPantingSelected.value = false;
+                controller.imageFile.value = null;
               }),
           const SizedBox(width: 10),
           CustomButton3(
@@ -82,13 +84,14 @@ class Create extends StatelessWidget {
                 controller.isTextSelected.value = false;
                 controller.isImageSelected.value = false;
                 controller.isInPantingSelected.value = true;
+                controller.imageFile.value = null;
               })
         ]);
   }
 
   addImageContainer(BuildContext context) {
     final s = S.of(context);
-    if (controller.isTextSelected.value == true) {
+    if (controller.isTextSelected.value) {
       return const SizedBox.shrink();
     }
 
@@ -111,45 +114,49 @@ class Create extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Image(
-                            image: const AssetImage(AppConsts.upload),
-                            color: Theme.of(context).iconTheme.color,
-                            height: 25,
-                            width: 25)),
-                    Stack(alignment: Alignment.center, children: [
-                      const SizedBox(
-                          height: 120,
-                          width: 100,
-                          child: DashedRect(
-                              color: AppTheme.purpleColor,
-                              strokeWidth: 2.0,
-                              gap: 3.0)),
-                      Column(children: [
-                        Image(
-                            image: const AssetImage(AppConsts.addImage),
-                            color: Theme.of(context).iconTheme.color,
-                            height: 25,
-                            width: 25),
-                        const SizedBox(height: 10),
-                        Text(s.uploadImage,
-                            style: Theme.of(context).textTheme.bodySmall)
-                      ])
-                    ]),
-                    Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Image(
-                            image: const AssetImage(AppConsts.crop),
-                            color: Theme.of(context).iconTheme.color,
-                            height: 25,
-                            width: 25))
+                    Obx(() {
+                      if (controller.imageFile.value == null) {
+                        return GestureDetector(
+                            onTap: () => controller.pickImage(),
+                            child:
+                                Stack(alignment: Alignment.center, children: [
+                              const SizedBox(
+                                  height: 120,
+                                  width: 100,
+                                  child: DashedRect(
+                                      color: AppTheme.purpleColor,
+                                      strokeWidth: 2.0,
+                                      gap: 3.0)),
+                              Column(children: [
+                                Image(
+                                    image: const AssetImage(AppConsts.addImage),
+                                    color: Theme.of(context).iconTheme.color,
+                                    height: 25,
+                                    width: 25),
+                                const SizedBox(height: 10),
+                                Text(s.uploadImage,
+                                    style:
+                                        Theme.of(context).textTheme.bodySmall)
+                              ])
+                            ]));
+                      }
+
+                      return Stack(children: [
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.file(controller.imageFile.value!,
+                                width: 100, fit: BoxFit.cover)),
+                        Positioned(
+                          top: -10,
+                          right: -10,
+                          child: IconButton(
+                              onPressed: () =>
+                                  controller.imageFile.value = null,
+                              icon: const Icon(Icons.remove_circle,
+                                  color: AppTheme.pinkColor)),
+                        )
+                      ]);
+                    })
                   ]))
         ]));
   }
@@ -186,34 +193,48 @@ class Create extends StatelessWidget {
                                   height: 18,
                                   width: 18)),
                           Expanded(
-                              child: CustomTextField2(hintText: s.description)),
+                              child: CustomTextField2(
+                                  controller: controller.promptController,
+                                  onChange: controller.shouldShowClearTextIcon,
+                                  hintText: s.description)),
                         ]),
-                    GestureDetector(
-                        onTap: () => tagKeywordsSheet(),
-                        child: Row(children: [
-                          const Image(
+                    Row(children: [
+                      InkWell(
+                          onTap:
+                              controller.updateTextFieldWithRandomInspiration,
+                          child: const Image(
                               image: AssetImage(AppConsts.idea),
                               height: 24,
-                              width: 24),
-                          const SizedBox(width: 6),
-                          Container(
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: AppTheme.purpleColor),
-                                  borderRadius: BorderRadius.circular(20.0)),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 4),
-                              child: Row(children: [
-                                Text(s.promptBuilder,
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall),
-                                const SizedBox(width: 6),
-                                const Image(
-                                    image: AssetImage(AppConsts.colors),
-                                    height: 12,
-                                    width: 12)
-                              ]))
-                        ]))
+                              width: 24)),
+                      const SizedBox(width: 6),
+                      InkWell(
+                        onTap: () => tagKeywordsSheet(),
+                        child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(color: AppTheme.purpleColor),
+                                borderRadius: BorderRadius.circular(20.0)),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
+                            child: Row(children: [
+                              Text(s.promptBuilder,
+                                  style: Theme.of(context).textTheme.bodySmall),
+                              const SizedBox(width: 6),
+                              const Image(
+                                  image: AssetImage(AppConsts.colors),
+                                  height: 12,
+                                  width: 12)
+                            ])),
+                      ),
+                      const Spacer(),
+                      Obx(() => controller.isClearText.value
+                          ? GestureDetector(
+                              onTap: () {
+                                controller.isClearText.value = false;
+                                controller.promptController.clear();
+                              },
+                              child: const Icon(Icons.close))
+                          : const SizedBox.shrink())
+                    ])
                   ]))
         ]));
   }

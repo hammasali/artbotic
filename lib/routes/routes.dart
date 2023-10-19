@@ -4,7 +4,6 @@ import 'package:artbotic/view/language.dart';
 import 'package:artbotic/view/login.dart';
 import 'package:artbotic/view/purchases.dart';
 import 'package:artbotic/view/register.dart';
-import 'package:artbotic/view/splash_screen.dart';
 import 'package:artbotic/view/subscriptions.dart';
 import 'package:flutter/material.dart';
 
@@ -49,7 +48,7 @@ class PageNavigator extends StatelessWidget {
         onGenerateInitialRoutes: (route, initialRoute) {
           // FlutterNativeSplash.remove();
           if (initialRoute == PageRoutes.authLanding) {
-            return [MaterialPageRoute(builder: (_) => const SplashScreen())];
+            return [MaterialPageRoute(builder: (_) =>  Landing())];
           } else {
             return [MaterialPageRoute(builder: (_) => Container())];
           }
@@ -67,7 +66,7 @@ class PageNavigator extends StatelessWidget {
               builder = (_) => Landing();
               break;
             case PageRoutes.inPainting:
-              builder = (_) => const InPainting();
+              builder = (_) =>  InPainting();
               break;
             case PageRoutes.creationDetail:
               builder = (_) => CreationDetailPage();

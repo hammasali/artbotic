@@ -5,18 +5,22 @@ import '../../../config/theme.dart';
 class CustomTextField2 extends StatelessWidget {
   final String hintText;
   final Color borderColor;
+  final TextEditingController controller;
+  final onChange;
 
   const CustomTextField2(
       {super.key,
       required this.hintText,
+      required this.controller,
+      this.onChange,
       this.borderColor = Colors.transparent});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.0)),
-      child: TextField(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0)),
+      child: TextFormField(
+          controller: controller,
           cursorColor: AppTheme.purpleColor,
           decoration: InputDecoration(
               hintText: hintText,
@@ -38,9 +42,7 @@ class CustomTextField2 extends StatelessWidget {
           minLines: 5,
           maxLines: 5,
           keyboardType: TextInputType.multiline,
-          onChanged: (value) {
-            print(value);
-          }),
+          onChanged: onChange),
     );
   }
 }
