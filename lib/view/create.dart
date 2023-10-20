@@ -1,5 +1,7 @@
 import 'package:artbotic/config/theme.dart';
 import 'package:artbotic/controllers/create_controller.dart';
+import 'package:artbotic/data/app_data.dart';
+import 'package:artbotic/utils/globals.dart';
 import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:artbotic/view/components/buttons/custom_button3.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,6 @@ import 'components/dialogs/inspiration_detail.dart';
 import 'components/dotted_border.dart';
 import 'components/fields/custom_field2.dart';
 import 'components/sheets/advance_settings.dart';
-import 'components/sheets/select_styles.dart';
 import 'components/sheets/tag_keywords.dart';
 
 class Create extends StatelessWidget {
@@ -252,17 +253,21 @@ class Create extends StatelessWidget {
                     .textTheme
                     .titleLarge!
                     .copyWith(fontSize: 20)),
-            TextButton(
-                onPressed: selectSettingsModelSheet,
-                child: Text(s.seeAll,
-                    style: Theme.of(context).textTheme.bodyLarge))
+            // TextButton(
+            //     onPressed: selectSettingsModelSheet,
+            //     child: Text(s.seeAll,
+            //         style: Theme.of(context).textTheme.bodyLarge))
+            Obx(() {
+              return Text('${controller.selectedStyleModalName.value} >',
+                  style: Theme.of(context).textTheme.bodyLarge);
+            })
           ])),
       const SizedBox(height: 10),
       SizedBox(
-          height: 220,
+          height: screenHeight * 0.4,
           width: double.infinity,
           child: GridView.builder(
-              padding: const EdgeInsets.only(left: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
@@ -270,13 +275,48 @@ class Create extends StatelessWidget {
                   crossAxisCount: 2,
                   childAspectRatio: 1,
                   mainAxisSpacing: 20,
-                  crossAxisSpacing: 15),
-              itemCount: 8,
+                  crossAxisSpacing: 30),
+              itemCount: AppDataSet.styleModels.length,
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                    decoration: BoxDecoration(
-                        color: Colors.purple,
-                        borderRadius: BorderRadius.circular(8)));
+                final String image = AppDataSet.styleModels[index]['drawable'];
+                final String title =
+                    AppDataSet.styleModels[index]['model_name'];
+
+                return Obx(() {
+                  final isSelected =
+                      controller.selectedStyleIndex.value == index;
+
+                  return GestureDetector(
+                      onTap: () {
+                        controller.selectedStyleIndex.value = index;
+                        controller.selectedStyleModalName.value = title;
+                      },
+                      child: Column(mainAxisSize: MainAxisSize.min, children: [
+                        Container(
+                            height: screenHeight * 0.14,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: isSelected
+                                        ? AppTheme.purpleColor
+                                        : Colors.transparent,
+                                    width: 2),
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                    image: AssetImage(image),
+                                    fit: BoxFit.cover))),
+                        SizedBox(height: screenHeight * 0.01),
+                        Expanded(
+                            child: Container(
+                                alignment: Alignment.topCenter,
+                                child: Text(title,
+                                    textAlign: TextAlign.center,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge)))
+                      ]));
+                });
               })),
       const SizedBox(height: 15)
     ]);
@@ -342,15 +382,18 @@ class Create extends StatelessWidget {
               childAspectRatio: 1,
               mainAxisSpacing: 22,
               crossAxisSpacing: 30),
-          itemCount: 8,
+          itemCount: AppDataSet.inspirations.length,
           itemBuilder: (BuildContext context, int index) {
+            final String image = AppDataSet.inspirations[index]['icon']!;
+            final String prompt = AppDataSet.inspirations[index]['prompt']!;
+
             return InkWell(
-              onTap: () => showDetailPrompt(),
-              child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.purple,
-                      borderRadius: BorderRadius.circular(22))),
-            );
+                onTap: () => showDetailPrompt(image,prompt),
+                child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(22),
+                        image: DecorationImage(
+                            image: AssetImage(image), fit: BoxFit.cover))));
           }),
       const SizedBox(height: 15)
     ]);

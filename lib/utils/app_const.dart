@@ -105,4 +105,23 @@ class AppConsts {
   static const String i = 'assets/styles/i.webp';
   static const String j = 'assets/styles/j.webp';
   static const String k = 'assets/styles/k.webp';
+
+  /// ============ INSPIRATIONS ===========
+  static const String iOne = 'assets/inspiration/ione.webp';
+  static const String iTwo = 'assets/inspiration/itwo.webp';
+  static const String iThree = 'assets/inspiration/ithree.webp';
+  static const String iFour = 'assets/inspiration/ifour.webp';
+  static const String iFive = 'assets/inspiration/ifive.webp';
+  static const String iSix = 'assets/inspiration/isix.webp';
+  static const String iSeven = 'assets/inspiration/iseven.webp';
+  static const String iEight = 'assets/inspiration/ieight.webp';
+  static const String iNine = 'assets/inspiration/inine.webp';
+  static const String iTen = 'assets/inspiration/iten.webp';
+  static const String iEleven = 'assets/inspiration/ieleven.webp';
+  static const String iTwelve = 'assets/inspiration/itwleve.webp';
+  static const String iThirteen = 'assets/inspiration/ithirteen.webp';
+  static const String iFourteen = 'assets/inspiration/ifourteen.webp';
+  static const String iFifteen = 'assets/inspiration/ififteen.webp';
+  static const String iSixteen = 'assets/inspiration/isixteen.webp';
+
 }

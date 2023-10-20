@@ -132,7 +132,7 @@ getKeyItems(BuildContext context) {
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: AssetImage(image),
-                                    fit: BoxFit.contain))),
+                                    fit: BoxFit.cover))),
                         Container(
                             width: 100,
                             height: 20,

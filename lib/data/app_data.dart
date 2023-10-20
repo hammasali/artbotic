@@ -375,4 +375,85 @@ class AppDataSet {
       'drawable': AppConsts.d
     },
   ];
+
+  static const List<Map<String, String>> inspirations = [
+    {
+      'icon': AppConsts.iOne,
+      'prompt':
+          "full length oil painting of gorgeous woman as a translucent [artic fox spirit]| (full body)| detailed face| wearing white dress| straight white hair| mythical| elegant| hyperrealism| highly detailed| intricate detailed| volumetric lighting| Ukiyo-E| by Anne Stokes and Noriyoshi Ohrai"
+    },
+    {
+      'icon': AppConsts.iTwo,
+      'prompt':
+          "Tiny cute duck playing guitar toy, standing character, soft smooth lighting, soft pastel colors, skottie young,3d blender render, polycount, modular constructivism, pop surrealism, physically based rendering, square image"
+    },
+    {
+      'icon': AppConsts.iThree,
+      'prompt':
+          "an animated digital art illustration of a woman's eye and makeup, in the style of tristan eaton, psychedelic artwork, cyril rolando, orange and azure, conceptual art pieces, psychedelic tableaux, multi-layered figures"
+    },
+    {
+      'icon': AppConsts.iFour,
+      'prompt':
+          "Splash art of an armored mage channeling arcane magicks, mana shooting from his hands, mystical energy in the air, action shot, heroic fantasy art,special effects, hd octane render"
+    },
+    {
+      'icon': AppConsts.iFive,
+      'prompt':
+          "Full head and shoulders, beautiful female porcelain sculpture by daniel arsham and james jean, smooth, all white features on a white background, delicate facial features, white eyes, white lashes, detailed tangled white lillies and lillie leaves on the head,volumetric lighting"
+    },
+    {
+      'icon': AppConsts.iSix,
+      'prompt':
+          "Very detailed female, steampunk city taken over by plants in the background, d & d, fantasy, with blue flowers, beautiful face, hyperrealism delicate detailed complex, sophisticated, vibrant colors, volumetric lighting, pop surrealism art by Mark Ryden and Anna Dittmann"
+    },
+    {
+      'icon': AppConsts.iSeven,
+      'prompt':
+          "Tiny cute cow toy, reading a book, standing character, soft smooth lighting, soft pastel colors, skottie young, 3d blender render, polycount, modular constructivism, pop surrealism, physically based rendering, square image"
+    },
+    {
+      'icon': AppConsts.iEight,
+      'prompt': "Photo in a Post-Apocalyptic town, with houses and cars"
+    },
+    {
+      'icon': AppConsts.iNine,
+      'prompt':
+          "tiny cute isometric kitchen in a cutaway box, soft smooth lighting, soft colours, 100mm lens, 3d blender render"
+    },
+    {
+      'icon': AppConsts.iTen,
+      'prompt':
+          "Hypnotic illustration of a deer face, hypnotic psychedelic art by Dan Mumford, pop surrealism, dark glow neon paint, mystical, Behance"
+    },
+    {
+      'icon': AppConsts.iEleven,
+      'prompt':
+          "Digital art of an orc with metal armor, by Larry Elmore, by Justin Gerard"
+    },
+    {
+      'icon': AppConsts.iTwelve,
+      'prompt':
+          "A peaceful Japanese city street, dreamy, soft + colors, studio ghibli style"
+    },
+    {
+      'icon': AppConsts.iThirteen,
+      'prompt':
+          "An elegant winged fairy in the lord of the rings scenery landscape, looking out at a vast lush valley flowers and homes made of mushrooms, stream, sunrise, god's rays highly detailed, vivid color, cinematic lighting, perfect composition, 8 k, gustave dore, derek zabrocki, greg rutkowski, belsinski, octane render."
+    },
+    {
+      'icon': AppConsts.iFourteen,
+      'prompt':
+          "concept: The Battle of the Gods and Demons in Heaven\n\nIn Hindu mythology, there is often a struggle between gods (devas) and demons (asuras) for control over heaven and earth. You can create an image that depicts a fierce and chaotic battle taking place in the heavenly realms.\n\nScene Description:\n\nSetting: The image should be set in a celestial and surreal landscape, with floating islands, radiant clouds, and divine architecture to represent heaven.\n\nGods and Demons: Depict various gods from Hindu mythology, such as Lord Vishnu, Lord Shiva, Lord Indra, and others, on one side. On the other side, show formidable demon kings like Ravana, Mahishasura, and others.\n\nWeapons and Powers: Illustrate the gods and demons using their iconic weapons"
+    },
+    {
+      'icon': AppConsts.iFifteen,
+      'prompt': "painting of a car parked in front of a shop"
+    },
+    {
+      'icon': AppConsts.iSixteen,
+      'prompt':
+          "An ultra hd detailed watercolor painting, Jean-Baptiste Monge style,masterpiece, 32k, extremely high detailed, An anthropomorphic African wild dog, crouching, in the bush, fluffy, detailed hair, wearing battle clothes of Maasai people, savannah, bright colors, Maasai jewelry, holding a Maasai spear, digital painting, high quality, realistic, luminism, perfect, cinematic lighting, vivid colors, dark colors"
+    },
+  ];
 }

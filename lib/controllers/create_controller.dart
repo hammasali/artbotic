@@ -39,6 +39,9 @@ class CreateController extends GetxController {
   var selectedTagIndex = 0.obs;
   var selectedTags = <String>[].obs;
 
+  var selectedStyleIndex = 0.obs;
+  var selectedStyleModalName = 'SDXL'.obs;
+
   @override
   void dispose() {
     promptController.dispose();
