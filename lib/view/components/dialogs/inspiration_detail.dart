@@ -27,7 +27,9 @@ showDetailPrompt(String image, String prompt) {
                     width: Get.width * 0.8,
                     height: Get.height * 0.7,
                     decoration: BoxDecoration(
-                        color: Theme.of(context).scaffoldBackgroundColor,
+                        color: Theme
+                            .of(context)
+                            .scaffoldBackgroundColor,
                         borderRadius: BorderRadius.circular(20.0)),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -52,7 +54,9 @@ showDetailPrompt(String image, String prompt) {
                                   borderRadius: BorderRadius.circular(20.0),
                                   boxShadow: [
                                     BoxShadow(
-                                        color: Theme.of(context).primaryColor,
+                                        color: Theme
+                                            .of(context)
+                                            .primaryColor,
                                         blurRadius: 10,
                                         offset: const Offset(0, 5))
                                   ])),
@@ -63,45 +67,58 @@ showDetailPrompt(String image, String prompt) {
                               height: Get.height * 0.17,
                               padding: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
-                                  color: Theme.of(context).primaryColor,
+                                  color: Theme
+                                      .of(context)
+                                      .primaryColor,
                                   borderRadius: BorderRadius.circular(20.0),
                                   border: Border.all(
-                                      color: Theme.of(context).hintColor),
+                                      color: Theme
+                                          .of(context)
+                                          .hintColor),
                                   boxShadow: [
                                     BoxShadow(
-                                        color: Theme.of(context).primaryColor,
+                                        color: Theme
+                                            .of(context)
+                                            .primaryColor,
                                         blurRadius: 10,
                                         offset: const Offset(0, 5))
                                   ]),
                               child: Stack(children: [
                                 RichText(
                                     text: TextSpan(
-                                        style: DefaultTextStyle.of(context).style,
+                                        style: DefaultTextStyle
+                                            .of(context)
+                                            .style,
                                         children: <TextSpan>[
-                                      TextSpan(
-                                          text: '${s.prompt}\n',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleMedium!
-                                              .copyWith(fontSize: 20)),
-                                      TextSpan(
-                                          text: prompt,
-                                          style: Theme.of(Get.context!)
-                                              .textTheme
-                                              .bodySmall)
-                                    ])),
+                                          TextSpan(
+                                              text: '${s.prompt}\n',
+                                              style: Theme
+                                                  .of(context)
+                                                  .textTheme
+                                                  .titleMedium!
+                                                  .copyWith(fontSize: 20)),
+                                          TextSpan(
+                                              text: prompt,
+                                              style: Theme
+                                                  .of(Get.context!)
+                                                  .textTheme
+                                                  .bodySmall)
+                                        ])),
                                 Align(
-                                    alignment: Alignment.topRight,
+                                    alignment: Directionality.of(context) ==
+                                        TextDirection.ltr ? Alignment.topRight : Alignment.topLeft,
                                     child: InkWell(
                                         onTap: () {
                                           Clipboard.setData(
                                               ClipboardData(text: prompt));
-                                          ScaffoldMessenger.of(context).showSnackBar(
-                                               SnackBar(content: Text(s.textCopiedToClipboard))
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                              SnackBar(content: Text(
+                                                  s.textCopiedToClipboard))
                                           );
-
                                         },
-                                        child: const Icon(Icons.copy, size: 20)))
+                                        child: const Icon(
+                                            Icons.copy, size: 20)))
                               ])),
 
                           ///CUSTOM BUTTON
@@ -112,7 +129,10 @@ showDetailPrompt(String image, String prompt) {
                                   borderRadius: 8,
                                   verticalPadding: 4,
                                   textStyle:
-                                      Theme.of(context).textTheme.bodyLarge,
+                                  Theme
+                                      .of(context)
+                                      .textTheme
+                                      .bodyLarge,
                                   onTap: () {
                                     controller.promptController.text = prompt;
                                     controller.isClearText.value = true;
