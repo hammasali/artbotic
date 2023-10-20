@@ -12,11 +12,13 @@ class CustomButton extends StatelessWidget {
       double? verticalPadding,
       TextStyle? textStyle,
       String? icon,
+      Color? textColor,
       List<Color>? color})
       : _borderRadius = borderRadius ?? 50,
         _verticalPadding = verticalPadding ?? 8,
         _icon = icon,
         _color = color ?? [AppTheme.blueColor, AppTheme.purpleColor],
+        _textColor = textColor ?? AppTheme.whiteColor,
         _textStyle =
             textStyle ?? Theme.of(Get.context!).textTheme.displayLarge!;
 
@@ -26,6 +28,7 @@ class CustomButton extends StatelessWidget {
   final double _verticalPadding;
   final List<Color> _color;
   final String? _icon;
+  final Color _textColor;
 
   final TextStyle? _textStyle;
 
@@ -53,7 +56,7 @@ class CustomButton extends StatelessWidget {
                     ? const SizedBox.shrink()
                     : const SizedBox(width: 8),
                 Text(title,
-                    style: _textStyle!.copyWith(color: AppTheme.whiteColor),
+                    style: _textStyle!.copyWith(color: _textColor),
                     textAlign: TextAlign.center)
               ],
             )));

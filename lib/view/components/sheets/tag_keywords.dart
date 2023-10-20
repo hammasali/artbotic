@@ -46,10 +46,12 @@ tagKeywordsSheet() {
                   Flexible(
                       child: CustomButton(
                           title: s.clearAll,
+                          textColor: Theme.of(context).iconTheme.color,
                           color: [
                             Theme.of(context).primaryColor,
                             Theme.of(context).primaryColor
                           ],
+                          textStyle: Theme.of(context).textTheme.bodyLarge,
                           borderRadius: 5,
                           onTap: () => controller.selectedTags.clear())),
                   const SizedBox(width: 10),
@@ -57,6 +59,7 @@ tagKeywordsSheet() {
                       child: CustomButton(
                           title: s.addKeywords,
                           borderRadius: 5,
+                          textStyle: Theme.of(context).textTheme.bodyLarge,
                           onTap: () {
                             controller.promptController.text =
                                 controller.selectedTags.join(', ');
