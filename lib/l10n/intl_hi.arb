@@ -64,7 +64,15 @@
   "clearAll": "सभी को साफ करें",
   "addKeywords": "कीवर्ड जोड़ें",
   "apply": "लागू करें",
-  "mask": "मास्क"
+  "mask": "मास्क",
+  "enterCustomSeedDefault0": "कस्टम बीज दर्ज करें (डिफ़ॉल्ट 0)",
+  "selectIterations": "इटरेशन चुनें",
+  "selectGuidanceScale": "मार्गदर्शन स्केल चुनें",
+  "iterations": "इटरेशन्स",
+  "scale": "माप",
+  "textCopiedToClipboard": "पाठ क्लिपबोर्ड पर कॉपी किया गया है!",
+  "tryThisPrompt": "इस प्रॉम्प्ट को प्रयास करें"
+
 }
 
 

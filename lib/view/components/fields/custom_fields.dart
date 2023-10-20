@@ -6,10 +6,12 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextInputType keyboardType;
   final bool obscureText;
+  final TextEditingController controller;
 
   const CustomTextField({
     super.key,
     required this.hintText,
+    required this.controller,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
   });

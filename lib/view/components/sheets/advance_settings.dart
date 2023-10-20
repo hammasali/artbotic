@@ -6,6 +6,7 @@ import '../../../config/theme.dart';
 import '../../../controllers/create_controller.dart';
 import '../../../generated/l10n.dart';
 import '../../../utils/app_const.dart';
+import '../../../utils/globals.dart';
 import '../fields/custom_fields.dart';
 
 advanceSettingsModelSheet() {
@@ -13,42 +14,61 @@ advanceSettingsModelSheet() {
 
   return showModalBottomSheet(
       context: Get.context!,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(25.0))),
-      builder: (BuildContext context) => SingleChildScrollView(
-          child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                        child: Text(s.advanceSettings,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium!
-                                .copyWith(fontSize: 20))),
-                    getNegativePrompt(),
-                    aspectRatioChoice(),
-                    customSlider1(),
-                    customSlider2()
-                  ]))));
+      builder: (BuildContext context) => Padding(
+          padding: MediaQuery.of(context).viewInsets, // <-- Add this line
+          child: SingleChildScrollView(
+              child: Container(
+                  height: screenHeight * 0.7,
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                            child: Text(s.advanceSettings,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(fontSize: 20))),
+                        getNegativePrompt(),
+                        aspectRatioChoice(),
+                        customSlider1(),
+                        customSlider2(),
+                        getSeedScaling()
+                      ])))));
+}
+
+getSeedScaling() {
+  final s = S.of(Get.context!);
+  final CreateController controller = Get.find<CreateController>();
+  return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+      child: CustomTextField(
+          controller: controller.seedController,
+          keyboardType: TextInputType.number,
+          hintText: s.enterCustomSeedDefault0));
 }
 
 getNegativePrompt() {
   final s = S.of(Get.context!);
+  final CreateController controller = Get.find<CreateController>();
 
   return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const SizedBox(height: 15),
+        SizedBox(height: screenHeight * 0.02),
         Text(s.negativePrompt,
             style: Theme.of(Get.context!)
                 .textTheme
                 .bodyLarge!
                 .copyWith(fontSize: 16, fontWeight: FontWeight.w700)),
-        const SizedBox(height: 8),
-        CustomTextField(hintText: s.dontInclude),
-        const SizedBox(height: 30)
+        SizedBox(height: screenHeight * 0.01),
+        CustomTextField(
+            controller: controller.negPromptController,
+            hintText: s.dontInclude),
+        SizedBox(height: screenHeight * 0.03),
       ]));
 }
 
@@ -64,9 +84,9 @@ aspectRatioChoice() {
                 .textTheme
                 .bodyLarge!
                 .copyWith(fontSize: 16, fontWeight: FontWeight.w700))),
-    const SizedBox(height: 12),
+    SizedBox(height: screenHeight * 0.02),
     SizedBox(
-        height: 35,
+        height: screenHeight * 0.05,
         child: ListView.separated(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -117,9 +137,7 @@ aspectRatioChoice() {
                               const SizedBox(width: 8),
                               Text(ratio,
                                   style: isSelected
-                                      ? Theme.of(context)
-                                          .textTheme
-                                          .bodyLarge
+                                      ? Theme.of(context).textTheme.bodyLarge
                                       : Theme.of(context)
                                           .textTheme
                                           .bodyLarge!
@@ -131,7 +149,7 @@ aspectRatioChoice() {
               });
             },
             separatorBuilder: (context, index) => const SizedBox(width: 15))),
-    const SizedBox(height: 30)
+    SizedBox(height: screenHeight * 0.03),
   ]);
 }
 
@@ -139,16 +157,21 @@ customSlider1() {
   final CreateController controller = Get.find<CreateController>();
   final s = S.of(Get.context!);
 
-  return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(s.cgfScale,
-            style: Theme.of(Get.context!)
-                .textTheme
-                .bodyLarge!
-                .copyWith(fontSize: 16, fontWeight: FontWeight.w700)),
-        Obx(() {
-          return GradientSlider(
+  return Obx(() {
+    return Container(
+        height: screenHeight * 0.15,
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Text(s.selectIterations,
+                style: Theme.of(Get.context!)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(fontSize: 16, fontWeight: FontWeight.w700)),
+            Text('${controller.sliderIterations.value} ${s.iterations}',
+                style: Theme.of(Get.context!).textTheme.bodyMedium!)
+          ]),
+          GradientSlider(
               thumbAsset: AppConsts.sliderHead,
               thumbHeight: 20,
               thumbWidth: 20,
@@ -160,35 +183,40 @@ customSlider1() {
                   colors: [Colors.grey.shade300, Colors.grey.shade800]),
               slider: Slider(
                   min: 0.0,
-                  max: 10,
-                  value: controller.slider1.value,
+                  max: 51,
+                  value: controller.sliderIterations.value.toDouble(),
                   onChanged: (val) {
-                    controller.slider1.value = val;
-                  }));
-        }),
-        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text(s.betterQuality,
-              style: Theme.of(Get.context!).textTheme.bodySmall),
-          Text(s.matchPrompt, style: Theme.of(Get.context!).textTheme.bodySmall)
-        ]),
-        const Divider()
-      ]));
+                    controller.sliderIterations.value = val.toInt();
+                  })),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Text(s.betterQuality,
+                style: Theme.of(Get.context!).textTheme.bodySmall),
+            Text(s.matchPrompt,
+                style: Theme.of(Get.context!).textTheme.bodySmall)
+          ]),
+          const Divider(),
+        ]));
+  });
 }
 
 customSlider2() {
   final CreateController controller = Get.find<CreateController>();
   final s = S.of(Get.context!);
 
-  return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(s.seed,
-            style: Theme.of(Get.context!)
-                .textTheme
-                .bodyLarge!
-                .copyWith(fontSize: 16, fontWeight: FontWeight.w700)),
-        Obx(() {
-          return GradientSlider(
+  return Obx(() {
+    return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Text(s.selectGuidanceScale,
+                style: Theme.of(Get.context!)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(fontSize: 16, fontWeight: FontWeight.w700)),
+            Text('${controller.sliderScaling.value} ${s.scale}',
+                style: Theme.of(Get.context!).textTheme.bodyMedium!)
+          ]),
+          GradientSlider(
               thumbAsset: AppConsts.sliderHead,
               thumbHeight: 20,
               thumbWidth: 20,
@@ -200,12 +228,11 @@ customSlider2() {
                   colors: [Colors.grey.shade300, Colors.grey.shade800]),
               slider: Slider(
                   min: 0.0,
-                  max: 10,
-                  value: controller.slider2.value,
+                  max: 20,
+                  value: controller.sliderScaling.value.toDouble(),
                   onChanged: (val) {
-                    controller.slider2.value = val;
-                  }));
-        }),
-        const SizedBox(height: 15)
-      ]));
+                    controller.sliderScaling.value = val.toInt();
+                  }))
+        ]));
+  });
 }

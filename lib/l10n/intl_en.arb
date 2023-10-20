@@ -63,5 +63,12 @@
   "clearAll": "Clear All",
   "addKeywords": "Add Keywords",
   "apply": "Apply",
-  "mask": "Mask"
+  "mask": "Mask",
+  "enterCustomSeedDefault0": "Enter a Custom Seed (Default 0)",
+  "selectIterations": "Select Iterations",
+  "selectGuidanceScale": "Select Guidance Scale",
+  "iterations": "Iterations",
+  "scale": "Scale",
+  "textCopiedToClipboard": "Text copied to clipboard!",
+  "tryThisPrompt": "Try This Prompt"
 }

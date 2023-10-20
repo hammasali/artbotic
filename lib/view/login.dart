@@ -38,13 +38,16 @@ class Login extends StatelessWidget {
                   Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 28),
                       child: CustomTextField(
+                          controller: TextEditingController(),
                           hintText: s.email,
                           keyboardType: TextInputType.emailAddress)),
                   const SizedBox(height: 16.0), // Add spacing between fields
                   Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 28),
                       child: CustomTextField(
-                          hintText: s.password, obscureText: true)),
+                          controller: TextEditingController(),
+                          hintText: s.password,
+                          obscureText: true)),
                   SizedBox(height: Get.height * 0.04),
 
                   /// BUTTONS

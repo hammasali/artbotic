@@ -64,5 +64,13 @@
   "clearAll": "مسح الكل",
   "addKeywords": "إضافة كلمات",
   "apply": "تطبيق",
-  "mask": "قناع"
+  "mask": "قناع",
+  "enterCustomSeedDefault0": "أدخل البذرة المخصصة (الافتراضية 0)",
+  "selectIterations": "اختر الدورات",
+  "selectGuidanceScale": "حدد مقياس التوجيه",
+  "iterations": "الدورات",
+  "scale": "المقياس",
+  "textCopiedToClipboard": "النص تم نسخه إلى الحافظة!",
+  "tryThisPrompt": "جرب هذا الاقتراح"
+
 }

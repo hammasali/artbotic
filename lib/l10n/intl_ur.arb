@@ -64,5 +64,13 @@
   "clearAll": "سب کچھ صاف کریں",
   "addKeywords": "الفاظ شامل کریں",
   "apply": "لاگو کریں",
-  "mask": "ماسک"
+  "mask": "ماسک",
+  "enterCustomSeedDefault0": "کسٹم سیڈ درج کریں (معیاری 0)",
+  "selectIterations": "تعداد انعکاس منتخب کریں",
+  "selectGuidanceScale": "رہنمائی پیمانہ منتخب کریں",
+  "iterations": "انعکاس",
+  "scale": "پیمانہ",
+  "textCopiedToClipboard": "مواد کلپ بورڈ میں کاپی ہوگیا ہے!",
+  "tryThisPrompt": "اس پرامپٹ کو کوشش کریں"
+
 }

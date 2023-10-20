@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اكتب الكثير من الوصف هنا"),
         "dontInclude": MessageLookupByLibrary.simpleMessage("عدم الإدراج"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "enterCustomSeedDefault0": MessageLookupByLibrary.simpleMessage(
+            "أدخل البذرة المخصصة (الافتراضية 0)"),
         "enterPrompt": MessageLookupByLibrary.simpleMessage("أدخل التلميح؟"),
         "evolve": MessageLookupByLibrary.simpleMessage("تطور"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image": MessageLookupByLibrary.simpleMessage("صورة"),
         "inpainting": MessageLookupByLibrary.simpleMessage("إزالة التلوين"),
         "inspiration": MessageLookupByLibrary.simpleMessage("إلهام"),
+        "iterations": MessageLookupByLibrary.simpleMessage("الدورات"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "mask": MessageLookupByLibrary.simpleMessage("قناع"),
@@ -76,8 +79,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "promptBuilder": MessageLookupByLibrary.simpleMessage("منشئ التلميح"),
         "rateUs": MessageLookupByLibrary.simpleMessage("قيمنا"),
         "retouch": MessageLookupByLibrary.simpleMessage("المعالجة"),
+        "scale": MessageLookupByLibrary.simpleMessage("المقياس"),
         "seeAll": MessageLookupByLibrary.simpleMessage("رؤية الكل"),
         "seed": MessageLookupByLibrary.simpleMessage("البذور"),
+        "selectGuidanceScale":
+            MessageLookupByLibrary.simpleMessage("حدد مقياس التوجيه"),
+        "selectIterations":
+            MessageLookupByLibrary.simpleMessage("اختر الدورات"),
         "selectStyles": MessageLookupByLibrary.simpleMessage("اختيار الأنماط"),
         "sendUsAMessage":
             MessageLookupByLibrary.simpleMessage("أرسل لنا رسالة"),
@@ -89,7 +97,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "submitForm": MessageLookupByLibrary.simpleMessage("إرسال النموذج"),
         "tagKeywords": MessageLookupByLibrary.simpleMessage("وسوم الكلمات"),
         "text": MessageLookupByLibrary.simpleMessage("نص"),
+        "textCopiedToClipboard":
+            MessageLookupByLibrary.simpleMessage("النص تم نسخه إلى الحافظة!"),
         "theme": MessageLookupByLibrary.simpleMessage("السمة"),
+        "tryThisPrompt":
+            MessageLookupByLibrary.simpleMessage("جرب هذا الاقتراح"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
             "فتح جميع الميزات المتقدمة عن طريق الترقية إلى خطة بريميوم"),
         "upgradeToPro":

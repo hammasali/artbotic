@@ -94,11 +94,10 @@ showDetailPrompt(String image, String prompt) {
                                     alignment: Alignment.topRight,
                                     child: InkWell(
                                         onTap: () {
-                                          print('Tapping');
                                           Clipboard.setData(
                                               ClipboardData(text: prompt));
                                           ScaffoldMessenger.of(context).showSnackBar(
-                                              const SnackBar(content: Text('Text copied to clipboard!'))
+                                               SnackBar(content: Text(s.textCopiedToClipboard))
                                           );
 
                                         },
@@ -109,7 +108,7 @@ showDetailPrompt(String image, String prompt) {
                           SizedBox(
                               width: Get.width / 2,
                               child: CustomButton(
-                                  title: 'Try This Prompt',
+                                  title: s.tryThisPrompt,
                                   borderRadius: 8,
                                   verticalPadding: 4,
                                   textStyle:

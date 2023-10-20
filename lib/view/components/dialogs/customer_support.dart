@@ -39,12 +39,16 @@ showCustomerSupportPrompt() {
                       Text(s.sendUsAMessage,
                           style: Theme.of(context).textTheme.titleLarge),
                       const Spacer(),
-                      CustomTextField(hintText: s.fullName),
+                      CustomTextField(
+                          controller: TextEditingController(),
+                          hintText: s.fullName),
                       const SizedBox(height: 5),
-                      CustomTextField(hintText: s.yourEmail),
+                      CustomTextField(
+                          controller: TextEditingController(),
+                          hintText: s.yourEmail),
                       const Spacer(),
                       CustomTextField2(
-                        controller: TextEditingController(),
+                          controller: TextEditingController(),
                           hintText: s.writeYourQueriesHere,
                           borderColor: AppTheme.darkAccentColor),
                       const Spacer(),

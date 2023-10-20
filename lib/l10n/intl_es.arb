@@ -64,5 +64,13 @@
   "clearAll": "Borrar Todo",
   "addKeywords": "Agregar Palabras Clave",
   "apply": "Aplicar",
-  "mask": "Máscara"
+  "mask": "Máscara",
+  "enterCustomSeedDefault0": "Introduce una Semilla Personalizada (Por Defecto 0)",
+  "selectIterations": "Seleccionar Iteraciones",
+  "selectGuidanceScale": "Seleccionar Escala de Orientación",
+  "iterations": "Iteraciones",
+  "scale": "Escala",
+  "textCopiedToClipboard": "Texto copiado al portapapeles",
+  "tryThisPrompt": "Intenta con esta indicación"
+
 }

@@ -699,6 +699,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter a Custom Seed (Default 0)`
+  String get enterCustomSeedDefault0 {
+    return Intl.message(
+      'Enter a Custom Seed (Default 0)',
+      name: 'enterCustomSeedDefault0',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Iterations`
+  String get selectIterations {
+    return Intl.message(
+      'Select Iterations',
+      name: 'selectIterations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Guidance Scale`
+  String get selectGuidanceScale {
+    return Intl.message(
+      'Select Guidance Scale',
+      name: 'selectGuidanceScale',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Iterations`
+  String get iterations {
+    return Intl.message(
+      'Iterations',
+      name: 'iterations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scale`
+  String get scale {
+    return Intl.message(
+      'Scale',
+      name: 'scale',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Text copied to clipboard!`
+  String get textCopiedToClipboard {
+    return Intl.message(
+      'Text copied to clipboard!',
+      name: 'textCopiedToClipboard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try This Prompt`
+  String get tryThisPrompt {
+    return Intl.message(
+      'Try This Prompt',
+      name: 'tryThisPrompt',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

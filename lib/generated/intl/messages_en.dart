@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Write a lot of description here"),
         "dontInclude": MessageLookupByLibrary.simpleMessage("Don\'t Include"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterCustomSeedDefault0": MessageLookupByLibrary.simpleMessage(
+            "Enter a Custom Seed (Default 0)"),
         "enterPrompt": MessageLookupByLibrary.simpleMessage("Enter Prompt?"),
         "evolve": MessageLookupByLibrary.simpleMessage("Evolve"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "inpainting": MessageLookupByLibrary.simpleMessage("Inpainting"),
         "inspiration": MessageLookupByLibrary.simpleMessage("Inspiration"),
+        "iterations": MessageLookupByLibrary.simpleMessage("Iterations"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "mask": MessageLookupByLibrary.simpleMessage("Mask"),
@@ -77,8 +80,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "promptBuilder": MessageLookupByLibrary.simpleMessage("Prompt Builder"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Rate Us"),
         "retouch": MessageLookupByLibrary.simpleMessage("Retouch"),
+        "scale": MessageLookupByLibrary.simpleMessage("Scale"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "seed": MessageLookupByLibrary.simpleMessage("Seed"),
+        "selectGuidanceScale":
+            MessageLookupByLibrary.simpleMessage("Select Guidance Scale"),
+        "selectIterations":
+            MessageLookupByLibrary.simpleMessage("Select Iterations"),
         "selectStyles": MessageLookupByLibrary.simpleMessage("Select Styles"),
         "sendUsAMessage":
             MessageLookupByLibrary.simpleMessage("Send Us a Message"),
@@ -90,7 +98,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "submitForm": MessageLookupByLibrary.simpleMessage("Submit Form"),
         "tagKeywords": MessageLookupByLibrary.simpleMessage("Tag Keywords"),
         "text": MessageLookupByLibrary.simpleMessage("Text"),
+        "textCopiedToClipboard":
+            MessageLookupByLibrary.simpleMessage("Text copied to clipboard!"),
         "theme": MessageLookupByLibrary.simpleMessage("Theme"),
+        "tryThisPrompt":
+            MessageLookupByLibrary.simpleMessage("Try This Prompt"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
             "Unlock all the advance feature by upgrading to premium plan"),
         "upgradeToPro": MessageLookupByLibrary.simpleMessage("Upgrade To Pro"),

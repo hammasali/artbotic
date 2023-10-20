@@ -49,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "dontInclude":
             MessageLookupByLibrary.simpleMessage("Nicht einschließen"),
         "email": MessageLookupByLibrary.simpleMessage("E-Mail"),
+        "enterCustomSeedDefault0": MessageLookupByLibrary.simpleMessage(
+            "Geben Sie einen benutzerdefinierten Wert ein (Standardmäßig 0)"),
         "enterPrompt": MessageLookupByLibrary.simpleMessage(
             "Geben Sie einen Hinweis ein?"),
         "evolve": MessageLookupByLibrary.simpleMessage("Entwickeln"),
@@ -62,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image": MessageLookupByLibrary.simpleMessage("Bild"),
         "inpainting": MessageLookupByLibrary.simpleMessage("Inpainting"),
         "inspiration": MessageLookupByLibrary.simpleMessage("Inspiration"),
+        "iterations": MessageLookupByLibrary.simpleMessage("Iterationen"),
         "language": MessageLookupByLibrary.simpleMessage("Sprache"),
         "login": MessageLookupByLibrary.simpleMessage("Einloggen"),
         "mask": MessageLookupByLibrary.simpleMessage("Maske"),
@@ -84,8 +87,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hinweisgenerator"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Bewerten Sie uns"),
         "retouch": MessageLookupByLibrary.simpleMessage("Retusche"),
+        "scale": MessageLookupByLibrary.simpleMessage("Skala"),
         "seeAll": MessageLookupByLibrary.simpleMessage("Alle anzeigen"),
         "seed": MessageLookupByLibrary.simpleMessage("Seed"),
+        "selectGuidanceScale": MessageLookupByLibrary.simpleMessage(
+            "Auswählen des Leitwertmaßstabs"),
+        "selectIterations":
+            MessageLookupByLibrary.simpleMessage("Auswählen der Iterationen"),
         "selectStyles": MessageLookupByLibrary.simpleMessage("Stile auswählen"),
         "sendUsAMessage": MessageLookupByLibrary.simpleMessage(
             "Schicken Sie uns eine Nachricht"),
@@ -98,7 +106,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Formular abschicken"),
         "tagKeywords": MessageLookupByLibrary.simpleMessage("Schlagwörter"),
         "text": MessageLookupByLibrary.simpleMessage("Text"),
+        "textCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
+            "Text in die Zwischenablage kopiert!"),
         "theme": MessageLookupByLibrary.simpleMessage("Thema"),
+        "tryThisPrompt": MessageLookupByLibrary.simpleMessage(
+            "Probieren Sie diesen Vorschlag aus"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
             "Schalte alle fortgeschrittenen Funktionen frei, indem du zum Premium-Plan aufrüstest"),
         "upgradeToPro":

@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Escreva uma descrição detalhada aqui"),
         "dontInclude": MessageLookupByLibrary.simpleMessage("Não incluir"),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "enterCustomSeedDefault0": MessageLookupByLibrary.simpleMessage(
+            "Digite a Semente Personalizada (Padrão 0)"),
         "enterPrompt":
             MessageLookupByLibrary.simpleMessage("Digite a sugestão?"),
         "evolve": MessageLookupByLibrary.simpleMessage("Evoluir"),
@@ -61,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image": MessageLookupByLibrary.simpleMessage("Imagem"),
         "inpainting": MessageLookupByLibrary.simpleMessage("Inpainting"),
         "inspiration": MessageLookupByLibrary.simpleMessage("Inspiração"),
+        "iterations": MessageLookupByLibrary.simpleMessage("Iterações"),
         "language": MessageLookupByLibrary.simpleMessage("Idioma"),
         "login": MessageLookupByLibrary.simpleMessage("Entrar"),
         "mask": MessageLookupByLibrary.simpleMessage("Máscara"),
@@ -83,8 +86,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Construtor de sugestões"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Avalie-nos"),
         "retouch": MessageLookupByLibrary.simpleMessage("Retocar"),
+        "scale": MessageLookupByLibrary.simpleMessage("Escala"),
         "seeAll": MessageLookupByLibrary.simpleMessage("Ver tudo"),
         "seed": MessageLookupByLibrary.simpleMessage("Semente"),
+        "selectGuidanceScale": MessageLookupByLibrary.simpleMessage(
+            "Selecionar Escala de Orientação"),
+        "selectIterations":
+            MessageLookupByLibrary.simpleMessage("Selecionar Iterações"),
         "selectStyles":
             MessageLookupByLibrary.simpleMessage("Selecione estilos"),
         "sendUsAMessage":
@@ -97,7 +105,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "submitForm": MessageLookupByLibrary.simpleMessage("Enviar formulário"),
         "tagKeywords": MessageLookupByLibrary.simpleMessage("Palavras-Chave"),
         "text": MessageLookupByLibrary.simpleMessage("Texto"),
+        "textCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
+            "Texto copiado para a área de transferência!"),
         "theme": MessageLookupByLibrary.simpleMessage("Tema"),
+        "tryThisPrompt":
+            MessageLookupByLibrary.simpleMessage("Tente Este Prompt"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
             "Desbloqueie todos os recursos avançados ao atualizar para o plano premium"),
         "upgradeToPro":

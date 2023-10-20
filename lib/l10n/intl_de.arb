@@ -64,5 +64,13 @@
   "clearAll": "Alles löschen",
   "addKeywords": "Schlüsselwörter hinzufügen",
   "apply": "Anwenden",
-  "mask": "Maske"
+  "mask": "Maske",
+  "enterCustomSeedDefault0": "Geben Sie einen benutzerdefinierten Wert ein (Standardmäßig 0)",
+  "selectIterations": "Auswählen der Iterationen",
+  "selectGuidanceScale": "Auswählen des Leitwertmaßstabs",
+  "iterations": "Iterationen",
+  "scale": "Skala",
+  "textCopiedToClipboard": "Text in die Zwischenablage kopiert!",
+  "tryThisPrompt": "Probieren Sie diesen Vorschlag aus"
+
 }

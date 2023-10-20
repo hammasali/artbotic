@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("یہاں تفصیلی تشریح کریں"),
         "dontInclude": MessageLookupByLibrary.simpleMessage("شامل نہ کریں"),
         "email": MessageLookupByLibrary.simpleMessage("ای میل"),
+        "enterCustomSeedDefault0": MessageLookupByLibrary.simpleMessage(
+            "کسٹم سیڈ درج کریں (معیاری 0)"),
         "enterPrompt": MessageLookupByLibrary.simpleMessage("ہدایت دیں؟"),
         "evolve": MessageLookupByLibrary.simpleMessage("ترقی پائیں"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image": MessageLookupByLibrary.simpleMessage("تصویر"),
         "inpainting": MessageLookupByLibrary.simpleMessage("ان پینٹنگ"),
         "inspiration": MessageLookupByLibrary.simpleMessage("افکار"),
+        "iterations": MessageLookupByLibrary.simpleMessage("انعکاس"),
         "language": MessageLookupByLibrary.simpleMessage("زبان"),
         "login": MessageLookupByLibrary.simpleMessage("لاگ ان"),
         "mask": MessageLookupByLibrary.simpleMessage("ماسک"),
@@ -77,8 +80,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ہدایت بنانے والا"),
         "rateUs": MessageLookupByLibrary.simpleMessage("ہمیں درجہ دیں"),
         "retouch": MessageLookupByLibrary.simpleMessage("دوبارہ ٹیچ کریں"),
+        "scale": MessageLookupByLibrary.simpleMessage("پیمانہ"),
         "seeAll": MessageLookupByLibrary.simpleMessage("سب دیکھیں"),
         "seed": MessageLookupByLibrary.simpleMessage("بیج"),
+        "selectGuidanceScale":
+            MessageLookupByLibrary.simpleMessage("رہنمائی پیمانہ منتخب کریں"),
+        "selectIterations":
+            MessageLookupByLibrary.simpleMessage("تعداد انعکاس منتخب کریں"),
         "selectStyles":
             MessageLookupByLibrary.simpleMessage("اشکال منتخب کریں"),
         "sendUsAMessage":
@@ -92,7 +100,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "tagKeywords":
             MessageLookupByLibrary.simpleMessage("ٹیگ کی متعلقہ الفاظ"),
         "text": MessageLookupByLibrary.simpleMessage("مواد"),
+        "textCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
+            "مواد کلپ بورڈ میں کاپی ہوگیا ہے!"),
         "theme": MessageLookupByLibrary.simpleMessage("موضوع"),
+        "tryThisPrompt":
+            MessageLookupByLibrary.simpleMessage("اس پرامپٹ کو کوشش کریں"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
             "پریمیم منصوبے پر اپنی تمام ایڈوانس فیچرز کو انلاک کریں"),
         "upgradeToPro":

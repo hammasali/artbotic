@@ -49,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Écrivez une description détaillée ici"),
         "dontInclude": MessageLookupByLibrary.simpleMessage("Ne pas inclure"),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "enterCustomSeedDefault0": MessageLookupByLibrary.simpleMessage(
+            "Saisissez une Graine Personnalisée (Par Défaut 0)"),
         "enterPrompt":
             MessageLookupByLibrary.simpleMessage("Entrez une indication ?"),
         "evolve": MessageLookupByLibrary.simpleMessage("Évoluer"),
@@ -62,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "inpainting": MessageLookupByLibrary.simpleMessage("Inpainting"),
         "inspiration": MessageLookupByLibrary.simpleMessage("Inspiration"),
+        "iterations": MessageLookupByLibrary.simpleMessage("Itérations"),
         "language": MessageLookupByLibrary.simpleMessage("Langue"),
         "login": MessageLookupByLibrary.simpleMessage("Se connecter"),
         "mask": MessageLookupByLibrary.simpleMessage("Masque"),
@@ -85,8 +88,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Générateur d\'indications"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Évaluez-nous"),
         "retouch": MessageLookupByLibrary.simpleMessage("Retoucher"),
+        "scale": MessageLookupByLibrary.simpleMessage("Échelle"),
         "seeAll": MessageLookupByLibrary.simpleMessage("Tout voir"),
         "seed": MessageLookupByLibrary.simpleMessage("Seed"),
+        "selectGuidanceScale": MessageLookupByLibrary.simpleMessage(
+            "Sélectionnez l\'Échelle de Guidage"),
+        "selectIterations":
+            MessageLookupByLibrary.simpleMessage("Sélectionnez les Itérations"),
         "selectStyles":
             MessageLookupByLibrary.simpleMessage("Sélectionner des styles"),
         "sendUsAMessage":
@@ -100,7 +108,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Envoyer le formulaire"),
         "tagKeywords": MessageLookupByLibrary.simpleMessage("Mots-Clés"),
         "text": MessageLookupByLibrary.simpleMessage("Texte"),
+        "textCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
+            "Texte copié dans le presse-papiers !"),
         "theme": MessageLookupByLibrary.simpleMessage("Thème"),
+        "tryThisPrompt":
+            MessageLookupByLibrary.simpleMessage("Essayez cette suggestion"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
             "Débloquez toutes les fonctionnalités avancées en passant au plan premium"),
         "upgradeToPro":

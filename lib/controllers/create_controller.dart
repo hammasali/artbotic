@@ -21,9 +21,12 @@ class CreateController extends GetxController {
   var isInPantingSelected = false.obs;
 
   var selectedIndex = 0.obs;
-  var slider1 = 0.0.obs;
-  var slider2 = 0.0.obs;
+  var sliderIterations = 21.obs;
+  var sliderScaling = 7.obs;
   var currentImageIndex = 0.obs;
+  final TextEditingController negPromptController = TextEditingController();
+  final TextEditingController seedController = TextEditingController(text: '0');
+
 
   final TextEditingController promptController = TextEditingController();
   var isClearText = false.obs;

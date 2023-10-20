@@ -64,5 +64,13 @@
   "clearAll": "Tout Effacer",
   "addKeywords": "Ajouter des Mots-Clés",
   "apply": "Appliquer",
-  "mask": "Masque"
+  "mask": "Masque",
+  "enterCustomSeedDefault0": "Saisissez une Graine Personnalisée (Par Défaut 0)",
+  "selectIterations": "Sélectionnez les Itérations",
+  "selectGuidanceScale": "Sélectionnez l'Échelle de Guidage",
+  "iterations": "Itérations",
+  "scale": "Échelle",
+  "textCopiedToClipboard": "Texte copié dans le presse-papiers !",
+  "tryThisPrompt": "Essayez cette suggestion"
+
 }

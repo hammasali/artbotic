@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("यहां विस्तृत विवरण लिखें"),
         "dontInclude": MessageLookupByLibrary.simpleMessage("शामिल न करें"),
         "email": MessageLookupByLibrary.simpleMessage("ईमेल"),
+        "enterCustomSeedDefault0": MessageLookupByLibrary.simpleMessage(
+            "कस्टम बीज दर्ज करें (डिफ़ॉल्ट 0)"),
         "enterPrompt": MessageLookupByLibrary.simpleMessage("हिंट दर्ज करें?"),
         "evolve": MessageLookupByLibrary.simpleMessage("विकसित करें"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image": MessageLookupByLibrary.simpleMessage("छवि"),
         "inpainting": MessageLookupByLibrary.simpleMessage("इनपेंटिंग"),
         "inspiration": MessageLookupByLibrary.simpleMessage("प्रेरणा"),
+        "iterations": MessageLookupByLibrary.simpleMessage("इटरेशन्स"),
         "language": MessageLookupByLibrary.simpleMessage("भाषा"),
         "login": MessageLookupByLibrary.simpleMessage("लॉग इन"),
         "mask": MessageLookupByLibrary.simpleMessage("मास्क"),
@@ -78,8 +81,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "promptBuilder": MessageLookupByLibrary.simpleMessage("हिंट निर्माता"),
         "rateUs": MessageLookupByLibrary.simpleMessage("हमें रेटिंग दें"),
         "retouch": MessageLookupByLibrary.simpleMessage("रीटच"),
+        "scale": MessageLookupByLibrary.simpleMessage("माप"),
         "seeAll": MessageLookupByLibrary.simpleMessage("सभी देखें"),
         "seed": MessageLookupByLibrary.simpleMessage("सीड"),
+        "selectGuidanceScale":
+            MessageLookupByLibrary.simpleMessage("मार्गदर्शन स्केल चुनें"),
+        "selectIterations":
+            MessageLookupByLibrary.simpleMessage("इटरेशन चुनें"),
         "selectStyles": MessageLookupByLibrary.simpleMessage("स्टाइल चुनें"),
         "sendUsAMessage":
             MessageLookupByLibrary.simpleMessage("हमें संदेश भेजें"),
@@ -91,7 +99,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "submitForm": MessageLookupByLibrary.simpleMessage("फॉर्म जमा करें"),
         "tagKeywords": MessageLookupByLibrary.simpleMessage("टैग की कीवर्ड्स"),
         "text": MessageLookupByLibrary.simpleMessage("टेक्स्ट"),
+        "textCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
+            "पाठ क्लिपबोर्ड पर कॉपी किया गया है!"),
         "theme": MessageLookupByLibrary.simpleMessage("थीम"),
+        "tryThisPrompt":
+            MessageLookupByLibrary.simpleMessage("इस प्रॉम्प्ट को प्रयास करें"),
         "unlockAllTheAdvanceTxt":
             MessageLookupByLibrary.simpleMessage("प्रीमियम योजना पर अपग्र"),
         "upgradeToPro": MessageLookupByLibrary.simpleMessage("प्रो में अपग्र"),
