@@ -12,86 +12,86 @@ class AppConsts {
   static const String selectedCreate = 'assets/bottom_bar/selected_create.webp';
   static const String gallery = 'assets/bottom_bar/gallery.webp';
   static const String selectedGallery =
-      'assets/bottom_bar/selected_gallery.png';
-  static const String settings = 'assets/bottom_bar/settings.png';
+      'assets/bottom_bar/selected_gallery.webp';
+  static const String settings = 'assets/bottom_bar/settings.webp';
   static const String selectedSettings =
-      'assets/bottom_bar/selected_settings.png';
+      'assets/bottom_bar/selected_settings.webp';
 
   /// =========== ASSETS ============
-  static const String google = 'assets/google.png';
-  static const String textIcon = 'assets/artbotic.png';
-  static const String instagram = 'assets/instagram.png';
-  static const String discord = 'assets/discord.png';
-  static const String diamond = 'assets/diamond.png';
-  static const String inPainting = 'assets/inpainting.png';
-  static const String text = 'assets/text.png';
-  static const String edit = 'assets/edit.png';
-  static const String idea = 'assets/idea.png';
-  static const String colors = 'assets/colors.png';
-  static const String addImage = 'assets/add_image.png';
-  static const String upload = 'assets/upload.png';
-  static const String crop = 'assets/crop.png';
-  static const String arrowDown = 'assets/arrow_down.png';
-  static const String brush = 'assets/brush.png';
-  static const String sliderHead = 'assets/slider_head.png';
-  static const String mask = 'assets/mask.png';
-  static const String maskErase = 'assets/mask_erase.png';
-  static const String maskBrush = 'assets/mask_brush.png';
+  static const String google = 'assets/google.webp';
+  static const String textIcon = 'assets/artbotic.webp';
+  static const String instagram = 'assets/instagram.webp';
+  static const String discord = 'assets/discord.webp';
+  static const String diamond = 'assets/diamond.webp';
+  static const String inPainting = 'assets/inpainting.webp';
+  static const String text = 'assets/text.webp';
+  static const String edit = 'assets/edit.webp';
+  static const String idea = 'assets/idea.webp';
+  static const String colors = 'assets/colors.webp';
+  static const String addImage = 'assets/add_image.webp';
+  static const String upload = 'assets/upload.webp';
+  static const String crop = 'assets/crop.webp';
+  static const String arrowDown = 'assets/arrow_down.webp';
+  static const String brush = 'assets/brush.webp';
+  static const String sliderHead = 'assets/slider_head.webp';
+  static const String mask = 'assets/mask.webp';
+  static const String maskErase = 'assets/mask_erase.webp';
+  static const String maskBrush = 'assets/mask_brush.webp';
 
   /// =========== ASPECT RATIO ==========
-  static const String oneToOne = 'assets/aspect_ratio/one_one.png';
-  static const String nineToSix = 'assets/aspect_ratio/nine_six.png';
-  static const String fourToThree = 'assets/aspect_ratio/four_three.png';
-  static const String fourToFive = 'assets/aspect_ratio/four_five.png';
-  static const String fiveToThree = 'assets/aspect_ratio/five_three.png';
+  static const String oneToOne = 'assets/aspect_ratio/one_one.webp';
+  static const String nineToSix = 'assets/aspect_ratio/nine_six.webp';
+  static const String fourToThree = 'assets/aspect_ratio/four_three.webp';
+  static const String fourToFive = 'assets/aspect_ratio/four_five.webp';
+  static const String fiveToThree = 'assets/aspect_ratio/five_three.webp';
 
   /// =========== CREATION DETAIL ==========
-  static const String variation = 'assets/creation_detail/variation.png';
-  static const String bin = 'assets/creation_detail/bin.png';
-  static const String download = 'assets/creation_detail/download.png';
-  static const String evolve = 'assets/creation_detail/evolve.png';
-  static const String retouch = 'assets/creation_detail/retouch.png';
-  static const String upscale = 'assets/creation_detail/upscale.png';
+  static const String variation = 'assets/creation_detail/variation.webp';
+  static const String bin = 'assets/creation_detail/bin.webp';
+  static const String download = 'assets/creation_detail/download.webp';
+  static const String evolve = 'assets/creation_detail/evolve.webp';
+  static const String retouch = 'assets/creation_detail/retouch.webp';
+  static const String upscale = 'assets/creation_detail/upscale.webp';
 
   /// =========== SETTINGS =================
-  static const String customerSupport = 'assets/settings/customer_support.png';
-  static const String language = 'assets/settings/language.png';
-  static const String moreApps = 'assets/settings/more_apps.png';
-  static const String privacyPolicy = 'assets/settings/privacy_policy.png';
-  static const String rateUs = 'assets/settings/rate_us.png';
-  static const String share = 'assets/settings/share.png';
-  static const String theme = 'assets/settings/theme.png';
-  static const String king = 'assets/settings/king.png';
-  static const String arrowRight = 'assets/settings/arrow_right.png';
+  static const String customerSupport = 'assets/settings/customer_support.webp';
+  static const String language = 'assets/settings/language.webp';
+  static const String moreApps = 'assets/settings/more_apps.webp';
+  static const String privacyPolicy = 'assets/settings/privacy_policy.webp';
+  static const String rateUs = 'assets/settings/rate_us.webp';
+  static const String share = 'assets/settings/share.webp';
+  static const String theme = 'assets/settings/theme.webp';
+  static const String king = 'assets/settings/king.webp';
+  static const String arrowRight = 'assets/settings/arrow_right.webp';
 
   /// =========== LANGUAGE =================
-  static const String english = 'assets/language/english.png';
-  static const String arabic = 'assets/language/arabic.png';
-  static const String spanish = 'assets/language/spanish.png';
-  static const String portuguese = 'assets/language/portuguese.png';
-  static const String german = 'assets/language/german.png';
-  static const String french = 'assets/language/french.png';
-  static const String urdu = 'assets/language/urdu.png';
-  static const String hindi = 'assets/language/hindi.png';
+  static const String english = 'assets/language/english.webp';
+  static const String arabic = 'assets/language/arabic.webp';
+  static const String spanish = 'assets/language/spanish.webp';
+  static const String portuguese = 'assets/language/portuguese.webp';
+  static const String german = 'assets/language/german.webp';
+  static const String french = 'assets/language/french.webp';
+  static const String urdu = 'assets/language/urdu.webp';
+  static const String hindi = 'assets/language/hindi.webp';
 
   /// =========== PURCHASES =================
-  static const String circuit = 'assets/purchases/circuit.png';
-  static const String ai = 'assets/purchases/ai.png';
-  static const String fastProcessing = 'assets/purchases/fast_processing.png';
-  static const String adFree = 'assets/purchases/ad_free.png';
-  static const String upscaling = 'assets/purchases/upscaling.png';
-  static const String close = 'assets/purchases/close.png';
-  static const String crown = 'assets/purchases/crown.png';
-  static const String featured = 'assets/purchases/featured.png';
-  static const String speaker = 'assets/purchases/speaker.png';
+  static const String circuit = 'assets/purchases/circuit.webp';
+  static const String ai = 'assets/purchases/ai.webp';
+  static const String fastProcessing = 'assets/purchases/fast_processing.webp';
+  static const String adFree = 'assets/purchases/ad_free.webp';
+  static const String upscaling = 'assets/purchases/upscaling.webp';
+  static const String close = 'assets/purchases/close.webp';
+  static const String crown = 'assets/purchases/crown.webp';
+  static const String featured = 'assets/purchases/featured.webp';
+  static const String speaker = 'assets/purchases/speaker.webp';
 
   /// =========== KEYWORDS =================
-  static const String artisan = 'assets/keywords/artisan.png';
-  static const String featuredTagImg = 'assets/keywords/featured.png';
-  static const String genres = 'assets/keywords/genres.png';
-  static const String shades = 'assets/keywords/shades.png';
-  static const String trendy = 'assets/keywords/trendy.png';
-  static const String vibe = 'assets/keywords/vibe.png';
+  static const String artisan = 'assets/keywords/artisan.webp';
+  static const String featuredTagImg = 'assets/keywords/featured.webp';
+  static const String genres = 'assets/keywords/genres.webp';
+  static const String shades = 'assets/keywords/shades.webp';
+  static const String trendy = 'assets/keywords/trendy.webp';
+  static const String vibe = 'assets/keywords/vibe.webp';
 
   /// =========== STYLES =================
   static const String a = 'assets/styles/a.webp';
