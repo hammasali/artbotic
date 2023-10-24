@@ -53,7 +53,6 @@ class InPainting extends StatelessWidget {
                             repaintBoundaryKey);
                     controller.imageFile.value =
                         await controller.base64ToFile(base64String);
-                    debugPrint(base64String, wrapWidth: 1024);
                     navigatorKey.currentState!.pop();
                   },
                   borderRadius: 4))

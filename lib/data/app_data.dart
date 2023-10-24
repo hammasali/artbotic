@@ -35,6 +35,14 @@ class AppDataSet {
     AppConsts.vibe
   ];
 
+  static const Map<String, String> options = {
+    AppConsts.oneToOne: '1 : 1',
+    AppConsts.nineToSix: '9 : 16',
+    AppConsts.fourToFive: '4 : 5',
+    AppConsts.fourToThree: '4 : 3',
+    AppConsts.fiveToThree: '5 : 3',
+  };
+
   static const Map<String, List<String>> tagKeywords = {
     'Trendy': [
       'Current fashion trends',

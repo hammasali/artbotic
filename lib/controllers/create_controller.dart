@@ -13,7 +13,6 @@ import 'package:path_provider/path_provider.dart';
 
 import '../config/theme.dart';
 import '../routes/routes.dart';
-import '../utils/app_const.dart';
 
 class CreateController extends GetxController {
   var isTextSelected = true.obs;
@@ -48,6 +47,8 @@ class CreateController extends GetxController {
   @override
   void dispose() {
     promptController.dispose();
+    negPromptController.dispose();
+    seedController.dispose();
     super.dispose();
   }
 
@@ -111,83 +112,4 @@ class CreateController extends GetxController {
     final file = File('${directory.path}/temp_image.jpg');
     return file.writeAsBytes(decodedBytes);
   }
-
-  final Map<String, String> options = {
-    AppConsts.oneToOne: '1 : 1',
-    AppConsts.nineToSix: '9 : 16',
-    AppConsts.fourToFive: '4 : 5',
-    AppConsts.fourToThree: '4 : 3',
-    AppConsts.fiveToThree: '5 : 3',
-  };
-  var dummyData = [
-    "Lorem",
-    "ipsum",
-    "dolor",
-    "sit",
-    "amet",
-    "consectetur",
-    "adipiscing",
-    "elit",
-    "sed",
-    "do",
-    "eiusmod",
-    "tempor",
-    "incididunt",
-    "ut",
-    "labore",
-    "et",
-    "dolore",
-    "magna",
-    "aliqua",
-    "Ut",
-    "enim",
-    "ad",
-    "minim",
-    "veniam",
-    "quis",
-    "nostrud",
-    "exercitation",
-    "ullamco",
-    "laboris",
-    "nisi",
-    "ut",
-    "aliquip",
-    "ex",
-    "ea",
-    "commodo",
-    "consequat",
-    "Duis",
-    "aute",
-    "irure",
-    "dolor",
-    "in",
-    "reprehenderit",
-    "in",
-    "voluptate",
-    "velit",
-    "esse",
-    "cillum",
-    "dolore",
-    "eu",
-    "fugiat",
-    "nulla",
-    "pariatur",
-    "Excepteur",
-    "sint",
-    "occaecat",
-    "cupidatat",
-    "non",
-    "proident",
-    "sunt",
-    "in",
-    "culpa",
-    "qui",
-    "officia",
-    "deserunt",
-    "mollit",
-    "anim",
-    "id",
-    "est",
-    "laborum"
-  ];
 }

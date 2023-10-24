@@ -1,3 +1,4 @@
+import 'package:artbotic/data/app_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradient_slider/gradient_slider.dart';
@@ -92,10 +93,10 @@ aspectRatioChoice() {
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.only(left: 24),
-            itemCount: controller.options.length,
+            itemCount: AppDataSet.options.length,
             itemBuilder: (context, index) {
-              String icon = controller.options.keys.elementAt(index);
-              String ratio = controller.options.values.elementAt(index);
+              String icon = AppDataSet.options.keys.elementAt(index);
+              String ratio = AppDataSet.options.values.elementAt(index);
               return Obx(() {
                 bool isSelected = controller.selectedIndex.value == index;
 
