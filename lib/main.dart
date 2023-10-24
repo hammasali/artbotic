@@ -4,16 +4,17 @@ import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 import 'generated/l10n.dart';
 import 'locale/language_controller.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await AppConfig().init();
 
   runApp(const App());
 }
@@ -71,19 +72,17 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: controller.themeMode.value,
-          localizationsDelegates:  const [
+          localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate
           ],
           locale: Get.locale,
           supportedLocales: S.delegate.supportedLocales,
-          builder: (context, Widget? child) {
-            return MediaQuery(
-                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-                child: child!);
-          },
+          builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+              child: EasyLoading.init()(context, child)),
           home: const Directionality(
               textDirection: TextDirection.ltr, child: PageNavigator()));
     });

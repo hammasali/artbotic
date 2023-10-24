@@ -8,9 +8,9 @@ class AppConsts {
   static const String iconSquare = 'assets/icons/icon_sq.png';
 
   /// =========== BOTTOM BAR =======
-  static const String create = 'assets/bottom_bar/create.png';
-  static const String selectedCreate = 'assets/bottom_bar/selected_create.png';
-  static const String gallery = 'assets/bottom_bar/gallery.png';
+  static const String create = 'assets/bottom_bar/create.webp';
+  static const String selectedCreate = 'assets/bottom_bar/selected_create.webp';
+  static const String gallery = 'assets/bottom_bar/gallery.webp';
   static const String selectedGallery =
       'assets/bottom_bar/selected_gallery.png';
   static const String settings = 'assets/bottom_bar/settings.png';
@@ -123,5 +123,9 @@ class AppConsts {
   static const String iFourteen = 'assets/inspiration/ifourteen.webp';
   static const String iFifteen = 'assets/inspiration/ififteen.webp';
   static const String iSixteen = 'assets/inspiration/isixteen.webp';
+
+  ///============= BASE URL ============
+  static const String baseUrl = 'https://edecator.com/aiApp/';
+
 
 }

@@ -4,6 +4,7 @@ import 'package:artbotic/data/app_data.dart';
 import 'package:artbotic/utils/globals.dart';
 import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:artbotic/view/components/buttons/custom_button3.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -63,7 +64,7 @@ class Create extends StatelessWidget {
                 controller.isTextSelected.value = true;
                 controller.isImageSelected.value = false;
                 controller.isInPantingSelected.value = false;
-                controller.imageFile.value = null;
+                controller.resetImage();
               }),
           const SizedBox(width: 10),
           CustomButton3(
@@ -74,7 +75,7 @@ class Create extends StatelessWidget {
                 controller.isTextSelected.value = false;
                 controller.isImageSelected.value = true;
                 controller.isInPantingSelected.value = false;
-                controller.imageFile.value = null;
+                controller.resetImage();
               }),
           const SizedBox(width: 10),
           CustomButton3(
@@ -85,7 +86,7 @@ class Create extends StatelessWidget {
                 controller.isTextSelected.value = false;
                 controller.isImageSelected.value = false;
                 controller.isInPantingSelected.value = true;
-                controller.imageFile.value = null;
+                controller.resetImage();
               })
         ]);
   }
@@ -116,46 +117,32 @@ class Create extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Obx(() {
-                      if (controller.imageFile.value == null) {
+                      if (controller.imageUrl.value == null) {
                         return GestureDetector(
-                            onTap: () => controller.pickImage(),
-                            child:
-                                Stack(alignment: Alignment.center, children: [
-                              const SizedBox(
-                                  height: 120,
-                                  width: 100,
-                                  child: DashedRect(
-                                      color: AppTheme.purpleColor,
-                                      strokeWidth: 2.0,
-                                      gap: 3.0)),
-                              Column(children: [
-                                Image(
-                                    image: const AssetImage(AppConsts.addImage),
-                                    color: Theme.of(context).iconTheme.color,
-                                    height: 25,
-                                    width: 25),
-                                const SizedBox(height: 10),
-                                Text(s.uploadImage,
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall)
-                              ])
-                            ]));
+                            onTap: controller.pickImage,
+                            child: imageHolder(context, false));
                       }
 
                       return Stack(children: [
                         ClipRRect(
                             borderRadius: BorderRadius.circular(12),
-                            child: Image.file(controller.imageFile.value!,
-                                width: 100, fit: BoxFit.cover)),
+                            child: CachedNetworkImage(
+                                imageUrl: controller.imageUrl.value!,
+                                width: 100,
+                                fit: BoxFit.cover,
+                                progressIndicatorBuilder:
+                                    (context, url, downloadProgress) => Stack(
+                                            alignment: Alignment.center,
+                                            children: [
+                                              imageHolder(context, true),
+                                            ]))),
                         Positioned(
-                          top: -10,
-                          right: -10,
-                          child: IconButton(
-                              onPressed: () =>
-                                  controller.imageFile.value = null,
-                              icon: const Icon(Icons.remove_circle,
-                                  color: AppTheme.pinkColor)),
-                        )
+                            top: -10,
+                            right: -10,
+                            child: IconButton(
+                                onPressed: controller.resetImage,
+                                icon: const Icon(Icons.remove_circle,
+                                    color: AppTheme.pinkColor)))
                       ]);
                     })
                   ]))
@@ -388,7 +375,7 @@ class Create extends StatelessWidget {
             final String prompt = AppDataSet.inspirations[index]['prompt']!;
 
             return InkWell(
-                onTap: () => showDetailPrompt(image,prompt),
+                onTap: () => showDetailPrompt(image, prompt),
                 child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(22),
@@ -396,6 +383,30 @@ class Create extends StatelessWidget {
                             image: AssetImage(image), fit: BoxFit.cover))));
           }),
       const SizedBox(height: 15)
+    ]);
+  }
+
+  imageHolder(BuildContext context, bool isLoading) {
+    final s = S.of(context);
+
+    return Stack(alignment: Alignment.center, children: [
+      const SizedBox(
+          height: 120,
+          width: 100,
+          child: DashedRect(
+              color: AppTheme.purpleColor, strokeWidth: 2.0, gap: 3.0)),
+      isLoading
+          ? const CircularProgressIndicator.adaptive(
+              backgroundColor: AppTheme.whiteColor)
+          : Column(children: [
+              Image(
+                  image: const AssetImage(AppConsts.addImage),
+                  color: Theme.of(context).iconTheme.color,
+                  height: 25,
+                  width: 25),
+              const SizedBox(height: 10),
+              Text(s.uploadImage, style: Theme.of(context).textTheme.bodySmall)
+            ])
     ]);
   }
 }

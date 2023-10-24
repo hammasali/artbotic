@@ -4,12 +4,14 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:artbotic/controllers/api_controller.dart';
 import 'package:artbotic/data/app_data.dart';
+import 'package:artbotic/utils/globals.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 
 import '../config/theme.dart';
 import '../routes/routes.dart';
@@ -26,7 +28,6 @@ class CreateController extends GetxController {
   final TextEditingController negPromptController = TextEditingController();
   final TextEditingController seedController = TextEditingController(text: '0');
 
-
   final TextEditingController promptController = TextEditingController();
   var isClearText = false.obs;
 
@@ -36,7 +37,8 @@ class CreateController extends GetxController {
   var currentDrawingColor = AppTheme.whiteColor.obs;
   var strokeWidth = 15.0.obs;
 
-  var imageFile = Rx<File?>(null);
+  File? imageFile;
+  var imageUrl = Rx<String?>(null);
 
   var selectedTagIndex = 0.obs;
   var selectedTags = <String>[].obs;
@@ -52,14 +54,44 @@ class CreateController extends GetxController {
     super.dispose();
   }
 
+  defaultSettings() {
+    selectedIndex.value = 0;
+    sliderIterations.value = 21;
+    sliderScaling.value = 7;
+    currentImageIndex.value = 0;
+    negPromptController.clear();
+    seedController.text = '0';
+
+    promptController.clear();
+    isClearText.value = false;
+
+    isMaskSelected.value = true;
+    isEraseSelected.value = false;
+    points = <Offset?>[];
+    currentDrawingColor.value = AppTheme.whiteColor;
+    strokeWidth.value = 15.0;
+
+    imageFile = null;
+    imageUrl.value = null;
+
+    selectedTagIndex.value = 0;
+    selectedTags.value = <String>[];
+
+    selectedStyleIndex.value = 0;
+    selectedStyleModalName.value = 'SDXL';
+  }
+
   void pickImage() async {
     final XFile? image =
         await ImagePicker().pickImage(source: ImageSource.gallery);
 
     if (image != null) {
-      imageFile.value = File(image.path);
+      imageFile = File(image.path);
       if (isInPantingSelected.value) {
         navigatorKey.currentState!.pushNamed(PageRoutes.inPainting);
+      } else if (isImageSelected.value) {
+        String base64String = base64Encode(imageFile!.readAsBytesSync());
+        await uploadBase64EncodedImage(base64String);
       }
     }
   }
@@ -96,6 +128,12 @@ class CreateController extends GetxController {
     isEraseSelected.value = false;
   }
 
+  resetImage() {
+    imageFile = null;
+    points.clear();
+    imageUrl.value = null;
+  }
+
   Future<String> renderedImageAndGetMergedImageToBase64(
       GlobalKey<State<StatefulWidget>> repaintBoundaryKey) async {
     RenderRepaintBoundary boundary = repaintBoundaryKey.currentContext!
@@ -106,10 +144,16 @@ class CreateController extends GetxController {
     return base64Encode(unit8list);
   }
 
-  Future<File?> base64ToFile(String base64String) async {
-    final decodedBytes = base64Decode(base64String);
-    final directory = await getTemporaryDirectory();
-    final file = File('${directory.path}/temp_image.jpg');
-    return file.writeAsBytes(decodedBytes);
+  uploadBase64EncodedImage(String image) async {
+    try {
+      getLoader('Uploading Image...');
+      var json = await ApiController().uploadImage(image);
+      imageUrl.value = json['link'];
+      debugPrint(imageUrl.value.toString());
+      dismissLoader();
+    } catch (e) {
+      debugPrint(e.toString());
+      getError(e.toString());
+    }
   }
 }

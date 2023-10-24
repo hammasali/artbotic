@@ -36,7 +36,7 @@ class InPainting extends StatelessWidget {
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              controller.imageFile.value = null;
+              controller.resetImage();
               navigatorKey.currentState!.pop();
             }),
         title: Text(s.create, style: Theme.of(context).textTheme.titleMedium),
@@ -48,12 +48,14 @@ class InPainting extends StatelessWidget {
                   title: s.apply,
                   textStyle: Theme.of(context).textTheme.titleMedium,
                   onTap: () async {
-                    String base64String =
-                        await controller.renderedImageAndGetMergedImageToBase64(
-                            repaintBoundaryKey);
-                    controller.imageFile.value =
-                        await controller.base64ToFile(base64String);
-                    navigatorKey.currentState!.pop();
+                    if (controller.points.isNotEmpty) {
+                      String base64String = await controller
+                          .renderedImageAndGetMergedImageToBase64(
+                              repaintBoundaryKey);
+                      await controller.uploadBase64EncodedImage(base64String);
+                      controller.points.clear();
+                      navigatorKey.currentState!.pop();
+                    }
                   },
                   borderRadius: 4))
         ]);
@@ -127,7 +129,7 @@ class PaintOnImage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12)),
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
-                            child: Image.file(controller.imageFile.value!,
+                            child: Image.file(controller.imageFile!,
                                 width: 100, fit: BoxFit.cover))),
 
                     /// DRAW CANVAS
