@@ -1,3 +1,7 @@
+import 'package:get/get.dart';
+
+import '../generated/l10n.dart';
+
 class AppConsts {
   /// =========== GIF =============
   static const String splashGif = 'assets/gif/splash.gif';
@@ -127,5 +131,11 @@ class AppConsts {
   ///============= BASE URL ============
   static const String baseUrl = 'https://edecator.com/aiApp/';
 
-
+  static final Map<String, String> features = {
+    AppConsts.variation: S.of(Get.context!).variation,
+    AppConsts.evolve: S.of(Get.context!).evolve,
+    AppConsts.upscale: S.of(Get.context!).upscale,
+    AppConsts.retouch: S.of(Get.context!).retouch,
+    AppConsts.bin: S.of(Get.context!).bin
+  };
 }

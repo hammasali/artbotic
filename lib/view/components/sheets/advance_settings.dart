@@ -22,9 +22,10 @@ advanceSettingsModelSheet() {
           padding: MediaQuery.of(context).viewInsets, // <-- Add this line
           child: SingleChildScrollView(
               child: Container(
-                  height: screenHeight * 0.7,
+                  height: screenHeight * 0.75,
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Center(
@@ -42,8 +43,8 @@ advanceSettingsModelSheet() {
 }
 
 getSeedScaling() {
-  final s = S.of(Get.context!);
   final CreateController controller = Get.find<CreateController>();
+  final s = S.of(Get.context!);
   return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: CustomTextField(
@@ -53,8 +54,8 @@ getSeedScaling() {
 }
 
 getNegativePrompt() {
-  final s = S.of(Get.context!);
   final CreateController controller = Get.find<CreateController>();
+  final s = S.of(Get.context!);
 
   return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -98,11 +99,12 @@ aspectRatioChoice() {
               String icon = AppDataSet.options.keys.elementAt(index);
               String ratio = AppDataSet.options.values.elementAt(index);
               return Obx(() {
-                bool isSelected = controller.selectedIndex.value == index;
+                bool isSelected =
+                    controller.selectedAspectRatioIndex.value == index;
 
                 return InkWell(
                     onTap: () {
-                      controller.selectedIndex.value = index;
+                      controller.selectedAspectRatioIndex.value = index;
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(

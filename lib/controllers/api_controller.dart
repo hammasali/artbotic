@@ -16,4 +16,13 @@ class ApiController {
       rethrow;
     }
   }
+
+  generateImage(Map<String, dynamic> data) async {
+    try {
+      return await Api()
+          .post_('${AppConsts.baseUrl}api.php', params: jsonEncode(data));
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

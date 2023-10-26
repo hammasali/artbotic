@@ -1,22 +1,21 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../generated/l10n.dart';
 import '../../../utils/app_const.dart';
 
-showDetailImage() {
-  final s = S.of(Get.context!);
-
+showDetailImage(String image) {
   return showModalBottomSheet(
       context: Get.context!,
       useSafeArea: true,
       isScrollControlled: true,
       builder: (BuildContext context) => Stack(children: [
-            Image.asset(
+            CachedNetworkImage(
+                imageUrl: image,
                 fit: BoxFit.cover,
-                AppConsts.iconSquare,
                 width: double.infinity,
-                height: double.infinity),
+                height: double.infinity,
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    const Center(child: CircularProgressIndicator.adaptive())),
             Positioned(
                 top: 10,
                 left: 10,

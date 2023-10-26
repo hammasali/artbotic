@@ -22,13 +22,17 @@ class Api {
         ? await http.post(Uri.parse(url), headers: header)
         : await http.post(Uri.parse(url), body: params, headers: header);
 
-    if (kDebugMode) {
-      print(
-          'Status Code: ${response.statusCode}\nPOST response: ${response.body}');
-    }
+    debugPrint(
+        'Status Code: ${response.statusCode}\nPOST response: ${response.body}',
+        wrapWidth: 1024);
 
     if (response.statusCode == 200) {
-      return jsonDecode(response.body);
+      var json = jsonDecode(response.body);
+      if (json['status'] == 'error') {
+        throw getMeaningfulError(response);
+      } else {
+        return json;
+      }
     } else {
       throw (getMeaningfulError(response));
     }
@@ -40,11 +44,11 @@ class Api {
       var jsonError = jsonDecode(response.body);
       if (jsonError is List) {
         for (var e in jsonError) {
-          errorMsg += e['message'] + '\n';
+          errorMsg += e['messege'] + '\n';
         }
         print('error: $errorMsg');
       } else {
-        errorMsg = jsonError['message'];
+        errorMsg = jsonError['messege'];
       }
     } catch (e) {
       errorMsg = '${response.statusCode}: ${response.body}';

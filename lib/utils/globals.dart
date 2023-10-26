@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
+enum DiffusionApiType { textToImage, imageToImage, inPainting }
+
 double get screenHeight =>
     MediaQuery.of(Get.context!).size.height -
     MediaQuery.of(Get.context!).padding.top -

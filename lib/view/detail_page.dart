@@ -2,31 +2,20 @@ import 'package:artbotic/config/theme.dart';
 import 'package:artbotic/controllers/create_controller.dart';
 import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/view/components/sheets/image_detail.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
 
 import '../generated/l10n.dart';
+import '../model/Image_generation_model.dart';
 import '../utils/app_const.dart';
 
 class CreationDetailPage extends StatelessWidget {
-  CreationDetailPage({super.key});
+  CreationDetailPage({super.key, required this.imageGenerationModel});
 
-  final List<String> carousel = [
-    AppConsts.iconSquare,
-    AppConsts.iconSquare,
-    AppConsts.iconSquare,
-    AppConsts.iconSquare
-  ];
-  final Map<String, String> options = {
-    AppConsts.variation: S.of(Get.context!).variation,
-    AppConsts.evolve: S.of(Get.context!).evolve,
-    AppConsts.upscale: S.of(Get.context!).upscale,
-    AppConsts.retouch: S.of(Get.context!).retouch,
-    AppConsts.bin: S.of(Get.context!).bin
-  };
-
+  final ImageGenerationModel imageGenerationModel;
   final CreateController controller = Get.find<CreateController>();
 
   @override
@@ -46,12 +35,13 @@ class CreationDetailPage extends StatelessWidget {
               const SizedBox(width: 10)
             ]),
         body: ListView(children: [
+          ///====== SHOW AI IMAGES
           getImages(context),
           const SizedBox(height: 20),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
-              children: options.entries
+              children: AppConsts.features.entries
                   .map((e) => Column(children: [
                         Container(
                             padding: const EdgeInsets.all(10),
@@ -96,41 +86,39 @@ class CreationDetailPage extends StatelessWidget {
                   viewportFraction: 1,
                   initialPage: 0,
                   enableInfiniteScroll: false,
-                  autoPlayInterval: const Duration(seconds: 5),
+                  autoPlayInterval: const Duration(seconds: 10),
                   autoPlayAnimationDuration: const Duration(seconds: 5),
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enlargeCenterPage: true,
                   scrollDirection: Axis.horizontal,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
                   onPageChanged: (index, _) =>
                       controller.currentImageIndex.value = index),
-              items: carousel
+              items: imageGenerationModel.output!
                   .map((e) => GestureDetector(
-                      onTap: () => showDetailImage(),
+                      onTap: () => showDetailImage(e),
                       child: ClipRRect(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                           borderRadius: const BorderRadius.vertical(
                               bottom: Radius.circular(30)),
                           child: ShaderMask(
-                              shaderCallback: (Rect bounds) =>
-                                  const LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Colors.transparent,
-                                        Colors.black54
-                                      ],
-                                      stops: [
-                                        0.6,
-                                        1.0
-                                      ]).createShader(bounds),
+                              shaderCallback: (Rect bounds) => const LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [Colors.transparent, Colors.black54],
+                                  stops: [0.6, 1.0]).createShader(bounds),
                               blendMode: BlendMode.darken,
-                              child: Image(
-                                  image: AssetImage(e), fit: BoxFit.cover)))))
+                              child: CachedNetworkImage(
+                                  imageUrl: e,
+                                  fit: BoxFit.cover,
+                                  progressIndicatorBuilder:
+                                      (context, url, downloadProgress) => const Center(
+                                          child: CircularProgressIndicator.adaptive()))))))
                   .toList()),
           Positioned(
               bottom: 12,
               child: DotsIndicator(
-                  dotsCount: 4,
+                  dotsCount: imageGenerationModel.output!.length,
                   position: controller.currentImageIndex.value,
                   mainAxisAlignment: MainAxisAlignment.center,
                   decorator: const DotsDecorator(

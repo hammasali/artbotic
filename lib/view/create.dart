@@ -1,6 +1,7 @@
 import 'package:artbotic/config/theme.dart';
 import 'package:artbotic/controllers/create_controller.dart';
 import 'package:artbotic/data/app_data.dart';
+import 'package:artbotic/model/Styles_model.dart';
 import 'package:artbotic/utils/globals.dart';
 import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:artbotic/view/components/buttons/custom_button3.dart';
@@ -65,6 +66,7 @@ class Create extends StatelessWidget {
                 controller.isImageSelected.value = false;
                 controller.isInPantingSelected.value = false;
                 controller.resetImage();
+                controller.diffusionApiType = DiffusionApiType.textToImage;
               }),
           const SizedBox(width: 10),
           CustomButton3(
@@ -76,6 +78,7 @@ class Create extends StatelessWidget {
                 controller.isImageSelected.value = true;
                 controller.isInPantingSelected.value = false;
                 controller.resetImage();
+                controller.diffusionApiType = DiffusionApiType.imageToImage;
               }),
           const SizedBox(width: 10),
           CustomButton3(
@@ -87,6 +90,7 @@ class Create extends StatelessWidget {
                 controller.isImageSelected.value = false;
                 controller.isInPantingSelected.value = true;
                 controller.resetImage();
+                controller.diffusionApiType = DiffusionApiType.inPainting;
               })
         ]);
   }
@@ -265,9 +269,8 @@ class Create extends StatelessWidget {
                   crossAxisSpacing: 30),
               itemCount: AppDataSet.styleModels.length,
               itemBuilder: (BuildContext context, int index) {
-                final String image = AppDataSet.styleModels[index]['drawable'];
-                final String title =
-                    AppDataSet.styleModels[index]['model_name'];
+                final StylesModel model =
+                    StylesModel.fromJson(AppDataSet.styleModels[index]);
 
                 return Obx(() {
                   final isSelected =
@@ -276,7 +279,9 @@ class Create extends StatelessWidget {
                   return GestureDetector(
                       onTap: () {
                         controller.selectedStyleIndex.value = index;
-                        controller.selectedStyleModalName.value = title;
+                        controller.selectedStyleModalName.value =
+                            model.modelName!;
+                        controller.selectedStyleModel = model;
                       },
                       child: Column(mainAxisSize: MainAxisSize.min, children: [
                         Container(
@@ -290,13 +295,13 @@ class Create extends StatelessWidget {
                                     width: 2),
                                 borderRadius: BorderRadius.circular(20),
                                 image: DecorationImage(
-                                    image: AssetImage(image),
+                                    image: AssetImage(model.drawable!),
                                     fit: BoxFit.cover))),
                         SizedBox(height: screenHeight * 0.01),
                         Expanded(
                             child: Container(
                                 alignment: Alignment.topCenter,
-                                child: Text(title,
+                                child: Text(model.modelName!,
                                     textAlign: TextAlign.center,
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
@@ -345,7 +350,7 @@ class Create extends StatelessWidget {
             title: s.generate,
             borderRadius: 8,
             icon: AppConsts.brush,
-            onTap: () {}));
+            onTap: controller.generateImage));
   }
 
   inspiration(BuildContext context) {

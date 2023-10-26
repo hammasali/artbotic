@@ -7,6 +7,7 @@ import 'package:artbotic/view/register.dart';
 import 'package:artbotic/view/subscriptions.dart';
 import 'package:flutter/material.dart';
 
+import '../model/Image_generation_model.dart';
 import '../view/detail_page.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -48,7 +49,7 @@ class PageNavigator extends StatelessWidget {
         onGenerateInitialRoutes: (route, initialRoute) {
           // FlutterNativeSplash.remove();
           if (initialRoute == PageRoutes.authLanding) {
-            return [MaterialPageRoute(builder: (_) =>  Landing())];
+            return [MaterialPageRoute(builder: (_) => Landing())];
           } else {
             return [MaterialPageRoute(builder: (_) => Container())];
           }
@@ -66,10 +67,12 @@ class PageNavigator extends StatelessWidget {
               builder = (_) => Landing();
               break;
             case PageRoutes.inPainting:
-              builder = (_) =>  InPainting();
+              builder = (_) => InPainting();
               break;
             case PageRoutes.creationDetail:
-              builder = (_) => CreationDetailPage();
+              builder = (_) => CreationDetailPage(
+                  imageGenerationModel:
+                      settings.arguments as ImageGenerationModel);
               break;
             case PageRoutes.language:
               builder = (_) => Language();

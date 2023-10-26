@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'dart:math';
 import 'dart:convert';
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:artbotic/controllers/api_controller.dart';
 import 'package:artbotic/data/app_data.dart';
+import 'package:artbotic/model/Styles_model.dart';
 import 'package:artbotic/utils/globals.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -14,14 +14,16 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../config/theme.dart';
+import '../model/Image_generation_model.dart';
 import '../routes/routes.dart';
 
 class CreateController extends GetxController {
   var isTextSelected = true.obs;
   var isImageSelected = false.obs;
   var isInPantingSelected = false.obs;
+  var diffusionApiType = DiffusionApiType.textToImage;
 
-  var selectedIndex = 0.obs;
+  var selectedAspectRatioIndex = 0.obs;
   var sliderIterations = 21.obs;
   var sliderScaling = 7.obs;
   var currentImageIndex = 0.obs;
@@ -45,6 +47,10 @@ class CreateController extends GetxController {
 
   var selectedStyleIndex = 0.obs;
   var selectedStyleModalName = 'SDXL'.obs;
+  StylesModel selectedStyleModel =
+      StylesModel.fromJson(AppDataSet.styleModels.first);
+
+  List<String> generatedImages = [];
 
   @override
   void dispose() {
@@ -55,7 +61,7 @@ class CreateController extends GetxController {
   }
 
   defaultSettings() {
-    selectedIndex.value = 0;
+    selectedAspectRatioIndex.value = 0;
     sliderIterations.value = 21;
     sliderScaling.value = 7;
     currentImageIndex.value = 0;
@@ -79,6 +85,7 @@ class CreateController extends GetxController {
 
     selectedStyleIndex.value = 0;
     selectedStyleModalName.value = 'SDXL';
+    selectedStyleModel = StylesModel.fromJson(AppDataSet.styleModels.first);
   }
 
   void pickImage() async {
@@ -151,6 +158,70 @@ class CreateController extends GetxController {
       imageUrl.value = json['link'];
       debugPrint(imageUrl.value.toString());
       dismissLoader();
+    } catch (e) {
+      debugPrint(e.toString());
+      getError(e.toString());
+    }
+  }
+
+  generateImage() async {
+    try {
+      if (promptController.text.isEmpty) {
+        ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
+            duration: Duration(milliseconds: 700),
+            content: Text('Prompt is required to generate images')));
+      } else {
+        getLoader('Generation is in progress...');
+
+        String endpoint = {
+              DiffusionApiType.imageToImage: 'v3/img2img',
+              DiffusionApiType.inPainting: 'v3/inpaint',
+            }[diffusionApiType] ??
+            'v4/dreambooth';
+
+        ImageGenerationModel imageGenerateModel = ImageGenerationModel(
+            prompt: promptController.text,
+            canvasPos: selectedAspectRatioIndex.value,
+            guidanceScale: sliderScaling.value.toDouble(),
+            numInferenceSteps: sliderIterations.value.toString(),
+            steps: sliderIterations.value.toString(),
+            modelId: selectedStyleModel.modelId!,
+            modelName: selectedStyleModel.modelName!,
+            initImage: imageUrl.value,
+            negativePrompt:
+                AppDataSet.negativePrompt + negPromptController.text,
+            endpoint: endpoint,
+            seed: seedController.text,
+            token: '');
+
+        var json =
+            await ApiController().generateImage(imageGenerateModel.toJson());
+        generatedImages =
+            (json['output'] as List).map((item) => item.toString()).toList();
+        ImageGenerationModel generatedImagesModel =
+            ImageGenerationModel.generatedImages(
+                prompt: promptController.text,
+                canvasPos: selectedAspectRatioIndex.value,
+                guidanceScale: sliderScaling.value.toDouble(),
+                numInferenceSteps: sliderIterations.value.toString(),
+                steps: sliderIterations.value.toString(),
+                modelId: selectedStyleModel.modelId!,
+                modelName: selectedStyleModel.modelName!,
+                initImage: imageUrl.value,
+                negativePrompt:
+                    AppDataSet.negativePrompt + negPromptController.text,
+                seed: seedController.text,
+                output: generatedImages,
+                generationTime: json['generationTime']);
+
+        if (generatedImages.isEmpty) {
+          throw 'Select some other style or try different prompt';
+        } else {
+          getSuccess();
+          navigatorKey.currentState!
+              .pushNamed(PageRoutes.creationDetail, arguments: generatedImagesModel);
+        }
+      }
     } catch (e) {
       debugPrint(e.toString());
       getError(e.toString());

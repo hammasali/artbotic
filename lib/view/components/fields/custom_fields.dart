@@ -24,6 +24,7 @@ class CustomTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: TextField(
+            controller: controller,
             cursorColor: AppTheme.purpleColor,
             keyboardType: keyboardType,
             obscureText: obscureText,
