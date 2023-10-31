@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>943980057070-735d2sbn293e9n4p71blindlttr6ggqt.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB8jRtewqfozp7nPY0T_rE0O0whBNp7_6w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>943980057070</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.artbotic.aiart.artgenerator.artavatar.aiphoto.artbotic</string>
+	<key>PROJECT_ID</key>
+	<string>artbotic-bceeb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>artbotic-bceeb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:943980057070:ios:ae52e5a01bff2662f4feff</string>
+</dict>
+</plist>

@@ -118,7 +118,7 @@ class CreationDetailPage extends StatelessWidget {
           Positioned(
               bottom: 12,
               child: DotsIndicator(
-                  dotsCount: imageGenerationModel.output!.length,
+                  dotsCount: 4,
                   position: controller.currentImageIndex.value,
                   mainAxisAlignment: MainAxisAlignment.center,
                   decorator: const DotsDecorator(

@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 class ImageGenerationModel {
+  int? id;
   String? key;
   String? prompt;
   String? promptsBuilder;
@@ -29,11 +32,13 @@ class ImageGenerationModel {
   String? endpoint;
   String? type;
   String? seed;
-  String? generationTime;
+  double? generationTime;
+  String? status;
   List<String>? output;
 
   ImageGenerationModel({
     required this.prompt,
+    this.id,
     this.key = '',
     this.promptsBuilder = '',
     this.initImage,
@@ -67,6 +72,7 @@ class ImageGenerationModel {
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['id'] = id;
     map['key'] = key;
     map['prompt'] = prompt;
     map['promptsBuilder'] = promptsBuilder;
@@ -101,7 +107,8 @@ class ImageGenerationModel {
   }
 
   ImageGenerationModel.generatedImages(
-      {required this.prompt,
+      {required this.id,
+      required this.prompt,
       required this.initImage,
       required this.modelId,
       required this.modelName,
@@ -112,10 +119,12 @@ class ImageGenerationModel {
       required this.guidanceScale,
       required this.seed,
       required this.output,
+      required this.status,
       required this.generationTime});
 
   Map<String, dynamic> toJsonGeneratedImages() {
     return {
+      'id': id,
       'prompt': prompt,
       'init_image': initImage,
       'model_id': modelId,
@@ -127,24 +136,38 @@ class ImageGenerationModel {
       'guidance_scale': guidanceScale,
       'seed': seed,
       'output': output,
+      'status': status,
       'generationTime': generationTime,
     };
   }
 
   factory ImageGenerationModel.fromJson(Map<String, dynamic> json) {
     return ImageGenerationModel.generatedImages(
-      prompt: json['prompt'],
-      initImage: json['init_image'],
-      modelId: json['model_id'],
-      modelName: json['model_name'],
-      negativePrompt: json['negative_prompt'],
-      canvasPos: json['canvasPos'],
-      numInferenceSteps: json['num_inference_steps'],
-      steps: json['steps'],
-      guidanceScale: json['guidance_scale'].toDouble(),
-      seed: json['seed'],
-      output: json['output'],
-      generationTime: json['generationTime'],
-    );
+        id: json['id'],
+        prompt: json['prompt'],
+        initImage: json['init_image'],
+        modelId: json['model_id'],
+        modelName: json['model_name'],
+        negativePrompt: json['negative_prompt'],
+        canvasPos: json['canvasPos'],
+        numInferenceSteps: json['num_inference_steps'],
+        steps: json['steps'],
+        guidanceScale: json['guidance_scale'].toDouble(),
+        seed: json['seed'],
+        output: json['output'],
+        generationTime: json['generationTime'],
+        status: json['status']);
   }
+
+  static String encode(List<ImageGenerationModel> images) => jsonEncode(
+        images
+            .map<Map<String, dynamic>>((image) => image.toJsonGeneratedImages())
+            .toList(),
+      );
+
+  static List<ImageGenerationModel> decode(String images) =>
+      (jsonDecode(images) as List<dynamic>)
+          .map<ImageGenerationModel>(
+              (image) => ImageGenerationModel.fromJson(image))
+          .toList();
 }

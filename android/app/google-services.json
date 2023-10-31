@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "943980057070",
+    "project_id": "artbotic-bceeb",
+    "storage_bucket": "artbotic-bceeb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943980057070:android:f6a3910776fcb5d3f4feff",
+        "android_client_info": {
+          "package_name": "com.artbotic.aiart.artgenerator.artavatar.aiphoto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943980057070-vis6gjl4leh86cdj3ftl9fogleet1bjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2n-tlTLcvZXRZeza_MI4XyqXk4FVJN4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943980057070-vis6gjl4leh86cdj3ftl9fogleet1bjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943980057070:android:fb5e7ef132cdbc6ff4feff",
+        "android_client_info": {
+          "package_name": "com.artbotic.aiart.artgenerator.artavatar.aiphoto.artbotic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943980057070-vis6gjl4leh86cdj3ftl9fogleet1bjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2n-tlTLcvZXRZeza_MI4XyqXk4FVJN4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943980057070-vis6gjl4leh86cdj3ftl9fogleet1bjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943980057070:android:b1c39288b2d6a3ddf4feff",
+        "android_client_info": {
+          "package_name": "com.example.artbotic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943980057070-735d2sbn293e9n4p71blindlttr6ggqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.artbotic",
+            "certificate_hash": "3ed898a140c0b40d2f5cd63f4a0db39df91eb9ef"
+          }
+        },
+        {
+          "client_id": "943980057070-vis6gjl4leh86cdj3ftl9fogleet1bjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2n-tlTLcvZXRZeza_MI4XyqXk4FVJN4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943980057070-vis6gjl4leh86cdj3ftl9fogleet1bjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

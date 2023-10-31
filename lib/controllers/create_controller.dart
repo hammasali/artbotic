@@ -6,7 +6,9 @@ import 'dart:ui' as ui;
 import 'package:artbotic/controllers/api_controller.dart';
 import 'package:artbotic/data/app_data.dart';
 import 'package:artbotic/model/Styles_model.dart';
+import 'package:artbotic/services/pref_provider.dart';
 import 'package:artbotic/utils/globals.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -50,7 +52,13 @@ class CreateController extends GetxController {
   StylesModel selectedStyleModel =
       StylesModel.fromJson(AppDataSet.styleModels.first);
 
-  List<String> generatedImages = [];
+  var generatedImages = <ImageGenerationModel>[].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    // generatedImages.value = PrefProvider().getImagesFromPref();
+  }
 
   @override
   void dispose() {
@@ -192,39 +200,60 @@ class CreateController extends GetxController {
                 AppDataSet.negativePrompt + negPromptController.text,
             endpoint: endpoint,
             seed: seedController.text,
-            token: '');
+            token: PrefProvider().getFCMToken());
+
+        debugPrint(imageGenerateModel.toJson().toString(), wrapWidth: 1024);
 
         var json =
             await ApiController().generateImage(imageGenerateModel.toJson());
-        generatedImages =
-            (json['output'] as List).map((item) => item.toString()).toList();
-        ImageGenerationModel generatedImagesModel =
-            ImageGenerationModel.generatedImages(
-                prompt: promptController.text,
-                canvasPos: selectedAspectRatioIndex.value,
-                guidanceScale: sliderScaling.value.toDouble(),
-                numInferenceSteps: sliderIterations.value.toString(),
-                steps: sliderIterations.value.toString(),
-                modelId: selectedStyleModel.modelId!,
-                modelName: selectedStyleModel.modelName!,
-                initImage: imageUrl.value,
-                negativePrompt:
-                    AppDataSet.negativePrompt + negPromptController.text,
-                seed: seedController.text,
-                output: generatedImages,
-                generationTime: json['generationTime']);
 
-        if (generatedImages.isEmpty) {
-          throw 'Select some other style or try different prompt';
-        } else {
-          getSuccess();
-          navigatorKey.currentState!
-              .pushNamed(PageRoutes.creationDetail, arguments: generatedImagesModel);
+        List<String> outputs = [];
+        if (json['status'] == 'processing') {
+          FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+            final result = jsonDecode(message.data['body']);
+
+            outputs = (result['output'] as List)
+                .map((item) => item.toString())
+                .toList();
+
+            _updateLocalDB(json, outputs);
+          });
+        } else if (json['status'] == 'success') {
+          outputs =
+              (json['output'] as List).map((item) => item.toString()).toList();
+          _updateLocalDB(json, outputs);
+        } else if (json['status'] == 'failed') {
+          throw 'Failed: Try Again';
         }
       }
     } catch (e) {
       debugPrint(e.toString());
       getError(e.toString());
     }
+  }
+
+  _updateLocalDB(json, List<String> outputs) {
+    ImageGenerationModel generatedImagesModel =
+        ImageGenerationModel.generatedImages(
+            id: json['id'],
+            prompt: promptController.text,
+            canvasPos: selectedAspectRatioIndex.value,
+            guidanceScale: sliderScaling.value.toDouble(),
+            numInferenceSteps: sliderIterations.value.toString(),
+            steps: sliderIterations.value.toString(),
+            modelId: selectedStyleModel.modelId!,
+            modelName: selectedStyleModel.modelName!,
+            initImage: imageUrl.value,
+            negativePrompt:
+                AppDataSet.negativePrompt + negPromptController.text,
+            seed: seedController.text,
+            output: outputs,
+            status: json['status'],
+            generationTime: json['generationTime']);
+    generatedImages.add(generatedImagesModel);
+    PrefProvider().saveImagesToPref(generatedImages);
+    getSuccess();
+    navigatorKey.currentState!
+        .pushNamed(PageRoutes.creationDetail, arguments: generatedImagesModel);
   }
 }
