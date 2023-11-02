@@ -59,7 +59,7 @@ class CreateController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // generatedImages.value = PrefProvider().getImagesFromPref();
+    generatedImages.value = PrefProvider().getImagesFromPref();
   }
 
   @override
@@ -281,8 +281,7 @@ class CreateController extends GetxController {
             modelName: selectedStyleModel.modelName!,
             initImage: initImageUrl.value,
             maskImage: maskImageUrl.value,
-            negativePrompt:
-                AppDataSet.negativePrompt + negPromptController.text,
+            negativePrompt: negPromptController.text,
             seed: seedController.text,
             output: outputs,
             status: json['status'],

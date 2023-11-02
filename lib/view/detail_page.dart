@@ -6,6 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../generated/l10n.dart';
@@ -21,59 +22,22 @@ class CreationDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            leading: IconButton(
-                icon: Icon(Icons.close,
-                    color: Theme.of(context).iconTheme.color!),
-                onPressed: () => navigatorKey.currentState!.pop()),
-            actions: [
-              Image(
-                  color: Theme.of(context).iconTheme.color,
-                  image: const AssetImage(AppConsts.download),
-                  width: 30,
-                  height: 30),
-              const SizedBox(width: 10)
-            ]),
+        appBar: getAppBar(context),
         body: ListView(children: [
-          ///====== SHOW AI IMAGES
+          ///  SHOW AI IMAGES
           getImages(context),
           const SizedBox(height: 20),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
-              children: AppConsts.features.entries
-                  .map((e) => Column(children: [
-                        Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: Theme.of(context).iconTheme.color!),
-                                shape: BoxShape.circle),
-                            child: Image(
-                                color: Theme.of(context).iconTheme.color,
-                                image: AssetImage(e.key),
-                                height: 22,
-                                width: 22)),
-                        const SizedBox(height: 5),
-                        Text(e.value,
-                            style: Theme.of(context).textTheme.bodyMedium)
-                      ]))
-                  .toList()),
+
+          /// FEATURES BUTTONS ACTIONS
+          featuredButtons(context),
           const SizedBox(height: 10),
           const Divider(),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text(S.of(Get.context!).prompt,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(fontSize: 24))),
-          const Divider(),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text(
-                  'The signingConfig block is meant to specify the signing configuration for your release build type. If you havent defined a signing configuration for your release build in your build.gradle file, this error can occur',
-                  style: Theme.of(context).textTheme.displayMedium)),
+
+          /// AI IMAGE PROMPT AND COPY ACTION
+          getPrompt(context),
+
+          /// SETTINGS
+          getSettings(context),
         ]));
   }
 
@@ -97,23 +61,34 @@ class CreationDetailPage extends StatelessWidget {
               items: imageGenerationModel.output!
                   .map((e) => GestureDetector(
                       onTap: () => showDetailImage(e),
-                      child: ClipRRect(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          borderRadius: const BorderRadius.vertical(
-                              bottom: Radius.circular(30)),
-                          child: ShaderMask(
-                              shaderCallback: (Rect bounds) => const LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [Colors.transparent, Colors.black54],
-                                  stops: [0.6, 1.0]).createShader(bounds),
-                              blendMode: BlendMode.darken,
-                              child: CachedNetworkImage(
-                                  imageUrl: e,
-                                  fit: BoxFit.cover,
-                                  progressIndicatorBuilder:
-                                      (context, url, downloadProgress) => const Center(
-                                          child: CircularProgressIndicator.adaptive()))))))
+                      child: Hero(
+                        tag: imageGenerationModel.id!,
+                        child: ClipRRect(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            borderRadius: const BorderRadius.vertical(
+                                bottom: Radius.circular(30)),
+                            child: ShaderMask(
+                                shaderCallback: (Rect bounds) =>
+                                    const LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          Colors.transparent,
+                                          Colors.black54
+                                        ],
+                                        stops: [
+                                          0.6,
+                                          1.0
+                                        ]).createShader(bounds),
+                                blendMode: BlendMode.darken,
+                                child: CachedNetworkImage(
+                                    imageUrl: e,
+                                    fit: BoxFit.cover,
+                                    progressIndicatorBuilder: (context, url,
+                                            downloadProgress) =>
+                                        const Center(
+                                            child: CircularProgressIndicator.adaptive())))),
+                      )))
                   .toList()),
           Positioned(
               bottom: 12,
@@ -126,6 +101,193 @@ class CreationDetailPage extends StatelessWidget {
                       activeSize: Size.square(18),
                       color: AppTheme.whiteColor,
                       activeColor: AppTheme.purpleColor)))
+        ]));
+  }
+
+  getAppBar(BuildContext context) {
+    return AppBar(
+        leading: IconButton(
+            icon: Icon(Icons.close, color: Theme.of(context).iconTheme.color!),
+            onPressed: () => navigatorKey.currentState!.pop()),
+        actions: [
+          Image(
+              color: Theme.of(context).iconTheme.color,
+              image: const AssetImage(AppConsts.download),
+              width: 30,
+              height: 30),
+          const SizedBox(width: 10)
+        ]);
+  }
+
+  featuredButtons(BuildContext context) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.max,
+        children: AppConsts.features.entries
+            .map((e) => Column(children: [
+                  Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Theme.of(context).iconTheme.color!),
+                          shape: BoxShape.circle),
+                      child: Image(
+                          color: Theme.of(context).iconTheme.color,
+                          image: AssetImage(e.key),
+                          height: 22,
+                          width: 22)),
+                  const SizedBox(height: 5),
+                  Text(e.value, style: Theme.of(context).textTheme.bodyMedium)
+                ]))
+            .toList());
+  }
+
+  getPrompt(BuildContext context) {
+    final s = S.of(context);
+
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      const SizedBox(height: 10),
+      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        _headingText(S.of(Get.context!).prompt, context),
+        InkWell(
+            onTap: () {
+              Clipboard.setData(
+                  ClipboardData(text: imageGenerationModel.prompt!));
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(s.textCopiedToClipboard)));
+            },
+            child: const Icon(Icons.copy, size: 20))
+      ]),
+      const SizedBox(height: 8),
+      Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 22.0),
+          child: Text(imageGenerationModel.prompt!,
+              style: Theme.of(context).textTheme.displayMedium)),
+      const Divider(),
+      const SizedBox(height: 10)
+    ]);
+  }
+
+  getSettings(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      _headingText('Settings', context),
+      const SizedBox(height: 10),
+      _modelName(context),
+      const Divider(),
+      _steps(context),
+      const Divider(),
+      _scale(context),
+      const Divider(),
+      _negativePrompt(context),
+      const Divider(),
+      _seed(context),
+      const Divider(),
+      _initImage(context),
+      const SizedBox(height: 15)
+    ]);
+  }
+
+  _headingText(String s, BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Text(s,
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(fontSize: 24)));
+  }
+
+  _modelName(context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text('Model', style: Theme.of(context).textTheme.bodyLarge),
+          Text(imageGenerationModel.modelName!,
+              style: Theme.of(context).textTheme.bodyLarge)
+        ]));
+  }
+
+  _steps(context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text('Steps', style: Theme.of(context).textTheme.bodyLarge),
+          Text(imageGenerationModel.steps!,
+              style: Theme.of(context).textTheme.bodyLarge)
+        ]));
+  }
+
+  _scale(context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text('Scale', style: Theme.of(context).textTheme.bodyLarge),
+          Text(imageGenerationModel.guidanceScale.toString(),
+              style: Theme.of(context).textTheme.bodyLarge)
+        ]));
+  }
+
+  _negativePrompt(context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text('Negative Prompt', style: Theme.of(context).textTheme.bodyLarge),
+          const Spacer(),
+          Flexible(
+              child: Text(
+                  imageGenerationModel.negativePrompt!.isEmpty
+                      ? 'N/A'
+                      : imageGenerationModel.negativePrompt!,
+                  style: Theme.of(context).textTheme.bodyLarge))
+        ]));
+  }
+
+  _seed(context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text('Seed', style: Theme.of(context).textTheme.bodyLarge),
+          const Spacer(),
+          Flexible(
+              child: Text(imageGenerationModel.seed!,
+                  style: Theme.of(context).textTheme.bodyLarge))
+        ]));
+  }
+
+  _initImage(context) {
+    if (imageGenerationModel.initImage == null) {
+      return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Text('Image', style: Theme.of(context).textTheme.bodyLarge),
+            Text('N/A', style: Theme.of(context).textTheme.bodyLarge)
+          ]));
+    }
+
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text('Image', style: Theme.of(context).textTheme.bodyLarge),
+          SizedBox(
+              width: 100,
+              height: 100,
+              child: ClipRRect(
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  borderRadius: BorderRadius.circular(16),
+                  child: CachedNetworkImage(
+                      imageUrl: imageGenerationModel.maskImage ??
+                          imageGenerationModel.initImage!,
+                      fit: BoxFit.contain,
+                      progressIndicatorBuilder:
+                          (context, url, downloadProgress) => const Center(
+                              child: CircularProgressIndicator.adaptive()))))
         ]));
   }
 }

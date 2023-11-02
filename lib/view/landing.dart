@@ -16,7 +16,7 @@ class Landing extends StatelessWidget {
 
   static final List<Widget> _views = <Widget>[
     Create(),
-    const MyCreation(),
+    MyCreation(),
     Settings()
   ];
 

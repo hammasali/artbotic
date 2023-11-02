@@ -35,7 +35,7 @@ class ImageGenerationModel {
   String? seed;
   double? generationTime;
   String? status;
-  List<String>? output;
+  List<dynamic>? output;
 
   ImageGenerationModel({
     required this.prompt,
