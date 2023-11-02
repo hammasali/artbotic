@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_media_downloader/flutter_media_downloader.dart';
 import 'package:get/get.dart';
 import '../../../utils/app_const.dart';
 
@@ -31,13 +32,17 @@ showDetailImage(String image) {
             Positioned(
                 top: 10,
                 right: 10,
-                child: CircleAvatar(
-                    backgroundColor:
-                        Theme.of(context).iconTheme.color!.withOpacity(0.4),
-                    child: Image(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        image: const AssetImage(AppConsts.download),
-                        width: 25,
-                        height: 25))),
+                child: InkWell(
+                  onTap: () async =>
+                      await MediaDownload().downloadMedia(context, image),
+                  child: CircleAvatar(
+                      backgroundColor:
+                          Theme.of(context).iconTheme.color!.withOpacity(0.4),
+                      child: Image(
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                          image: const AssetImage(AppConsts.download),
+                          width: 25,
+                          height: 25)),
+                )),
           ]));
 }

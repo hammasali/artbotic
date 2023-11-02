@@ -41,6 +41,7 @@ dependencies:
   firebase_core: ^2.20.0
   firebase_messaging: ^14.7.2
   flutter_local_notifications: ^16.1.0
+  flutter_media_downloader: ^1.0.2
 
 dev_dependencies:
   flutter_test:

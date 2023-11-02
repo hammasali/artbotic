@@ -7,6 +7,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_media_downloader/flutter_media_downloader.dart';
 import 'package:get/get.dart';
 
 import '../generated/l10n.dart';
@@ -110,11 +111,16 @@ class CreationDetailPage extends StatelessWidget {
             icon: Icon(Icons.close, color: Theme.of(context).iconTheme.color!),
             onPressed: () => navigatorKey.currentState!.pop()),
         actions: [
-          Image(
-              color: Theme.of(context).iconTheme.color,
-              image: const AssetImage(AppConsts.download),
-              width: 30,
-              height: 30),
+          InkWell(
+              onTap: () async => await MediaDownload().downloadMedia(
+                  context,
+                  imageGenerationModel
+                      .output![controller.currentImageIndex.value]),
+              child: Image(
+                  color: Theme.of(context).iconTheme.color,
+                  image: const AssetImage(AppConsts.download),
+                  width: 30,
+                  height: 30)),
           const SizedBox(width: 10)
         ]);
   }

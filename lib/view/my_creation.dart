@@ -20,8 +20,9 @@ class MyCreation extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 4),
           physics: const ClampingScrollPhysics(),
           itemBuilder: (_, index) {
-            final generatedImagesModel = controller
-                .generatedImages[controller.generatedImages.length - 1 - index];
+            final currentIndex = controller.generatedImages.length - 1 - index;
+            final generatedImagesModel =
+                controller.generatedImages[currentIndex];
             return InkWell(
                 onTap: () => navigatorKey.currentState!.pushNamed(
                     PageRoutes.creationDetail,
@@ -87,7 +88,7 @@ class MyCreation extends StatelessWidget {
                 const SizedBox(width: 18),
 
                 /// DELETE BUTTON
-                _deleteBtn(context),
+                _deleteBtn(context, generatedImagesModel),
               ])
             ])));
   }
@@ -100,11 +101,14 @@ class MyCreation extends StatelessWidget {
         color: Theme.of(context).iconTheme.color);
   }
 
-  _deleteBtn(context) {
-    return Image(
-        image: const AssetImage(AppConsts.bin),
-        height: 22,
-        width: 22,
-        color: Theme.of(context).iconTheme.color);
+  _deleteBtn(context, generatedImagesModel) {
+    return InkWell(
+      onTap: () => controller.deleteItem(generatedImagesModel.id),
+      child: Image(
+          image: const AssetImage(AppConsts.bin),
+          height: 22,
+          width: 22,
+          color: Theme.of(context).iconTheme.color),
+    );
   }
 }

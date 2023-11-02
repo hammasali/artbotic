@@ -292,4 +292,9 @@ class CreateController extends GetxController {
     navigatorKey.currentState!
         .pushNamed(PageRoutes.creationDetail, arguments: generatedImagesModel);
   }
+
+  deleteItem(int id) async {
+    generatedImages.removeWhere((item) => item.id == id);
+    await PrefProvider().saveImagesToPref(generatedImages);
+  }
 }
