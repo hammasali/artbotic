@@ -14,7 +14,6 @@ class InPainting extends StatelessWidget {
   InPainting({super.key});
 
   final CreateController controller = Get.find<CreateController>();
-  final GlobalKey repaintBoundaryKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -47,16 +46,7 @@ class InPainting extends StatelessWidget {
               child: CustomButton(
                   title: s.apply,
                   textStyle: Theme.of(context).textTheme.titleMedium,
-                  onTap: () async {
-                    if (controller.points.isNotEmpty) {
-                      String base64String = await controller
-                          .renderedImageAndGetMergedImageToBase64(
-                              repaintBoundaryKey);
-                      await controller.uploadBase64EncodedImage(base64String);
-                      controller.points.clear();
-                      navigatorKey.currentState!.pop();
-                    }
-                  },
+                  onTap: controller.applyInPainting,
                   borderRadius: 4))
         ]);
   }

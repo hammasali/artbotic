@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 import 'dart:convert';
@@ -42,7 +43,8 @@ class CreateController extends GetxController {
   var strokeWidth = 15.0.obs;
 
   File? imageFile;
-  var imageUrl = Rx<String?>(null);
+  var initImageUrl = Rx<String?>(null);
+  var maskImageUrl = Rx<String?>(null);
 
   var selectedTagIndex = 0.obs;
   var selectedTags = <String>[].obs;
@@ -86,7 +88,8 @@ class CreateController extends GetxController {
     strokeWidth.value = 15.0;
 
     imageFile = null;
-    imageUrl.value = null;
+    initImageUrl.value = null;
+    maskImageUrl.value = null;
 
     selectedTagIndex.value = 0;
     selectedTags.value = <String>[];
@@ -94,21 +97,6 @@ class CreateController extends GetxController {
     selectedStyleIndex.value = 0;
     selectedStyleModalName.value = 'SDXL';
     selectedStyleModel = StylesModel.fromJson(AppDataSet.styleModels.first);
-  }
-
-  void pickImage() async {
-    final XFile? image =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-
-    if (image != null) {
-      imageFile = File(image.path);
-      if (isInPantingSelected.value) {
-        navigatorKey.currentState!.pushNamed(PageRoutes.inPainting);
-      } else if (isImageSelected.value) {
-        String base64String = base64Encode(imageFile!.readAsBytesSync());
-        await uploadBase64EncodedImage(base64String);
-      }
-    }
   }
 
   shouldShowClearTextIcon(String value) {
@@ -146,10 +134,38 @@ class CreateController extends GetxController {
   resetImage() {
     imageFile = null;
     points.clear();
-    imageUrl.value = null;
+    initImageUrl.value = null;
+    maskImageUrl.value = null;
   }
 
-  Future<String> renderedImageAndGetMergedImageToBase64(
+  pickImage() async {
+    final XFile? image =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      imageFile = File(image.path);
+      if (isInPantingSelected.value) {
+        navigatorKey.currentState!.pushNamed(PageRoutes.inPainting);
+      } else if (isImageSelected.value) {
+        String base64String = base64Encode(imageFile!.readAsBytesSync());
+        await _uploadBase64EncodedImage(base64String);
+      }
+    }
+  }
+
+  applyInPainting() async {
+    if (points.isNotEmpty) {
+      String maskedBase64String =
+          await _renderedImageAndGetMergedImageToBase64(repaintBoundaryKey);
+      await _uploadBase64EncodedMaskedImage(maskedBase64String);
+      String initBase64String = base64Encode(imageFile!.readAsBytesSync());
+      await _uploadBase64EncodedImage(initBase64String);
+      points.clear();
+      navigatorKey.currentState!.pop();
+    }
+  }
+
+  Future<String> _renderedImageAndGetMergedImageToBase64(
       GlobalKey<State<StatefulWidget>> repaintBoundaryKey) async {
     RenderRepaintBoundary boundary = repaintBoundaryKey.currentContext!
         .findRenderObject() as RenderRepaintBoundary;
@@ -159,12 +175,24 @@ class CreateController extends GetxController {
     return base64Encode(unit8list);
   }
 
-  uploadBase64EncodedImage(String image) async {
+  _uploadBase64EncodedMaskedImage(String maskImage) async {
+    try {
+      getLoader('Applying Mask...');
+      var json = await ApiController().uploadImage(maskImage);
+      maskImageUrl.value = json['link'];
+      debugPrint(maskImageUrl.value.toString());
+    } catch (e) {
+      debugPrint(e.toString());
+      getError(e.toString());
+    }
+  }
+
+  _uploadBase64EncodedImage(String image) async {
     try {
       getLoader('Uploading Image...');
       var json = await ApiController().uploadImage(image);
-      imageUrl.value = json['link'];
-      debugPrint(imageUrl.value.toString());
+      initImageUrl.value = json['link'];
+      debugPrint(initImageUrl.value.toString());
       dismissLoader();
     } catch (e) {
       debugPrint(e.toString());
@@ -180,49 +208,32 @@ class CreateController extends GetxController {
             content: Text('Prompt is required to generate images')));
       } else {
         getLoader('Generation is in progress...');
-
-        String endpoint = {
-              DiffusionApiType.imageToImage: 'v3/img2img',
-              DiffusionApiType.inPainting: 'v3/inpaint',
-            }[diffusionApiType] ??
-            'v4/dreambooth';
-
-        ImageGenerationModel imageGenerateModel = ImageGenerationModel(
-            prompt: promptController.text,
-            canvasPos: selectedAspectRatioIndex.value,
-            guidanceScale: sliderScaling.value.toDouble(),
-            numInferenceSteps: sliderIterations.value.toString(),
-            steps: sliderIterations.value.toString(),
-            modelId: selectedStyleModel.modelId!,
-            modelName: selectedStyleModel.modelName!,
-            initImage: imageUrl.value,
-            negativePrompt:
-                AppDataSet.negativePrompt + negPromptController.text,
-            endpoint: endpoint,
-            seed: seedController.text,
-            token: PrefProvider().getFCMToken());
-
-        debugPrint(imageGenerateModel.toJson().toString(), wrapWidth: 1024);
-
-        var json =
-            await ApiController().generateImage(imageGenerateModel.toJson());
-
+        var json = await _hitEndPoint();
         List<String> outputs = [];
-        if (json['status'] == 'processing') {
-          FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-            final result = jsonDecode(message.data['body']);
 
+        /// STATUS >>> PROCESSING
+
+        if (json['status'] == 'processing') {
+          await FirebaseMessaging.onMessage.first.then((RemoteMessage message) {
+            final result = jsonDecode(message.data['body']);
             outputs = (result['output'] as List)
                 .map((item) => item.toString())
                 .toList();
-
             _updateLocalDB(json, outputs);
           });
-        } else if (json['status'] == 'success') {
+        }
+
+        /// STATUS >>> SUCCESS
+
+        else if (json['status'] == 'success') {
           outputs =
               (json['output'] as List).map((item) => item.toString()).toList();
           _updateLocalDB(json, outputs);
-        } else if (json['status'] == 'failed') {
+        }
+
+        /// STATUS >>> FAILED
+
+        else if (json['status'] == 'failed') {
           throw 'Failed: Try Again';
         }
       }
@@ -230,6 +241,31 @@ class CreateController extends GetxController {
       debugPrint(e.toString());
       getError(e.toString());
     }
+  }
+
+  Future _hitEndPoint() async {
+    String endpoint = {
+          DiffusionApiType.imageToImage: 'v3/img2img',
+          DiffusionApiType.inPainting: 'v3/inpaint',
+        }[diffusionApiType] ??
+        'v4/dreambooth';
+
+    ImageGenerationModel imageGenerateModel = ImageGenerationModel(
+        prompt: promptController.text,
+        canvasPos: selectedAspectRatioIndex.value,
+        guidanceScale: sliderScaling.value.toDouble(),
+        numInferenceSteps: sliderIterations.value.toString(),
+        steps: sliderIterations.value.toString(),
+        modelId: selectedStyleModel.modelId!,
+        modelName: selectedStyleModel.modelName!,
+        initImage: initImageUrl.value,
+        maskImage: maskImageUrl.value,
+        negativePrompt: AppDataSet.negativePrompt + negPromptController.text,
+        endpoint: endpoint,
+        seed: seedController.text,
+        token: PrefProvider().getFCMToken());
+
+    return await ApiController().generateImage(imageGenerateModel.toJson());
   }
 
   _updateLocalDB(json, List<String> outputs) {
@@ -243,7 +279,8 @@ class CreateController extends GetxController {
             steps: sliderIterations.value.toString(),
             modelId: selectedStyleModel.modelId!,
             modelName: selectedStyleModel.modelName!,
-            initImage: imageUrl.value,
+            initImage: initImageUrl.value,
+            maskImage: maskImageUrl.value,
             negativePrompt:
                 AppDataSet.negativePrompt + negPromptController.text,
             seed: seedController.text,

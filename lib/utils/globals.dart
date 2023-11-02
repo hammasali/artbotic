@@ -9,6 +9,8 @@ double get screenHeight =>
     MediaQuery.of(Get.context!).padding.top -
     MediaQuery.of(Get.context!).padding.bottom;
 
+final GlobalKey repaintBoundaryKey = GlobalKey();
+
 getLoader([String? msg]) => EasyLoading.show(status: msg ?? 'Loading...');
 
 getSuccess() => EasyLoading.showSuccess('Success');

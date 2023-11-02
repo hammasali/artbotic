@@ -121,25 +121,34 @@ class Create extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Obx(() {
-                      if (controller.imageUrl.value == null) {
+                      if (controller.initImageUrl.value == null) {
                         return GestureDetector(
                             onTap: controller.pickImage,
                             child: imageHolder(context, false));
                       }
 
+                      String imageUrl = controller.diffusionApiType ==
+                              DiffusionApiType.imageToImage
+                          ? controller.initImageUrl.value!
+                          : controller.maskImageUrl.value!;
+
                       return Stack(children: [
                         ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: CachedNetworkImage(
-                                imageUrl: controller.imageUrl.value!,
-                                width: 100,
-                                fit: BoxFit.cover,
-                                progressIndicatorBuilder:
-                                    (context, url, downloadProgress) => Stack(
-                                            alignment: Alignment.center,
-                                            children: [
-                                              imageHolder(context, true),
-                                            ]))),
+                              imageUrl: imageUrl,
+                              width: 100,
+                              fit: BoxFit.cover,
+                              progressIndicatorBuilder: (context, url,
+                                      downloadProgress) =>
+                                  Stack(alignment: Alignment.center, children: [
+                                imageHolder(context, true),
+                              ]),
+                              errorWidget: (context, url, val) =>
+                                  GestureDetector(
+                                      onTap: controller.pickImage,
+                                      child: imageHolder(context, false)),
+                            )),
                         Positioned(
                             top: -10,
                             right: -10,

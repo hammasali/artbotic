@@ -186,7 +186,7 @@ customSlider1() {
                   colors: [Colors.grey.shade300, Colors.grey.shade800]),
               slider: Slider(
                   min: 0.0,
-                  max: 51,
+                  max: 50,
                   value: controller.sliderIterations.value.toDouble(),
                   onChanged: (val) {
                     controller.sliderIterations.value = val.toInt();

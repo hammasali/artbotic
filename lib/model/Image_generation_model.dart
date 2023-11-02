@@ -6,6 +6,7 @@ class ImageGenerationModel {
   String? prompt;
   String? promptsBuilder;
   String? initImage;
+  String? maskImage;
   String? modelId;
   String? modelName;
   String? instancePrompt;
@@ -42,6 +43,7 @@ class ImageGenerationModel {
     this.key = '',
     this.promptsBuilder = '',
     this.initImage,
+    this.maskImage,
     required this.modelId,
     required this.modelName,
     this.instancePrompt = '',
@@ -77,6 +79,7 @@ class ImageGenerationModel {
     map['prompt'] = prompt;
     map['promptsBuilder'] = promptsBuilder;
     map['init_image'] = initImage;
+    map['mask_image'] = maskImage;
     map['model_id'] = modelId;
     map['model_name'] = modelName;
     map['instance_prompt'] = instancePrompt;
@@ -110,6 +113,7 @@ class ImageGenerationModel {
       {required this.id,
       required this.prompt,
       required this.initImage,
+      required this.maskImage,
       required this.modelId,
       required this.modelName,
       required this.negativePrompt,
@@ -127,6 +131,7 @@ class ImageGenerationModel {
       'id': id,
       'prompt': prompt,
       'init_image': initImage,
+      'mask_image': maskImage,
       'model_id': modelId,
       'model_name': modelName,
       'negative_prompt': negativePrompt,
@@ -146,6 +151,7 @@ class ImageGenerationModel {
         id: json['id'],
         prompt: json['prompt'],
         initImage: json['init_image'],
+        maskImage: json['mask_image'],
         modelId: json['model_id'],
         modelName: json['model_name'],
         negativePrompt: json['negative_prompt'],
