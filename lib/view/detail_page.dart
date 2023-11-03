@@ -1,5 +1,6 @@
 import 'package:artbotic/config/theme.dart';
 import 'package:artbotic/controllers/create_controller.dart';
+import 'package:artbotic/controllers/home_controller.dart';
 import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/view/components/sheets/image_detail.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -9,16 +10,19 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_media_downloader/flutter_media_downloader.dart';
 import 'package:get/get.dart';
+import 'package:collection/collection.dart';
 
 import '../generated/l10n.dart';
 import '../model/Image_generation_model.dart';
 import '../utils/app_const.dart';
+import '../utils/globals.dart';
 
 class CreationDetailPage extends StatelessWidget {
   CreationDetailPage({super.key, required this.imageGenerationModel});
 
   final ImageGenerationModel imageGenerationModel;
   final CreateController controller = Get.find<CreateController>();
+  final HomeController homeController = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -130,18 +134,21 @@ class CreationDetailPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
         children: AppConsts.features.entries
-            .map((e) => Column(children: [
-                  Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Theme.of(context).iconTheme.color!),
-                          shape: BoxShape.circle),
-                      child: Image(
-                          color: Theme.of(context).iconTheme.color,
-                          image: AssetImage(e.key),
-                          height: 22,
-                          width: 22)),
+            .mapIndexed((index, e) => Column(children: [
+                  InkWell(
+                    onTap: () => _featuredBtnTap(index),
+                    child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Theme.of(context).iconTheme.color!),
+                            shape: BoxShape.circle),
+                        child: Image(
+                            color: Theme.of(context).iconTheme.color,
+                            image: AssetImage(e.key),
+                            height: 22,
+                            width: 22)),
+                  ),
                   const SizedBox(height: 5),
                   Text(e.value, style: Theme.of(context).textTheme.bodyMedium)
                 ]))
@@ -295,5 +302,28 @@ class CreationDetailPage extends StatelessWidget {
                           (context, url, downloadProgress) => const Center(
                               child: CircularProgressIndicator.adaptive()))))
         ]));
+  }
+
+  _featuredBtnTap(int index) async {
+    switch (index) {
+      /// VARIATION
+      case 0:
+        controller.generateImageVariations(imageGenerationModel,
+            imageGenerationModel.output![controller.currentImageIndex.value]);
+
+      /// EVOLVE
+      case 1:
+        controller.defaultSettings();
+        controller.initImageUrl.value =
+            imageGenerationModel.output![controller.currentImageIndex.value];
+        controller.promptController.text = imageGenerationModel.prompt!;
+        controller.isTextSelected.value = false;
+        controller.isImageSelected.value = true;
+        controller.isInPantingSelected.value = false;
+        controller.diffusionApiType = DiffusionApiType.imageToImage;
+        homeController.selectedNavigationIndex.value = 0;
+        navigatorKey.currentState!
+            .pushNamedAndRemoveUntil(PageRoutes.landing, (route) => false);
+    }
   }
 }

@@ -84,7 +84,7 @@ class MyCreation extends StatelessWidget {
               const SizedBox(height: 13),
               Row(children: [
                 /// VARIATION BUTTON
-                _variationBtn(context),
+                _variationBtn(context, generatedImagesModel),
                 const SizedBox(width: 18),
 
                 /// DELETE BUTTON
@@ -93,12 +93,16 @@ class MyCreation extends StatelessWidget {
             ])));
   }
 
-  _variationBtn(context) {
-    return Image(
-        image: const AssetImage(AppConsts.variation),
-        height: 22,
-        width: 22,
-        color: Theme.of(context).iconTheme.color);
+  _variationBtn(context, generatedImagesModel) {
+    return InkWell(
+      onTap: () => controller.generateImageVariations(
+          generatedImagesModel, generatedImagesModel.output!.first),
+      child: Image(
+          image: const AssetImage(AppConsts.variation),
+          height: 22,
+          width: 22,
+          color: Theme.of(context).iconTheme.color),
+    );
   }
 
   _deleteBtn(context, generatedImagesModel) {
