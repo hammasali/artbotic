@@ -8,7 +8,6 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_media_downloader/flutter_media_downloader.dart';
 import 'package:get/get.dart';
 import 'package:collection/collection.dart';
 
@@ -116,10 +115,8 @@ class CreationDetailPage extends StatelessWidget {
             onPressed: () => navigatorKey.currentState!.pop()),
         actions: [
           InkWell(
-              onTap: () async => await MediaDownload().downloadMedia(
-                  context,
-                  imageGenerationModel
-                      .output![controller.currentImageIndex.value]),
+              onTap: () => controller.downloadImage(imageGenerationModel
+                  .output![controller.currentImageIndex.value]),
               child: Image(
                   color: Theme.of(context).iconTheme.color,
                   image: const AssetImage(AppConsts.download),
@@ -183,7 +180,7 @@ class CreationDetailPage extends StatelessWidget {
 
   getSettings(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      _headingText('Settings', context),
+      _headingText(S.of(context).settings, context),
       const SizedBox(height: 10),
       _modelName(context),
       const Divider(),
@@ -215,7 +212,8 @@ class CreationDetailPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text('Model', style: Theme.of(context).textTheme.bodyLarge),
+          Text(S.of(context).model,
+              style: Theme.of(context).textTheme.bodyLarge),
           Text(imageGenerationModel.modelName!,
               style: Theme.of(context).textTheme.bodyLarge)
         ]));
@@ -226,7 +224,8 @@ class CreationDetailPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text('Steps', style: Theme.of(context).textTheme.bodyLarge),
+          Text(S.of(context).steps,
+              style: Theme.of(context).textTheme.bodyLarge),
           Text(imageGenerationModel.steps!,
               style: Theme.of(context).textTheme.bodyLarge)
         ]));
@@ -237,7 +236,8 @@ class CreationDetailPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text('Scale', style: Theme.of(context).textTheme.bodyLarge),
+          Text(S.of(context).scale,
+              style: Theme.of(context).textTheme.bodyLarge),
           Text(imageGenerationModel.guidanceScale.toString(),
               style: Theme.of(context).textTheme.bodyLarge)
         ]));
@@ -248,12 +248,13 @@ class CreationDetailPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text('Negative Prompt', style: Theme.of(context).textTheme.bodyLarge),
+          Text(S.of(context).negativePrompt,
+              style: Theme.of(context).textTheme.bodyLarge),
           const Spacer(),
           Flexible(
               child: Text(
                   imageGenerationModel.negativePrompt!.isEmpty
-                      ? 'N/A'
+                      ? S.of(context).notApplicable
                       : imageGenerationModel.negativePrompt!,
                   style: Theme.of(context).textTheme.bodyLarge))
         ]));
@@ -264,7 +265,8 @@ class CreationDetailPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text('Seed', style: Theme.of(context).textTheme.bodyLarge),
+          Text(S.of(context).seed,
+              style: Theme.of(context).textTheme.bodyLarge),
           const Spacer(),
           Flexible(
               child: Text(imageGenerationModel.seed!,
@@ -278,8 +280,10 @@ class CreationDetailPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text('Image', style: Theme.of(context).textTheme.bodyLarge),
-            Text('N/A', style: Theme.of(context).textTheme.bodyLarge)
+            Text(S.of(context).image,
+                style: Theme.of(context).textTheme.bodyLarge),
+            Text(S.of(context).notApplicable,
+                style: Theme.of(context).textTheme.bodyLarge)
           ]));
     }
 
@@ -287,7 +291,8 @@ class CreationDetailPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 14),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text('Image', style: Theme.of(context).textTheme.bodyLarge),
+          Text(S.of(context).image,
+              style: Theme.of(context).textTheme.bodyLarge),
           SizedBox(
               width: 100,
               height: 100,
@@ -308,22 +313,24 @@ class CreationDetailPage extends StatelessWidget {
     switch (index) {
       /// VARIATION
       case 0:
-        controller.generateImageVariations(imageGenerationModel,
-            imageGenerationModel.output![controller.currentImageIndex.value]);
+        controller.generateImageVariations(imageGenerationModel, false);
 
       /// EVOLVE
       case 1:
-        controller.defaultSettings();
-        controller.initImageUrl.value =
-            imageGenerationModel.output![controller.currentImageIndex.value];
-        controller.promptController.text = imageGenerationModel.prompt!;
-        controller.isTextSelected.value = false;
-        controller.isImageSelected.value = true;
-        controller.isInPantingSelected.value = false;
-        controller.diffusionApiType = DiffusionApiType.imageToImage;
         homeController.selectedNavigationIndex.value = 0;
-        navigatorKey.currentState!
-            .pushNamedAndRemoveUntil(PageRoutes.landing, (route) => false);
+        controller.generateEvolvedImages(imageGenerationModel);
+
+      /// UPSCALE
+      case 2:
+        controller.generateUpscaleImage(imageGenerationModel);
+
+      /// DELETE
+      case 3:
+        controller.deleteItem(imageGenerationModel.id!);
+        navigatorKey.currentState!.pop();
+
+      case 4:
+        getToast(S.of(Get.context!).comingSoon);
     }
   }
 }

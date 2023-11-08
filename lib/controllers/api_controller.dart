@@ -25,4 +25,13 @@ class ApiController {
       rethrow;
     }
   }
+
+  upscaleImage(Map<String, dynamic> data) async {
+    try {
+      return await Api()
+          .post_('${AppConsts.baseUrl}super_r.php', params: jsonEncode(data));
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

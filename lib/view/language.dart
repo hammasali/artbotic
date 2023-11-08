@@ -6,6 +6,8 @@ import 'package:artbotic/view/components/buttons/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../generated/l10n.dart';
+
 class Language extends StatelessWidget {
   Language({super.key});
 
@@ -14,6 +16,7 @@ class Language extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller.selectedLangCode = Get.locale!.languageCode;
+    final s = S.of(context);
 
     return Scaffold(
         appBar: AppBar(
@@ -22,7 +25,7 @@ class Language extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Language',
+                    child: Text(s.language,
                         style: Theme.of(context)
                             .textTheme
                             .titleLarge!
@@ -32,7 +35,7 @@ class Language extends StatelessWidget {
                   width: Get.width * 0.3,
                   padding: const EdgeInsets.all(10.0),
                   child: CustomButton(
-                      title: 'Apply',
+                      title: s.apply,
                       textStyle: Theme.of(context).textTheme.titleMedium,
                       onTap: () {
                         controller

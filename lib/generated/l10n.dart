@@ -769,6 +769,266 @@ class S {
       args: [],
     );
   }
+
+  /// `Applying Mask...`
+  String get applyingMask {
+    return Intl.message(
+      'Applying Mask...',
+      name: 'applyingMask',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Uploading Image...`
+  String get uploadingImage {
+    return Intl.message(
+      'Uploading Image...',
+      name: 'uploadingImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prompt is required to generate images`
+  String get promptIsRequired {
+    return Intl.message(
+      'Prompt is required to generate images',
+      name: 'promptIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Generation is in progress...`
+  String get generationInProgress {
+    return Intl.message(
+      'Generation is in progress...',
+      name: 'generationInProgress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upscaling is in progress...`
+  String get upscalingInProgress {
+    return Intl.message(
+      'Upscaling is in progress...',
+      name: 'upscalingInProgress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deleted`
+  String get deleted {
+    return Intl.message(
+      'Deleted',
+      name: 'deleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Downloading`
+  String get downloading {
+    return Intl.message(
+      'Downloading',
+      name: 'downloading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading...`
+  String get loading {
+    return Intl.message(
+      'Loading...',
+      name: 'loading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Success`
+  String get success {
+    return Intl.message(
+      'Success',
+      name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Publish`
+  String get publish {
+    return Intl.message(
+      'Publish',
+      name: 'publish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Model`
+  String get model {
+    return Intl.message(
+      'Model',
+      name: 'model',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Steps`
+  String get steps {
+    return Intl.message(
+      'Steps',
+      name: 'steps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `N/A`
+  String get notApplicable {
+    return Intl.message(
+      'N/A',
+      name: 'notApplicable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coming soon`
+  String get comingSoon {
+    return Intl.message(
+      'Coming soon',
+      name: 'comingSoon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Watch Ad and earn gems`
+  String get watchAdEarnGems {
+    return Intl.message(
+      'Watch Ad and earn gems',
+      name: 'watchAdEarnGems',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share with friends`
+  String get shareWithFriends {
+    return Intl.message(
+      'Share with friends',
+      name: 'shareWithFriends',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fast Processing`
+  String get fastProcessing {
+    return Intl.message(
+      'Fast Processing',
+      name: 'fastProcessing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unlimited Gems`
+  String get unlimitedGems {
+    return Intl.message(
+      'Unlimited Gems',
+      name: 'unlimitedGems',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `4x Upscaling`
+  String get fourTimesUpscaling {
+    return Intl.message(
+      '4x Upscaling',
+      name: 'fourTimesUpscaling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ad Free`
+  String get adFree {
+    return Intl.message(
+      'Ad Free',
+      name: 'adFree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weekly`
+  String get weekly {
+    return Intl.message(
+      'Weekly',
+      name: 'weekly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Monthly`
+  String get monthly {
+    return Intl.message(
+      'Monthly',
+      name: 'monthly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yearly`
+  String get yearly {
+    return Intl.message(
+      'Yearly',
+      name: 'yearly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ArtBotic Pro`
+  String get artBoticPro {
+    return Intl.message(
+      'ArtBotic Pro',
+      name: 'artBoticPro',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unshackle your imaginative spirit`
+  String get unshackleYourImagination {
+    return Intl.message(
+      'Unshackle your imaginative spirit',
+      name: 'unshackleYourImagination',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -14,22 +14,16 @@ class Subscription extends StatelessWidget {
 
   final PurchasingController controller = Get.put(PurchasingController());
 
-  final Map<String, String> items = {
-    AppConsts.fastProcessing: 'Fast Processing',
-    AppConsts.diamond: 'Unlimited Gems',
-    AppConsts.upscaling: '4x Upscaling',
-    AppConsts.adFree: 'Ad Free',
-  };
-
-  final Map<String, String> subs = {
-    '500': 'Weekly',
-    '2500': 'Monthly',
-    '25500': 'Yearly'
-  };
-
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
+
+    final Map<String, String> subs = {
+      '500': s.weekly,
+      '2500': s.monthly,
+      '25500': s.yearly
+    };
+
     return Scaffold(
         body: SizedBox(
       height: screenHeight,
@@ -87,15 +81,20 @@ class Subscription extends StatelessWidget {
                                               Container(
                                                   width: double.infinity,
                                                   alignment: Alignment.center,
-                                                  decoration: BoxDecoration(
-                                                      color: isSelected
-                                                          ? AppTheme.pinkColor
-                                                          : AppTheme.greyColor,
-                                                      borderRadius:
-                                                          const BorderRadius.vertical(
-                                                              bottom:
-                                                                  Radius.circular(
-                                                                      15))),
+                                                  decoration:
+                                                      BoxDecoration(
+                                                          color:
+                                                              isSelected
+                                                                  ? AppTheme
+                                                                      .pinkColor
+                                                                  : AppTheme
+                                                                      .greyColor,
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .vertical(
+                                                                  bottom: Radius
+                                                                      .circular(
+                                                                          15))),
                                                   child: Text(e.value,
                                                       style: Theme.of(context)
                                                           .textTheme
@@ -155,9 +154,9 @@ class Subscription extends StatelessWidget {
                       .titleLarge!
                       .copyWith(color: AppTheme.whiteColor),
                   children: <TextSpan>[
-                    const TextSpan(text: 'ArtBotic Pro\n'),
+                    TextSpan(text: '${S.of(context).artBoticPro}\n'),
                     TextSpan(
-                        text: 'Unshackle your imaginative spirit',
+                        text: S.of(context).unshackleYourImagination,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
@@ -188,6 +187,15 @@ class Subscription extends StatelessWidget {
   }
 
   getPremiumItems(BuildContext context, double screenHeight) {
+    final s = S.of(context);
+
+    final Map<String, String> items = {
+      AppConsts.fastProcessing: s.fastProcessing,
+      AppConsts.diamond: s.unlimitedGems,
+      AppConsts.upscaling: s.fourTimesUpscaling,
+      AppConsts.adFree: s.adFree,
+    };
+
     return Column(children: [
       SizedBox(height: screenHeight * 0.05),
       SizedBox(

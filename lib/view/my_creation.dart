@@ -96,7 +96,7 @@ class MyCreation extends StatelessWidget {
   _variationBtn(context, generatedImagesModel) {
     return InkWell(
       onTap: () => controller.generateImageVariations(
-          generatedImagesModel, generatedImagesModel.output!.first),
+          generatedImagesModel, true),
       child: Image(
           image: const AssetImage(AppConsts.variation),
           height: 22,

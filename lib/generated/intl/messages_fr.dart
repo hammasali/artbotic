@@ -22,12 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "adFree": MessageLookupByLibrary.simpleMessage("Sans publicité"),
         "addImage": MessageLookupByLibrary.simpleMessage("Ajouter une image"),
         "addKeywords":
             MessageLookupByLibrary.simpleMessage("Ajouter des Mots-Clés"),
         "advanceSettings":
             MessageLookupByLibrary.simpleMessage("Paramètres avancés"),
         "apply": MessageLookupByLibrary.simpleMessage("Appliquer"),
+        "applyingMask":
+            MessageLookupByLibrary.simpleMessage("Application du masque..."),
+        "artBoticPro": MessageLookupByLibrary.simpleMessage("ArtBotic Pro"),
         "aspectRatio": MessageLookupByLibrary.simpleMessage("Ratio d\'aspect"),
         "betterQuality":
             MessageLookupByLibrary.simpleMessage("Meilleure qualité"),
@@ -39,37 +43,52 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseSettings":
             MessageLookupByLibrary.simpleMessage("Choisir les paramètres"),
         "clearAll": MessageLookupByLibrary.simpleMessage("Tout Effacer"),
+        "comingSoon":
+            MessageLookupByLibrary.simpleMessage("Bientôt disponible"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirmez le mot de passe"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("Continuer"),
         "create": MessageLookupByLibrary.simpleMessage("Créer"),
         "customerSupport":
             MessageLookupByLibrary.simpleMessage("Support client"),
+        "deleted": MessageLookupByLibrary.simpleMessage("Supprimé"),
         "description": MessageLookupByLibrary.simpleMessage(
             "Écrivez une description détaillée ici"),
         "dontInclude": MessageLookupByLibrary.simpleMessage("Ne pas inclure"),
+        "downloading":
+            MessageLookupByLibrary.simpleMessage("Téléchargement..."),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
         "enterCustomSeedDefault0": MessageLookupByLibrary.simpleMessage(
             "Saisissez une Graine Personnalisée (Par Défaut 0)"),
         "enterPrompt":
             MessageLookupByLibrary.simpleMessage("Entrez une indication ?"),
+        "error": MessageLookupByLibrary.simpleMessage("Erreur"),
         "evolve": MessageLookupByLibrary.simpleMessage("Évoluer"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
             "Utilisateurs existants, \nConnectez-vous ici"),
+        "fastProcessing":
+            MessageLookupByLibrary.simpleMessage("Traitement rapide"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("Mot de passe oublié ?"),
+        "fourTimesUpscaling":
+            MessageLookupByLibrary.simpleMessage("Agrandissement 4x"),
         "fullName": MessageLookupByLibrary.simpleMessage("Nom complet"),
         "general": MessageLookupByLibrary.simpleMessage("Général"),
         "generate": MessageLookupByLibrary.simpleMessage("Générer"),
+        "generationInProgress":
+            MessageLookupByLibrary.simpleMessage("Génération en cours..."),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "inpainting": MessageLookupByLibrary.simpleMessage("Inpainting"),
         "inspiration": MessageLookupByLibrary.simpleMessage("Inspiration"),
         "iterations": MessageLookupByLibrary.simpleMessage("Itérations"),
         "language": MessageLookupByLibrary.simpleMessage("Langue"),
+        "loading": MessageLookupByLibrary.simpleMessage("Chargement..."),
         "login": MessageLookupByLibrary.simpleMessage("Se connecter"),
         "mask": MessageLookupByLibrary.simpleMessage("Masque"),
         "matchPrompt": MessageLookupByLibrary.simpleMessage(
             "Correspondre à l\'indication"),
+        "model": MessageLookupByLibrary.simpleMessage("Modèle"),
+        "monthly": MessageLookupByLibrary.simpleMessage("Mensuel"),
         "moreApps":
             MessageLookupByLibrary.simpleMessage("Plus d\'applications"),
         "myCreation": MessageLookupByLibrary.simpleMessage("Mes créations"),
@@ -77,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Indication négative"),
         "newUsersRegisterHere": MessageLookupByLibrary.simpleMessage(
             "Nouveaux utilisateurs ?\nInscrivez-vous ici"),
+        "notApplicable": MessageLookupByLibrary.simpleMessage("N/A"),
         "or": MessageLookupByLibrary.simpleMessage("ou"),
         "others": MessageLookupByLibrary.simpleMessage("Autres"),
         "password": MessageLookupByLibrary.simpleMessage("Mot de passe"),
@@ -86,6 +106,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "prompt": MessageLookupByLibrary.simpleMessage("Indication"),
         "promptBuilder":
             MessageLookupByLibrary.simpleMessage("Générateur d\'indications"),
+        "promptIsRequired": MessageLookupByLibrary.simpleMessage(
+            "Une invite est nécessaire pour générer des images"),
+        "publish": MessageLookupByLibrary.simpleMessage("Publier"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Évaluez-nous"),
         "retouch": MessageLookupByLibrary.simpleMessage("Retoucher"),
         "scale": MessageLookupByLibrary.simpleMessage("Échelle"),
@@ -101,11 +124,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Envoyez-nous un message"),
         "settings": MessageLookupByLibrary.simpleMessage("Paramètres"),
         "share": MessageLookupByLibrary.simpleMessage("Partager"),
+        "shareWithFriends":
+            MessageLookupByLibrary.simpleMessage("Partager avec des amis"),
         "signInWithGoogle":
             MessageLookupByLibrary.simpleMessage("Se connecter avec Google"),
         "signup": MessageLookupByLibrary.simpleMessage("S\'inscrire"),
+        "steps": MessageLookupByLibrary.simpleMessage("Étapes"),
         "submitForm":
             MessageLookupByLibrary.simpleMessage("Envoyer le formulaire"),
+        "success": MessageLookupByLibrary.simpleMessage("Succès"),
         "tagKeywords": MessageLookupByLibrary.simpleMessage("Mots-Clés"),
         "text": MessageLookupByLibrary.simpleMessage("Texte"),
         "textCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
@@ -113,17 +140,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "theme": MessageLookupByLibrary.simpleMessage("Thème"),
         "tryThisPrompt":
             MessageLookupByLibrary.simpleMessage("Essayez cette suggestion"),
+        "unlimitedGems":
+            MessageLookupByLibrary.simpleMessage("Gemmes illimitées"),
         "unlockAllTheAdvanceTxt": MessageLookupByLibrary.simpleMessage(
             "Débloquez toutes les fonctionnalités avancées en passant au plan premium"),
+        "unshackleYourImagination": MessageLookupByLibrary.simpleMessage(
+            "Libérez votre esprit créatif"),
         "upgradeToPro":
             MessageLookupByLibrary.simpleMessage("Mettre à niveau vers Pro"),
         "uploadImage":
             MessageLookupByLibrary.simpleMessage("Télécharger une image"),
+        "uploadingImage": MessageLookupByLibrary.simpleMessage(
+            "Téléchargement de l\'image..."),
         "upscale":
             MessageLookupByLibrary.simpleMessage("Améliorer la résolution"),
+        "upscalingInProgress":
+            MessageLookupByLibrary.simpleMessage("Agrandissement en cours..."),
         "variation": MessageLookupByLibrary.simpleMessage("Variation"),
+        "watchAdEarnGems": MessageLookupByLibrary.simpleMessage(
+            "Regardez une annonce et gagnez des gemmes"),
+        "weekly": MessageLookupByLibrary.simpleMessage("Hebdomadaire"),
         "writeYourQueriesHere": MessageLookupByLibrary.simpleMessage(
             "Écrivez vos questions ici..."),
+        "yearly": MessageLookupByLibrary.simpleMessage("Annuel"),
         "yourEmail": MessageLookupByLibrary.simpleMessage("Votre e-mail")
       };
 }

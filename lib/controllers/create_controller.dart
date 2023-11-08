@@ -7,16 +7,19 @@ import 'dart:ui' as ui;
 import 'package:artbotic/controllers/api_controller.dart';
 import 'package:artbotic/data/app_data.dart';
 import 'package:artbotic/model/Styles_model.dart';
+import 'package:artbotic/model/upscale_model.dart';
 import 'package:artbotic/services/pref_provider.dart';
 import 'package:artbotic/utils/globals.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_media_downloader/flutter_media_downloader.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../config/theme.dart';
+import '../generated/l10n.dart';
 import '../model/Image_generation_model.dart';
 import '../routes/routes.dart';
 
@@ -139,8 +142,14 @@ class CreateController extends GetxController {
   }
 
   deleteItem(int id) async {
+    getToast(S.of(Get.context!).deleted);
     generatedImages.removeWhere((item) => item.id == id);
     await PrefProvider().saveImagesToPref(generatedImages);
+  }
+
+  downloadImage(String imageUrl) async {
+    getToast(S.of(Get.context!).downloading);
+    await MediaDownload().downloadMedia(Get.context!, imageUrl);
   }
 
   pickImage() async {
@@ -182,7 +191,7 @@ class CreateController extends GetxController {
 
   _uploadBase64EncodedMaskedImage(String maskImage) async {
     try {
-      getLoader('Applying Mask...');
+      getLoader(S.of(Get.context!).applyingMask);
       var json = await ApiController().uploadImage(maskImage);
       maskImageUrl.value = json['link'];
       debugPrint(maskImageUrl.value.toString());
@@ -194,7 +203,7 @@ class CreateController extends GetxController {
 
   _uploadBase64EncodedImage(String image) async {
     try {
-      getLoader('Uploading Image...');
+      getLoader(S.of(Get.context!).uploadingImage);
       var json = await ApiController().uploadImage(image);
       initImageUrl.value = json['link'];
       debugPrint(initImageUrl.value.toString());
@@ -208,11 +217,11 @@ class CreateController extends GetxController {
   generateImage() async {
     try {
       if (promptController.text.isEmpty) {
-        ScaffoldMessenger.of(Get.context!).showSnackBar(const SnackBar(
-            duration: Duration(milliseconds: 700),
-            content: Text('Prompt is required to generate images')));
+        ScaffoldMessenger.of(Get.context!).showSnackBar( SnackBar(
+            duration: const Duration(milliseconds: 700),
+            content: Text(S.of(Get.context!).promptIsRequired)));
       } else {
-        getLoader('Generation is in progress...');
+        getLoader(S.of(Get.context!).generationInProgress);
 
         var json = await _hitEndPoint(false);
 
@@ -224,9 +233,13 @@ class CreateController extends GetxController {
     }
   }
 
-  generateImageVariations(ImageGenerationModel model, String initImage) async {
+  generateImageVariations(
+      ImageGenerationModel model, bool isThumbnailImage) async {
     try {
-      getLoader('Generation is in progress...');
+      getLoader(S.of(Get.context!).generationInProgress);
+      String initImage = isThumbnailImage
+          ? model.output!.first
+          : model.output![currentImageIndex.value];
 
       var json = await _hitEndPoint(true, model: model, initImage: initImage);
 
@@ -328,5 +341,47 @@ class CreateController extends GetxController {
     getSuccess();
     navigatorKey.currentState!
         .pushNamed(PageRoutes.creationDetail, arguments: generatedImagesModel);
+  }
+
+  generateEvolvedImages(ImageGenerationModel model) {
+    defaultSettings();
+    initImageUrl.value = model.output![currentImageIndex.value];
+    promptController.text = model.prompt!;
+    isClearText.value = true;
+    isTextSelected.value = false;
+    isImageSelected.value = true;
+    isInPantingSelected.value = false;
+    diffusionApiType = DiffusionApiType.imageToImage;
+    navigatorKey.currentState!
+        .pushNamedAndRemoveUntil(PageRoutes.landing, (route) => false);
+  }
+
+  generateUpscaleImage(ImageGenerationModel model) async {
+    try {
+      getLoader(S.of(Get.context!).upscalingInProgress);
+      int selectedImageIndex = currentImageIndex.value;
+      String selectedImageUrl = model.output![selectedImageIndex];
+
+      UpscaleModel upscaleModel = UpscaleModel(
+          faceEnhance: false,
+          scale: 3,
+          imageUrl: selectedImageUrl,
+          endpoint: 'super_resolution',
+          webhook: "https://edecator.com/aiApp/weebhook.php",
+          firebaseToken: PrefProvider().getFCMToken()!);
+
+      var json = await ApiController().upscaleImage(upscaleModel.toJson());
+
+      String upscaleImage = json['output'];
+      final index = generatedImages.indexWhere((img) => img.id == model.id);
+      generatedImages[index].output![selectedImageIndex] = upscaleImage;
+      generatedImages.refresh();
+
+      await PrefProvider().saveImagesToPref(generatedImages);
+      dismissLoader();
+    } catch (e) {
+      debugPrint(e.toString());
+      getError(e.toString());
+    }
   }
 }

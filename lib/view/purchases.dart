@@ -13,17 +13,17 @@ class Purchases extends StatelessWidget {
 
   final PurchasingController controller = Get.put(PurchasingController());
 
-  final Map<String, String> items = {
-    'Watch Ad and earn gems': '2 Gems',
-    'Rs 280': '20 Gems',
-    'Rs 500': '40 Gems',
-    'Rs 800': '100 Gems',
-    'Rs 3500': '500 Gems',
-    'Share with friends': '20 Gems'
-  };
-
   @override
   Widget build(BuildContext context) {
+    final Map<String, String> items = {
+      S.of(context).watchAdEarnGems: '2 Gems',
+      'Rs 280': '20 Gems',
+      'Rs 500': '40 Gems',
+      'Rs 800': '100 Gems',
+      'Rs 3500': '500 Gems',
+      S.of(context).shareWithFriends: '20 Gems'
+    };
+
     return Scaffold(
         body: SafeArea(
             child: ListView(

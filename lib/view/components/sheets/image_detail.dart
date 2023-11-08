@@ -1,10 +1,11 @@
+import 'package:artbotic/controllers/create_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_media_downloader/flutter_media_downloader.dart';
 import 'package:get/get.dart';
 import '../../../utils/app_const.dart';
 
 showDetailImage(String image) {
+  CreateController controller = Get.find<CreateController>();
   return showModalBottomSheet(
       context: Get.context!,
       useSafeArea: true,
@@ -33,8 +34,7 @@ showDetailImage(String image) {
                 top: 10,
                 right: 10,
                 child: InkWell(
-                  onTap: () async =>
-                      await MediaDownload().downloadMedia(context, image),
+                  onTap: () => controller.downloadImage(image),
                   child: CircleAvatar(
                       backgroundColor:
                           Theme.of(context).iconTheme.color!.withOpacity(0.4),

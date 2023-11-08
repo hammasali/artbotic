@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
+import '../generated/l10n.dart';
+
 enum DiffusionApiType { textToImage, imageToImage, inPainting }
 
 double get screenHeight =>
@@ -11,10 +13,17 @@ double get screenHeight =>
 
 final GlobalKey repaintBoundaryKey = GlobalKey();
 
-getLoader([String? msg]) => EasyLoading.show(status: msg ?? 'Loading...');
+getLoader([String? msg]) =>
+    EasyLoading.show(status: msg ?? S.of(Get.context!).loading);
 
-getSuccess() => EasyLoading.showSuccess('Success');
+getSuccess() => EasyLoading.showSuccess(S.of(Get.context!).success);
 
-getError(String error) => EasyLoading.showError('Error: $error');
+getError(String error) =>
+    EasyLoading.showError('${S.of(Get.context!).error}: $error');
+
+getToast(String message) => EasyLoading.showToast(message,
+    toastPosition: EasyLoadingToastPosition.top,
+    dismissOnTap: true,
+    maskType: EasyLoadingMaskType.clear);
 
 dismissLoader() => EasyLoading.dismiss(animation: true);
