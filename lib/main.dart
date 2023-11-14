@@ -1,21 +1,22 @@
 import 'package:artbotic/config/app_config.dart';
+import 'package:artbotic/config/theme.dart';
 import 'package:artbotic/controllers/theme_controller.dart';
 import 'package:artbotic/routes/routes.dart';
-import 'package:artbotic/config/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
+import 'firebase_options.dart';
 import 'generated/l10n.dart';
 import 'locale/language_controller.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  await AppConfig().init();
-
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const App());
 }
 

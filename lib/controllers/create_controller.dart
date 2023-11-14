@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'dart:convert';
 import 'dart:ui' as ui;
 
 import 'package:artbotic/controllers/api_controller.dart';
@@ -276,6 +276,7 @@ class CreateController extends GetxController {
         endpoint: endpoint,
         seed: model?.seed ?? seedController.text,
         strength: isVariation ? 0.7 : 0.1,
+        type: Platform.isAndroid ? 'a' : 'i',
         token: PrefProvider().getFCMToken());
 
     return await ApiController().generateImage(imageGenerateModel.toJson());

@@ -18,7 +18,7 @@ class AppConsts {
   static const String baseInspirationPath = 'assets/inspiration/';
 
   /// =========== GIF =============
-  static const String splashGif = '$baseGifPath splash.gif';
+  static const String splashGif = '${baseGifPath}splash.gif';
 
   /// =========== ICONS ============
   static const String icon = '${baseIconPath}icon.png';

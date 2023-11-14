@@ -25,28 +25,31 @@ class Create extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return ListView(shrinkWrap: true, children: [
-        /// TAB BUTTONS
-        tabButtons(context),
+      return GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: ListView(shrinkWrap: true, children: [
+          /// TAB BUTTONS
+          tabButtons(context),
 
-        /// ADD IMAGE
-        addImageContainer(context),
+          /// ADD IMAGE
+          addImageContainer(context),
 
-        /// Enter PROMPT
-        enterPromptContainer(context),
+          /// Enter PROMPT
+          enterPromptContainer(context),
 
-        /// SELECT STYLES
-        selectStyles(context),
+          /// SELECT STYLES
+          selectStyles(context),
 
-        /// ADVANCE SETTINGS
-        advanceSettings(context),
+          /// ADVANCE SETTINGS
+          advanceSettings(context),
 
-        /// GENERATE BUTTON
-        generateBtn(context),
+          /// GENERATE BUTTON
+          generateBtn(context),
 
-        /// INSPIRATION
-        inspiration(context)
-      ]);
+          /// INSPIRATION
+          inspiration(context)
+        ]),
+      );
     });
   }
 

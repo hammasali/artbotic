@@ -4,6 +4,7 @@ import 'package:artbotic/view/language.dart';
 import 'package:artbotic/view/login.dart';
 import 'package:artbotic/view/purchases.dart';
 import 'package:artbotic/view/register.dart';
+import 'package:artbotic/view/splash_screen.dart';
 import 'package:artbotic/view/subscriptions.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ import '../view/detail_page.dart';
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class PageRoutes {
-  static const String splashScreen = '/splashScreen';
+  static const String splashScreen = '/';
   static const String landing = '/landing';
   static const String authLanding = '/authLanding';
   static const String signIn = '/signIn';
@@ -41,19 +42,7 @@ class PageNavigator extends StatelessWidget {
       },
       child: Navigator(
         key: navigatorKey,
-        initialRoute:
-            // AppConfig().isSignedIn
-            //     ? PageRoutes.landing
-            //     :
-            PageRoutes.authLanding,
-        onGenerateInitialRoutes: (route, initialRoute) {
-          // FlutterNativeSplash.remove();
-          if (initialRoute == PageRoutes.authLanding) {
-            return [MaterialPageRoute(builder: (_) => Landing())];
-          } else {
-            return [MaterialPageRoute(builder: (_) => Container())];
-          }
-        },
+        initialRoute: PageRoutes.splashScreen,
         onGenerateRoute: (RouteSettings settings) {
           late WidgetBuilder builder;
           switch (settings.name) {
@@ -84,9 +73,7 @@ class PageNavigator extends StatelessWidget {
               builder = (_) => Subscription();
               break;
             default:
-              builder = (_) => settings.name == PageRoutes.authLanding
-                  ? Container()
-                  : Container();
+              builder = (_) => const SplashScreen();
               break;
           }
 

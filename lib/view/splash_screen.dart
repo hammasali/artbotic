@@ -1,8 +1,9 @@
-import 'dart:async';
 import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/utils/app_const.dart';
 import 'package:artbotic/utils/globals.dart';
 import 'package:flutter/material.dart';
+
+import '../config/app_config.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,9 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () {
-      navigatorKey.currentState!.pushReplacementNamed(PageRoutes.signIn);
-    });
+    _initializeApp();
   }
 
   @override
@@ -47,5 +46,13 @@ class _SplashScreenState extends State<SplashScreen> {
                   const CircularProgressIndicator.adaptive(),
                   const Spacer()
                 ])));
+  }
+
+  _initializeApp() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      await AppConfig().init();
+      navigatorKey.currentState!
+          .pushNamedAndRemoveUntil(PageRoutes.landing, (route) => false);
+    });
   }
 }
