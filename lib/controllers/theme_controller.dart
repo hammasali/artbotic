@@ -14,11 +14,7 @@ class ThemeController extends GetxController {
   void updateAppTheme() {
     final Brightness currentBrightness = AppTheme.currentSystemBrightness;
     currentBrightness == Brightness.light
-        ? _setTheme(ThemeMode.light)
-        : _setTheme(ThemeMode.dark);
-  }
-
-  void _setTheme(ThemeMode theme) {
-    themeMode.value = theme;
+        ? themeMode.value = ThemeMode.light
+        : themeMode.value = ThemeMode.dark;
   }
 }
