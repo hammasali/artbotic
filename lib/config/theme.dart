@@ -47,11 +47,11 @@ class AppTheme {
       iconTheme: IconThemeData(color: lightIconColor),
       appBarTheme: AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
-              systemStatusBarContrastEnforced: true,
-              statusBarColor: Colors.transparent,
               statusBarIconBrightness: Brightness.dark,
-              systemNavigationBarIconBrightness: Brightness.dark,
+              statusBarBrightness: Brightness.light,
+              statusBarColor: Colors.transparent,
               systemNavigationBarColor: lightBackgroundColor,
+              systemNavigationBarIconBrightness: Brightness.dark,
               systemNavigationBarDividerColor: Colors.transparent),
           backgroundColor: Colors.transparent,
           elevation: 0.0,
@@ -85,7 +85,6 @@ class AppTheme {
       iconTheme: IconThemeData(color: darkIconColor),
       appBarTheme: AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
-              systemStatusBarContrastEnforced: true,
               statusBarColor: Colors.transparent,
               statusBarIconBrightness: Brightness.light,
               systemNavigationBarIconBrightness: Brightness.light,
@@ -107,20 +106,6 @@ class AppTheme {
 
   static Brightness get currentSystemBrightness =>
       SchedulerBinding.instance.window.platformBrightness;
-
-  static setStatusBarAndNavigationBarColors(ThemeMode themeMode) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        systemStatusBarContrastEnforced: true,
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness:
-            themeMode == ThemeMode.light ? Brightness.dark : Brightness.light,
-        systemNavigationBarIconBrightness:
-            themeMode == ThemeMode.light ? Brightness.dark : Brightness.light,
-        systemNavigationBarColor: themeMode == ThemeMode.light
-            ? lightBackgroundColor
-            : darkBackgroundColor,
-        systemNavigationBarDividerColor: Colors.transparent));
-  }
 
   static final TextTheme textTheme = TextTheme(
       titleLarge: GoogleFonts.manrope(

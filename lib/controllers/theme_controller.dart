@@ -19,7 +19,6 @@ class ThemeController extends GetxController {
   }
 
   void _setTheme(ThemeMode theme) {
-    AppTheme.setStatusBarAndNavigationBarColors(theme);
     themeMode.value = theme;
   }
 }
