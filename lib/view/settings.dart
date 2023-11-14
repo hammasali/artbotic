@@ -7,13 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../config/theme.dart';
+import '../controllers/setting_controller.dart';
 import '../generated/l10n.dart';
 import '../utils/app_const.dart';
 
 class Settings extends StatelessWidget {
   Settings({super.key});
 
-  // final SettingController controller = Get.put(SettingController());
+  final SettingController controller = Get.put(SettingController());
   final ThemeController themeController = Get.find<ThemeController>();
 
   @override
@@ -58,7 +59,8 @@ class Settings extends StatelessWidget {
       customTile(AppConsts.language, s.language, context,
           () => navigatorKey.currentState!.pushNamed(PageRoutes.language)),
       customTile(AppConsts.moreApps, s.moreApps, context, () {}),
-      customTile(AppConsts.privacyPolicy, s.privacyPolicy, context, () {})
+          customTile(AppConsts.privacyPolicy, s.privacyPolicy, context,
+          controller.privacyPolicy)
     ]));
   }
 

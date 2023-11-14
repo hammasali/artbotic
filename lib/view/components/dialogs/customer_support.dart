@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../config/theme.dart';
+import '../../../controllers/setting_controller.dart';
 import '../../../generated/l10n.dart';
 import '../fields/custom_field2.dart';
 
 showCustomerSupportPrompt() {
+  final SettingController controller = Get.find<SettingController>();
+
   return showGeneralDialog(
       barrierLabel: "Label",
       barrierDismissible: true,
@@ -40,19 +43,20 @@ showCustomerSupportPrompt() {
                           style: Theme.of(context).textTheme.titleLarge),
                       const Spacer(),
                       CustomTextField(
-                          controller: TextEditingController(),
+                          controller: controller.nameController,
                           hintText: s.fullName),
                       const SizedBox(height: 5),
                       CustomTextField(
-                          controller: TextEditingController(),
+                          controller: controller.emailController,
                           hintText: s.yourEmail),
                       const Spacer(),
                       CustomTextField2(
-                          controller: TextEditingController(),
+                          controller: controller.messageController,
                           hintText: s.writeYourQueriesHere,
                           borderColor: AppTheme.darkAccentColor),
                       const Spacer(),
-                      CustomButton(title: s.submitForm, onTap: () {})
+                      CustomButton(
+                          title: s.submitForm, onTap: controller.feedBack)
                     ]))));
       },
       transitionBuilder: (context, anim1, anim2, child) {

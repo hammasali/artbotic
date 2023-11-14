@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:artbotic/model/feedback_model.dart';
 import 'package:artbotic/utils/app_const.dart';
 
 import '../services/api_service.dart';
@@ -30,6 +31,15 @@ class ApiController {
     try {
       return await Api()
           .post_('${AppConsts.baseUrl}super_r.php', params: jsonEncode(data));
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  feedback(FeedbackModel data) async {
+    try {
+      return await Api().post_('${AppConsts.baseUrl}post_feedback.php',
+          params: jsonEncode(data.toJson()));
     } catch (e) {
       rethrow;
     }

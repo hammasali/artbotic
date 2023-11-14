@@ -12,12 +12,8 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 class AppConfig {
   static final AppConfig _instance = AppConfig._internal();
-
   AppConfig._internal();
-
-  factory AppConfig() {
-    return _instance;
-  }
+  factory AppConfig() => _instance;
 
   static const String appName = 'Art Botic';
   static const String packageName =

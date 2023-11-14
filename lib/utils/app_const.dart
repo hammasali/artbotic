@@ -148,6 +148,8 @@ class AppConsts {
 
   ///============= BASE URL ============
   static const String baseUrl = 'https://edecator.com/aiApp/';
+  static const String privacyPolicyUrl =
+      'https://swedebras.blogspot.com/2023/09/privacy-policy.html';
 
   static final Map<String, String> features = {
     variation: S.of(Get.context!).variation,
