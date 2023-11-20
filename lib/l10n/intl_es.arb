@@ -10,6 +10,7 @@
   "newUsersRegisterHere": "¿Nuevo usuario?\nRegístrate aquí",
   "confirmPassword": "Confirmar contraseña",
   "signup": "Registrarse",
+  "explore": "Explorar",
   "create": "Crear",
   "myCreation": "Mis creaciones",
   "settings": "Configuraciones",
@@ -97,6 +98,7 @@
   "monthly": "Mensual",
   "yearly": "Anual",
   "artBoticPro": "ArtBotic Pro",
-  "unshackleYourImagination": "Libera tu espíritu imaginativo"
+  "unshackleYourImagination": "Libera tu espíritu imaginativo",
+  "tryMe": "Pruébame"
 
 }

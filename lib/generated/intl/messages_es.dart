@@ -63,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "evolve": MessageLookupByLibrary.simpleMessage("Evolucionar"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
             "Usuarios existentes,\nIniciar sesión aquí"),
+        "explore": MessageLookupByLibrary.simpleMessage("Explorar"),
         "fastProcessing":
             MessageLookupByLibrary.simpleMessage("Procesamiento rápido"),
         "forgetPassword":
@@ -133,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "textCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Texto copiado al portapapeles"),
         "theme": MessageLookupByLibrary.simpleMessage("Tema"),
+        "tryMe": MessageLookupByLibrary.simpleMessage("Pruébame"),
         "tryThisPrompt":
             MessageLookupByLibrary.simpleMessage("Intenta con esta indicación"),
         "unlimitedGems":

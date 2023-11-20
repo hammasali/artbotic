@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `Explore`
+  String get explore {
+    return Intl.message(
+      'Explore',
+      name: 'explore',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Signup`
   String get signup {
     return Intl.message(
@@ -1025,6 +1035,16 @@ class S {
     return Intl.message(
       'Unshackle your imaginative spirit',
       name: 'unshackleYourImagination',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try Me`
+  String get tryMe {
+    return Intl.message(
+      'Try Me',
+      name: 'tryMe',
       desc: '',
       args: [],
     );

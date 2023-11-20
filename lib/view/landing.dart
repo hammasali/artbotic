@@ -2,6 +2,7 @@ import 'package:artbotic/controllers/home_controller.dart';
 import 'package:artbotic/routes/routes.dart';
 import 'package:artbotic/utils/app_const.dart';
 import 'package:artbotic/view/create.dart';
+import 'package:artbotic/view/explore.dart';
 import 'package:artbotic/view/my_creation.dart';
 import 'package:artbotic/view/settings.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class Landing extends StatelessWidget {
   final HomeController bottomNavVController = Get.put(HomeController());
 
   static final List<Widget> _views = <Widget>[
+    Explore(),
     Create(),
     MyCreation(),
     Settings()
@@ -24,6 +26,18 @@ class Landing extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = S.of(context);
     final List<BottomNavigationBarItem> bottomNav = [
+      BottomNavigationBarItem(
+          icon: Image(
+              image: const AssetImage(AppConsts.globe),
+              height: 22,
+              width: 22,
+              color: Theme.of(context).iconTheme.color),
+          activeIcon: const Image(
+              image: AssetImage(AppConsts.selectedGlobe),
+              height: 25,
+              width: 25),
+          tooltip: s.explore,
+          label: s.explore),
       BottomNavigationBarItem(
           icon: Image(
               image: const AssetImage(AppConsts.create),

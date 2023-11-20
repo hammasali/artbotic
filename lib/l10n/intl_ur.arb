@@ -11,6 +11,7 @@
   "confirmPassword": "پاس ورڈ کی تصدیق کریں",
   "signup": "رجسٹر کریں",
   "create": "تخلیق کریں",
+  "explore": "تلاش کریں",
   "myCreation": "میری تخلیقات",
   "settings": "ترتیبات",
   "buy": "خریداری",
@@ -97,6 +98,7 @@
   "monthly": "ماہانہ",
   "yearly": "سالانہ",
   "artBoticPro": "آرٹ بوٹک پرو",
-  "unshackleYourImagination": "اپنی تخیل کو آزاد کریں"
+  "unshackleYourImagination": "اپنی تخیل کو آزاد کریں",
+  "tryMe": "مجھے آزما"
 
 }

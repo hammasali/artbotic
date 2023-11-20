@@ -9,6 +9,7 @@
   "signInWithGoogle": "Mit Google einloggen",
   "newUsersRegisterHere": "Neue Benutzer?\nHier registrieren",
   "confirmPassword": "Passwort bestätigen",
+  "explore": "Erforschen",
   "signup": "Registrieren",
   "create": "Erstellen",
   "myCreation": "Meine Kreationen",
@@ -97,6 +98,7 @@
   "monthly": "Monatlich",
   "yearly": "Jährlich",
   "artBoticPro": "ArtBotic Pro",
-  "unshackleYourImagination": "Befreie deine Vorstellungskraft"
+  "unshackleYourImagination": "Befreie deine Vorstellungskraft",
+  "tryMe": "Probier mich"
 
 }

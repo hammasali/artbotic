@@ -26,6 +26,9 @@ class AppConsts {
   static const String iconSquare = '${baseIconPath}icon_sq.png';
 
   /// =========== BOTTOM BAR =======
+  static const String globe = '${baseBottomBarPath}globe.webp';
+  static const String selectedGlobe =
+      '${baseBottomBarPath}selected_globe.webp';
   static const String create = '${baseBottomBarPath}create.webp';
   static const String selectedCreate =
       '${baseBottomBarPath}selected_create.webp';

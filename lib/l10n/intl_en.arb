@@ -8,6 +8,7 @@
   "signInWithGoogle": "Sign in with google",
   "newUsersRegisterHere": "New Users? \nRegister Here",
   "confirmPassword": "Confirm Password",
+  "explore": "Explore",
   "signup": "Signup",
   "create": "Create",
   "myCreation": "My Creation",
@@ -96,6 +97,6 @@
   "monthly": "Monthly",
   "yearly": "Yearly",
   "artBoticPro": "ArtBotic Pro",
-  "unshackleYourImagination": "Unshackle your imaginative spirit"
-
+  "unshackleYourImagination": "Unshackle your imaginative spirit",
+  "tryMe": "Try Me"
 }

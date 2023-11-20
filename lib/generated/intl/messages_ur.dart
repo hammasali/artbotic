@@ -61,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "evolve": MessageLookupByLibrary.simpleMessage("ترقی پائیں"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
             "موجودہ صارفین، \nیہاں لاگ ان کریں"),
+        "explore": MessageLookupByLibrary.simpleMessage("تلاش کریں"),
         "fastProcessing":
             MessageLookupByLibrary.simpleMessage("تیز رفتار پروسیسنگ"),
         "forgetPassword":
@@ -129,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "textCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "مواد کلپ بورڈ میں کاپی ہوگیا ہے!"),
         "theme": MessageLookupByLibrary.simpleMessage("موضوع"),
+        "tryMe": MessageLookupByLibrary.simpleMessage("مجھے آزما"),
         "tryThisPrompt":
             MessageLookupByLibrary.simpleMessage("اس پرامپٹ کو کوشش کریں"),
         "unlimitedGems":

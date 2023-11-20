@@ -9,6 +9,7 @@
   "signInWithGoogle": "تسجيل الدخول باستخدام Google",
   "newUsersRegisterHere": "مستخدم جديد؟\nسجل هنا",
   "confirmPassword": "تأكيد كلمة المرور",
+  "explore": "استكشاف",
   "signup": "التسجيل",
   "create": "إنشاء",
   "myCreation": "إبداعاتي",
@@ -97,6 +98,7 @@
   "monthly": "شهري",
   "yearly": "سنوي",
   "artBoticPro": "ArtBotic برو",
-  "unshackleYourImagination": "حرر خيالك"
+  "unshackleYourImagination": "حرر خيالك",
+  "tryMe": "جربني"
 
 }

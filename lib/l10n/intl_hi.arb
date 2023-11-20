@@ -10,6 +10,7 @@
   "newUsersRegisterHere": "नए उपयोगकर्ता? \nयहां रजिस्टर करें",
   "confirmPassword": "पासवर्ड की पुष्टि करें",
   "signup": "रजिस्टर करें",
+  "explore": "अन्वेषण करना",
   "create": "बनाएं",
   "myCreation": "मेरी रचनाएँ",
   "settings": "सेटिंग्स",
@@ -97,7 +98,8 @@
   "monthly": "मासिक",
   "yearly": "वार्षिक",
   "artBoticPro": "ArtBotic प्रो",
-  "unshackleYourImagination": "अपनी कल्पना को मुक्त करो"
+  "unshackleYourImagination": "अपनी कल्पना को मुक्त करो",
+  "tryMe": "मुझे आजमा"
 
 }
 

@@ -60,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "evolve": MessageLookupByLibrary.simpleMessage("تطور"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
             "المستخدمون الحاليين،\nتسجيل الدخول هنا"),
+        "explore": MessageLookupByLibrary.simpleMessage("استكشاف"),
         "fastProcessing": MessageLookupByLibrary.simpleMessage("معالجة سريعة"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
@@ -124,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "textCopiedToClipboard":
             MessageLookupByLibrary.simpleMessage("النص تم نسخه إلى الحافظة!"),
         "theme": MessageLookupByLibrary.simpleMessage("السمة"),
+        "tryMe": MessageLookupByLibrary.simpleMessage("جربني"),
         "tryThisPrompt":
             MessageLookupByLibrary.simpleMessage("جرب هذا الاقتراح"),
         "unlimitedGems":

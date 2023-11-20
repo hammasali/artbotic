@@ -61,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "evolve": MessageLookupByLibrary.simpleMessage("विकसित करें"),
         "existingUsersLogInHere": MessageLookupByLibrary.simpleMessage(
             "मौजूदा उपयोगकर्ता, \nयहां लॉग इन करें"),
+        "explore": MessageLookupByLibrary.simpleMessage("अन्वेषण करना"),
         "fastProcessing":
             MessageLookupByLibrary.simpleMessage("तेजी से प्रक्रिया"),
         "forgetPassword":
@@ -128,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "textCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "पाठ क्लिपबोर्ड पर कॉपी किया गया है!"),
         "theme": MessageLookupByLibrary.simpleMessage("थीम"),
+        "tryMe": MessageLookupByLibrary.simpleMessage("मुझे आजमा"),
         "tryThisPrompt":
             MessageLookupByLibrary.simpleMessage("इस प्रॉम्प्ट को प्रयास करें"),
         "unlimitedGems": MessageLookupByLibrary.simpleMessage("असीमित रत्न"),
