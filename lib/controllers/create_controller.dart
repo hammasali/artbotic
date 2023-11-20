@@ -290,10 +290,6 @@ class CreateController extends GetxController {
 
       if (json['status'] == 'processing') {
         await FirebaseMessaging.onMessage.first.then((RemoteMessage message) {
-          // print('ios ka message: ${message.notification?.body} ');
-          // print('ios ka message with body: ${message.data['body']} ');
-          // print('ios ka message with data: ${message.data} ');
-
           final result = jsonDecode(message.data['body']);
           outputs = (result['output'] as List)
               .map((item) => item.toString())
