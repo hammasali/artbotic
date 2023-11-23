@@ -22,6 +22,8 @@ class Settings extends StatelessWidget {
     final s = S.of(context);
     return Scaffold(
         body: ListView(padding: const EdgeInsets.all(16), children: [
+      userProfile(context),
+      const SizedBox(height: 12),
       customHeader(s.pro, context),
       const SizedBox(height: 12),
       CustomButton(
@@ -86,5 +88,28 @@ class Settings extends StatelessWidget {
             height: 16,
             width: 16,
             color: Theme.of(context).iconTheme.color));
+  }
+
+  userProfile(BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+        decoration: BoxDecoration(
+            color: Theme.of(context).highlightColor,
+            borderRadius: BorderRadius.circular(12)),
+        child: Row(
+          children: [
+            const ClipOval(
+                child: Image(
+                    height: 60,
+                    width: 60,
+                    image: AssetImage(AppConsts.iconRound),
+                    fit: BoxFit.cover)),
+            const SizedBox(width: 15),
+            Flexible(
+                child: Text('Alizabeth6775',
+                    style: Theme.of(context).textTheme.titleMedium))
+          ],
+        ));
   }
 }
