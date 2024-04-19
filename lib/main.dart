@@ -13,7 +13,7 @@ import 'firebase_options.dart';
 import 'generated/l10n.dart';
 import 'locale/language_controller.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -21,7 +21,7 @@ void main() async{
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class App extends StatelessWidget {
 class MyApp extends StatefulWidget {
   final Locale locale;
 
-  MyApp(this.locale, {Key? key}) : super(key: key) {
+  MyApp(this.locale, {super.key}) {
     Get.locale = locale;
   }
 
@@ -82,7 +82,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           locale: Get.locale,
           supportedLocales: S.delegate.supportedLocales,
           builder: (context, child) => MediaQuery(
-              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+              data: MediaQuery.of(context)
+                  .copyWith(textScaler: const TextScaler.linear(1.0)),
               child: EasyLoading.init()(context, child)),
           home: const Directionality(
               textDirection: TextDirection.ltr, child: PageNavigator()));
